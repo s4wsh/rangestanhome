@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const nav = document.querySelector('[data-nav]');
   const menuToggle = document.querySelector('[data-menu-toggle]');
+  const header = document.querySelector('.site-header');
 
   const closeNav = () => {
     nav?.classList.remove('open');
@@ -25,6 +26,19 @@ document.addEventListener('DOMContentLoaded', () => {
       closeNav();
     }
   });
+
+  // Toggle condensed header styles after scroll.
+  const setHeaderState = () => {
+    if (!header) return;
+    if (window.scrollY > 40) {
+      header.classList.add('is-scrolled');
+    } else {
+      header.classList.remove('is-scrolled');
+    }
+  };
+
+  setHeaderState();
+  window.addEventListener('scroll', setHeaderState);
 
   document.querySelectorAll('img[data-src]').forEach((img) => {
     if (img instanceof HTMLImageElement && img.dataset.src) {
