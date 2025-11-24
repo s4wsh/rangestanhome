@@ -1,228 +1,130 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <link rel="stylesheet" href="../css/rtl.css">
-  <meta charset="UTF-8">
-  <title>رنگستان | نقاشی حرفه‌ای خانه و دیوارهای هنری در تهران</title>
-  <meta name="description" content="نقاشی تمیز، ماندگار و اقتصادی برای خانه. ترمیم و آماده‌سازی دیوار، رنگ‌آمیزی داخلی و خارجی و اجرای دیوارهای هنری آرام در تهران.">
+  <meta charset="UTF-8" />
+  <title>رنگستان | نقاشی حرفه‌ای خانه</title>
+  <meta name="description" content="نقاشی تمیز، اصولی و هنری برای خانه‌های تهران. اجرای دقیق، ترمیم دیوار، و دیوارهای هنری خاص.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="canonical" href="https://rangestanhome.com/fa/index.html">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Rangestan">
-  <meta property="og:title" content="رنگستان | دیوار تمیز، خانه آرام">
-  <meta property="og:description" content="تیمی متعهد در رنگ‌آمیزی و نوسازی خانه؛ با رویکردی دقیق، تمیز و اقتصادی.">
-  <meta property="og:image" content="https://rangestanhome.com/images/logo/logomark-dark.png">
-  <meta property="og:url" content="https://rangestanhome.com/fa/index.html">
-  <meta name="twitter:card" content="summary_large_image">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/style.css">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "HomeAndConstructionBusiness",
-    "name": "Rangestan",
-    "image": "https://rangestanhome.com/images/logo/logomark-dark.png",
-    "url": "https://rangestanhome.com",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Tehran",
-      "addressCountry": "IR"
-    },
-    "telephone": "+98 919 199 6608",
-    "areaServed": "Tehran"
-  }
-  </script>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
-<body class="lang-fa" data-root="../">
+
+<body>
+
+  <!-- HEADER -->
   <header class="site-header">
     <div class="container header-inner">
       <a class="site-logo" href="index.html">
-        <img src="../images/logo/logotype-persian-dark.png" alt="لوگو تایپ فارسی رنگستان">
+        <img src="images/logo/logotype-persian-dark.png" alt="رنگستان">
       </a>
-      <nav class="nav" id="siteNav" aria-label="Main navigation">
-        <a href="index.html" aria-current="page">خانه</a>
-        <a href="gallery.html">گالری</a>
+
+      <button class="nav-toggle" id="navToggle">
+        ☰
+      </button>
+
+      <nav id="siteNav" class="nav">
+        <a href="#hero">خانه</a>
         <a href="#services">خدمات</a>
-        <a href="products.html">محصولات</a>
-        <a href="about.html">درباره</a>
-        <a href="blog.html">بلاگ</a>
-        <a href="contact.html">تماس</a>
+        <a href="#gallery">گالری</a>
+        <a href="#contact">تماس</a>
       </nav>
-      <div class="header-actions">
-        <div class="lang-switch">
-          <button type="button" class="lang-button" data-lang="en">EN</button>
-          <button type="button" class="lang-button active" data-lang="fa">FA</button>
-        </div>
-        <button class="nav-toggle" type="button" aria-label="باز و بسته کردن منو">
-          <img src="../images/logo/logomark-dark.png" alt="منو">
-        </button>
-      </div>
     </div>
   </header>
 
-  <main>
-    <!-- HERO -->
-    <section class="hero reveal">
-      <div class="container hero-inner">
-        <!-- eyebrow حذف شد -->
-        <h1>کیفیتی که دیده می‌شود، هنری که می‌ماند.</h1>
-        <p class="hero-lead">
-          رنگستان تیمی متعهد در رنگ‌آمیزی و نوسازی خانه است که با رویکردی دقیق و حرفه‌ای،
-          کاری تمیز، ماندگار و اقتصادی ارائه می‌دهد و خانه‌ای آرام‌تر و مرتب‌تر تحویل می‌دهد.
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="https://wa.me/989191996608" target="_blank" rel="noreferrer">
-            مشاوره واتساپی
-          </a>
-          <a class="btn btn-secondary" href="gallery.html">دیدن نمونه‌کارها</a>
+  <!-- HERO -->
+  <section id="hero" class="hero section">
+    <div class="container hero-inner">
+      <h1>کیفیتی که دیده می‌شود، هنری که می‌ماند.</h1>
+      <p class="hero-lead">
+        نقاشی حرفه‌ای، اجرای اصولی، ترمیم دقیق و دیوارهایی که خانه را آرام‌تر و روشن‌تر می‌کنند.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://wa.me/989191996608" target="_blank">
+          مشاوره واتساپ
+        </a>
+        <a class="btn btn-secondary" href="#gallery">دیدن نمونه‌کارها</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="section light">
+    <div class="container">
+      <h2 class="section-title">چرا رنگستان؟</h2>
+
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>اجرای اصولی و ماندگار</h3>
+          <p>زیرسازی درست، رنگ‌آمیزی یکنواخت و اجرای دقیق.</p>
+        </article>
+
+        <article class="card">
+          <h3>قیمت‌گذاری شفاف</h3>
+          <p>اعلام هزینه قبل از شروع کار؛ بدون هزینه پنهان.</p>
+        </article>
+
+        <article class="card">
+          <h3>پیش‌نمایش و مشاوره واتساپ</h3>
+          <p>ارسال عکس، انتخاب رنگ، دریافت پیشنهاد.</p>
+        </article>
+
+        <article class="card">
+          <h3>تمیزکاری کامل</h3>
+          <p>خانه کاملاً مرتب و بدون گرد و باقی‌مانده تحویل می‌شود.</p>
+        </article>
+
+        <article class="card">
+          <h3>زمان‌بندی دقیق</h3>
+          <p>اعلام روز شروع، مدت اجرا و روز تحویل.</p>
+        </article>
+
+        <article class="card">
+          <h3>ارتباط آسان</h3>
+          <p>هماهنگی سریع و پاسخ‌دهی در واتساپ.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="section light">
+    <div class="container">
+      <h2 class="section-title">گالری</h2>
+
+      <div class="grid grid-3 gallery-grid">
+        <div class="gallery-card">
+          <img src="images/gallery/mm.webp" alt="نمونه‌کار رنگستان">
+        </div>
+        <div class="gallery-card">
+          <img src="images/gallery/stairs.jpg" alt="نمونه‌کار رنگستان">
+        </div>
+        <div class="gallery-card">
+          <img src="images/gallery/yel.webp" alt="نمونه‌کار رنگستان">
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- خدمات / چرا رنگستان -->
-    <section class="section light reveal" id="services">
-      <div class="container">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">خدمات و رویکرد ما</p>
-            <h2>چرا رنگستان؟</h2>
-          </div>
-        </div>
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2 class="section-title">ارتباط</h2>
 
-        <div class="grid grid-3">
-          <article class="card">
-            <h3>اجرای اصولی و ماندگار</h3>
-            <p>
-              با زیرسازی درست، رنگ‌آمیزی یکنواخت و برنامه‌ریزی دقیق، دیوارهایی تمیز و ماندگار اجرا می‌کنیم.
-              هر دیوار برای ما فرصتی است تا خانه‌تان مرتب‌تر و تجربه‌ی زندگی‌تان آرام‌تر شود.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3>پیش‌نمایش و مشاوره در واتساپ</h3>
-            <p>
-              در واتساپ عکس می‌فرستید، رنگ یا مدل را انتخاب می‌کنید و پیش‌نمایش و پیشنهاد از ما دریافت می‌کنید.
-              کل فرآیند ساده، سریع و بدون پیچیدگی است.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3>قیمت‌گذاری شفاف و منصفانه</h3>
-            <p>
-              هزینه‌ها بر اساس متراژ، نوع رنگ و وضعیت دیوار، پیش از شروع کار به‌صورت شفاف اعلام می‌شود؛
-              بدون هیچ هزینه‌ی پنهان.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3>زمان‌بندی مشخص و دقیق</h3>
-            <p>
-              بعد از دیدن فضا، مدت اجرا، زمان شروع و روز تحویل را روشن اعلام می‌کنیم
-              و به برنامه‌ای که می‌گوییم متعهد می‌مانیم.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3>اجرای تمیز و جمع‌کردن کامل</h3>
-            <p>
-              کف و لبه‌ها کامل پوشانده می‌شود، ابزارها جمع می‌شود و خانه را تمیز و مرتب تحویل می‌دهیم؛
-              بدون لکه، گرد و اضافه‌کاری.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3>ارتباط راحت در واتساپ</h3>
-            <p>
-              برای هر سؤال، هماهنگی یا بازدید، از طریق واتساپ سریع پاسخ می‌دهیم
-              و زمان‌بندی لازم را هماهنگ می‌کنیم.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- گالری -->
-    <section class="section light reveal" id="gallery-preview">
-      <div class="container">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">پیش‌نمایش گالری</p>
-            <h2>دیوارهای آرام در خانه‌های واقعی.</h2>
-          </div>
-          <a class="btn btn-secondary" href="gallery.html">مشاهده گالری</a>
-        </div>
-        <div id="gallery-preview-grid" class="grid grid-3 gallery-grid" data-limit="4"></div>
-      </div>
-    </section>
-
-    <!-- محصولات (اسلایدر افقی) -->
-    <section class="section reveal" id="products-preview">
-      <div class="container">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">قاب‌ها و محصولات دیواری</p>
-            <h2>جزئیاتی که کنار رنگ تازه می‌نشینند.</h2>
-          </div>
-          <a class="btn btn-secondary" href="products.html">مشاهده کاتالوگ</a>
-        </div>
-        <div id="product-preview" class="product-strip"></div>
-      </div>
-    </section>
-
-    <!-- بلاگ -->
-    <section class="section light reveal" id="blog-preview">
-      <div class="container">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">نکته‌ها برای دیوار تمیزتر</p>
-            <h2>راهنماهای مجله‌ی رنگستان.</h2>
-          </div>
-          <a class="btn btn-secondary" href="blog.html">مشاهده همه مطالب</a>
-        </div>
-        <div id="blog-list-home" class="grid grid-3 blog-grid"></div>
-      </div>
-    </section>
-  </main>
+      <p><strong>واتساپ:</strong> <span dir="ltr">+98 919 199 6608</span></p>
+      <p><strong>ایمیل:</strong> <span dir="ltr">hello@rangestan.studio</span></p>
+      <p><strong>اینستاگرام:</strong> <span dir="ltr">@rangestanhome</span></p>
+    </div>
+  </section>
 
   <!-- FOOTER -->
   <footer class="site-footer">
-    <div class="container footer-top">
-      <img src="../images/logo/lockup-english-light.png" alt="لوگوی ترکیبی انگلیسی رنگستان">
-      <img src="../images/logo/lockup-persian-light.png" alt="لوگوی ترکیبی فارسی رنگستان">
-    </div>
-    <div class="container footer-grid">
-      <div>
-        <h4>مسیرها</h4>
-        <a href="index.html">خانه</a>
-        <a href="gallery.html">گالری</a>
-        <a href="products.html">محصولات</a>
-        <a href="blog.html">بلاگ</a>
-      </div>
-      <div>
-        <h4>ارتباط</h4>
-        <p>
-          واتساپ / تلفن:
-          <a href="https://wa.me/989191996608" target="_blank" rel="noreferrer">
-            +98 919 199 6608
-          </a>
-        </p>
-        <p>ایمیل: <a href="mailto:hello@rangestan.studio">hello@rangestan.studio</a></p>
-        <p>اینستاگرام: @rangestanhome</p>
-      </div>
-      <div>
-        <h4>خدمات</h4>
-        <p>نقاشی داخلی و بیرونی</p>
-        <p>ترمیم و صاف‌کاری دیوار</p>
-        <p>اجرای دیوارهای هنری و خاص</p>
-      </div>
-    </div>
-    <div class="container footer-base">
-      <small>&copy; <span id="year">2025</span> استودیو رنگستان. دیوار تمیز، خانه آرام.</small>
+    <div class="container">
+      <p>© 2025 رنگستان — دیوار تمیز، خانه آرام.</p>
     </div>
   </footer>
 
-  <script src="../js/app.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>
