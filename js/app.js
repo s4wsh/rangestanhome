@@ -3,7 +3,8 @@ const nav = document.getElementById('siteNav');
 const navToggle = document.querySelector('.nav-toggle');
 const langButtons = document.querySelectorAll('.lang-button');
 const revealTargets = document.querySelectorAll('.reveal');
-const placeholderImage = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
+const placeholderImage =
+  'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
 
 /* ------------------------- NAV MENU ------------------------- */
 if (nav && navToggle) {
@@ -21,7 +22,10 @@ if (langButtons.length) {
   langButtons.forEach((button) => {
     button.addEventListener('click', () => {
       const lang = button.dataset.lang;
-      const target = lang === 'fa' ? `${dataRoot}fa/index.html` : `${dataRoot}index.html`;
+      const target =
+        lang === 'fa'
+          ? `${dataRoot}fa/index.html`
+          : `${dataRoot}index.html`;
       window.location.href = target;
     });
   });
@@ -63,7 +67,9 @@ const lazyObserver = new IntersectionObserver(
 );
 
 function enableLazyImages(scope) {
-  scope.querySelectorAll('.lazy-img[data-src]').forEach((img) => lazyObserver.observe(img));
+  scope
+    .querySelectorAll('.lazy-img[data-src]')
+    .forEach((img) => lazyObserver.observe(img));
 }
 
 /* ------------------------- PRODUCTS ------------------------- */
@@ -76,14 +82,19 @@ async function loadProducts() {
     const response = await fetch(`${dataRoot}data/products.json`);
     if (!response.ok) throw new Error('Failed to load products');
     const products = await response.json();
-    const markup = products.map((product) => renderProductCard(product)).join('');
+    const markup = products
+      .map((product) => renderProductCard(product))
+      .join('');
 
     if (list) {
       list.innerHTML = markup;
       enableLazyImages(list);
     }
     if (preview) {
-      preview.innerHTML = products.slice(0, 3).map((product) => renderProductCard(product)).join('');
+      preview.innerHTML = products
+        .slice(0, 3)
+        .map((product) => renderProductCard(product))
+        .join('');
       enableLazyImages(preview);
     }
   } catch (error) {
@@ -95,20 +106,25 @@ async function loadProducts() {
 }
 
 function renderProductCard(product) {
-  const waText = encodeURIComponent("Hi, I'm interested in this wall art product. Please share details.");
-  const waLink = `https://wa.me/9891996608?text=${waText}`;
+  const waText = encodeURIComponent(
+    "Hi, I'm interested in this wall art product. Please share details."
+  );
+  const waLink = `https://wa.me/98919996608?text=${waText}`;
   const imageSrc = `${dataRoot}${product.image}`;
 
   return `
     <article class="card product-card">
-      <img class="lazy-img" src="${placeholderImage}" data-src="${imageSrc}" alt="${product.name}" loading="lazy">
+      <img class="lazy-img" src="${placeholderImage}" data-src="${imageSrc}"
+           alt="${product.name}" loading="lazy">
       <div class="product-card-content">
         <h3>${product.name}</h3>
         <p class="product-meta">${product.category}</p>
         <p class="product-price">${product.price}</p>
       </div>
       <div class="product-card-actions">
-        <a class="btn btn-secondary" href="${waLink}" target="_blank" rel="noreferrer">Ask via WhatsApp</a>
+        <a class="btn btn-secondary" href="${waLink}" target="_blank" rel="noreferrer">
+          Ask via WhatsApp
+        </a>
       </div>
     </article>
   `;
@@ -126,11 +142,16 @@ async function loadBlog() {
     const posts = await response.json();
 
     if (blogList) {
-      blogList.innerHTML = posts.map((post) => renderBlogCard(post)).join('');
+      blogList.innerHTML = posts
+        .map((post) => renderBlogCard(post))
+        .join('');
       enableLazyImages(blogList);
     }
     if (blogPreview) {
-      blogPreview.innerHTML = posts.slice(0, 3).map((post) => renderBlogCard(post)).join('');
+      blogPreview.innerHTML = posts
+        .slice(0, 3)
+        .map((post) => renderBlogCard(post))
+        .join('');
       enableLazyImages(blogPreview);
     }
   } catch (error) {
@@ -146,9 +167,16 @@ function renderBlogCard(post) {
 
   return `
     <article class="card blog-card">
-      <img class="lazy-img" src="${placeholderImage}" data-src="${imageSrc}" alt="${post.title}" loading="lazy">
+      <img class="lazy-img" src="${placeholderImage}" data-src="${imageSrc}"
+           alt="${post.title}" loading="lazy">
       <div class="blog-card-content">
-        <p class="blog-card-date">${new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</p>
+        <p class="blog-card-date">${
+          new Date(post.date).toLocaleDateString('en-US', {
+            month: 'short',
+            day: 'numeric',
+            year: 'numeric'
+          })
+        }</p>
         <h3>${post.title}</h3>
         <p>${post.excerpt || ''}</p>
       </div>
@@ -159,14 +187,21 @@ function renderBlogCard(post) {
   `;
 }
 
-/* ------------------------- GALLERY ------------------------- */
+/* ------------------------- GALLERY (UPDATED FULL VERSION) ------------------------- */
 
 const defaultGalleryImages = [
   '/images/gallery/mm.webp',
   '/images/gallery/stairs.jpg',
   '/images/gallery/sal.webp',
   '/images/gallery/yel.webp',
-  '/images/gallery/teamwork.webp' // Make sure the file is renamed without spaces
+  '/images/gallery/teamwork.webp',
+  '/images/gallery/god.webp',
+  '/images/gallery/mus.webp',
+  '/images/gallery/tree.webp',
+  '/images/gallery/tel.jpg',
+  '/images/gallery/img-6345.jpeg',
+  '/images/gallery/img-6353.jpeg',
+  '/images/gallery/img-6415.jpeg'
 ];
 
 const galleryCaptions = {
@@ -174,7 +209,14 @@ const galleryCaptions = {
   'stairs.jpg': 'Clean stairwell repaint',
   'sal.webp': 'Soft lime-wash hallway',
   'yel.webp': 'Balanced accent wall',
-  'teamwork.webp': 'Crew preparing a feature wall'
+  'teamwork.webp': 'Crew preparing a feature wall',
+  'god.webp': 'Handcrafted artistic wall finish',
+  'mus.webp': 'Modern artistic brush texture',
+  'tree.webp': 'Natural textured wall',
+  'tel.jpg': 'Soft pastel tone finish',
+  'img-6345.jpeg': 'Real repaint project — modern white',
+  'img-6353.jpeg': 'Living room wall refresh',
+  'img-6415.jpeg': 'Bright hallway repaint'
 };
 
 async function loadGallery() {
@@ -182,21 +224,8 @@ async function loadGallery() {
   const gallery = document.getElementById('gallery-grid');
   if (!preview && !gallery) return;
 
-  let files = [];
-
-  try {
-    const response = await fetch(`${dataRoot}images/gallery/`);
-
-    // Vercel blocks folder listing — will ALWAYS error
-    // so we skip auto-detection and use fallback.
-    console.warn("Folder listing blocked on Vercel — using default list.");
-
-  } catch (error) {
-    console.warn('Error loading gallery, falling back', error);
-  }
-
-  // Always use fallback list (safe)
-  files = defaultGalleryImages.map((src) => `${dataRoot}${src}`);
+  // Folder listing on Vercel will always fail → use fallback
+  let files = defaultGalleryImages.map((src) => `${dataRoot}${src}`);
 
   if (preview) {
     renderGallery(preview, files, Number(preview.dataset.limit) || 4);
@@ -212,11 +241,11 @@ function renderGallery(container, images, limit) {
   container.innerHTML = subset
     .map(
       (src) => `
-        <figure class="card gallery-card">
-          <img class="lazy-img" src="${placeholderImage}" data-src="${src}" alt="Rangestan project" loading="lazy">
-          <figcaption>${getGalleryCaption(src)}</figcaption>
-        </figure>
-      `
+      <figure class="card gallery-card">
+        <img class="lazy-img" src="${placeholderImage}"
+             data-src="${src}" alt="Rangestan project" loading="lazy">
+        <figcaption>${getGalleryCaption(src)}</figcaption>
+      </figure>`
     )
     .join('');
 
@@ -231,9 +260,9 @@ function getGalleryCaption(path) {
 /* ------------------------- FOOTER YEAR ------------------------- */
 
 function updateYear() {
-  document.querySelectorAll('#year').forEach((node) => {
-    node.textContent = new Date().getFullYear();
-  });
+  document
+    .querySelectorAll('#year')
+    .forEach((node) => (node.textContent = new Date().getFullYear()));
 }
 
 updateYear();
