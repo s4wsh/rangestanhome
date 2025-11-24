@@ -5,6 +5,7 @@ const langButtons = document.querySelectorAll('.lang-button');
 const revealTargets = document.querySelectorAll('.reveal');
 const placeholderImage = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
 
+/* ------------------------- NAV MENU ------------------------- */
 if (nav && navToggle) {
   navToggle.addEventListener('click', () => {
     nav.classList.toggle('nav-open');
@@ -15,6 +16,7 @@ if (nav && navToggle) {
   });
 }
 
+/* ------------------------- LANGUAGE SWITCH ------------------------- */
 if (langButtons.length) {
   langButtons.forEach((button) => {
     button.addEventListener('click', () => {
@@ -25,6 +27,7 @@ if (langButtons.length) {
   });
 }
 
+/* ------------------------- SCROLL REVEAL ------------------------- */
 if (revealTargets.length) {
   const observer = new IntersectionObserver(
     (entries) => {
@@ -41,6 +44,7 @@ if (revealTargets.length) {
   revealTargets.forEach((el) => observer.observe(el));
 }
 
+/* ------------------------- LAZY LOADING ------------------------- */
 const lazyObserver = new IntersectionObserver(
   (entries, obs) => {
     entries.forEach((entry) => {
@@ -62,6 +66,7 @@ function enableLazyImages(scope) {
   scope.querySelectorAll('.lazy-img[data-src]').forEach((img) => lazyObserver.observe(img));
 }
 
+/* ------------------------- PRODUCTS ------------------------- */
 async function loadProducts() {
   const list = document.getElementById('product-list');
   const preview = document.getElementById('product-preview');
@@ -72,6 +77,7 @@ async function loadProducts() {
     if (!response.ok) throw new Error('Failed to load products');
     const products = await response.json();
     const markup = products.map((product) => renderProductCard(product)).join('');
+
     if (list) {
       list.innerHTML = markup;
       enableLazyImages(list);
@@ -89,9 +95,10 @@ async function loadProducts() {
 }
 
 function renderProductCard(product) {
-  const waText = encodeURIComponent('Hi, I\'m interested in this wall art product. Please share details.');
-  const waLink = `https://wa.me/989199991108?text=${waText}`;
+  const waText = encodeURIComponent("Hi, I'm interested in this wall art product. Please share details.");
+  const waLink = `https://wa.me/9891996608?text=${waText}`;
   const imageSrc = `${dataRoot}${product.image}`;
+
   return `
     <article class="card product-card">
       <img class="lazy-img" src="${placeholderImage}" data-src="${imageSrc}" alt="${product.name}" loading="lazy">
@@ -107,6 +114,7 @@ function renderProductCard(product) {
   `;
 }
 
+/* ------------------------- BLOG ------------------------- */
 async function loadBlog() {
   const blogList = document.getElementById('blog-list');
   const blogPreview = document.getElementById('blog-list-home');
@@ -116,6 +124,7 @@ async function loadBlog() {
     const response = await fetch(`${dataRoot}data/blog-posts.json`);
     if (!response.ok) throw new Error('Failed to load blog posts');
     const posts = await response.json();
+
     if (blogList) {
       blogList.innerHTML = posts.map((post) => renderBlogCard(post)).join('');
       enableLazyImages(blogList);
@@ -134,6 +143,7 @@ async function loadBlog() {
 
 function renderBlogCard(post) {
   const imageSrc = `${dataRoot}${post.thumb}`;
+
   return `
     <article class="card blog-card">
       <img class="lazy-img" src="${placeholderImage}" data-src="${imageSrc}" alt="${post.title}" loading="lazy">
@@ -149,12 +159,14 @@ function renderBlogCard(post) {
   `;
 }
 
+/* ------------------------- GALLERY ------------------------- */
+
 const defaultGalleryImages = [
-v  'images/gallery/mm.webp',
-  'images/gallery/stairs.jpg',
-  'images/gallery/sal.webp',
-  'images/gallery/yel.webp',
-  'images/gallery/teamwork%20copy.webp'
+  '/images/gallery/mm.webp',
+  '/images/gallery/stairs.jpg',
+  '/images/gallery/sal.webp',
+  '/images/gallery/yel.webp',
+  '/images/gallery/teamwork.webp' // Make sure the file is renamed without spaces
 ];
 
 const galleryCaptions = {
@@ -162,7 +174,7 @@ const galleryCaptions = {
   'stairs.jpg': 'Clean stairwell repaint',
   'sal.webp': 'Soft lime-wash hallway',
   'yel.webp': 'Balanced accent wall',
-  'teamwork%20copy.webp': 'Crew preparing a feature wall'
+  'teamwork.webp': 'Crew preparing a feature wall'
 };
 
 async function loadGallery() {
@@ -171,24 +183,20 @@ async function loadGallery() {
   if (!preview && !gallery) return;
 
   let files = [];
+
   try {
     const response = await fetch(`${dataRoot}images/gallery/`);
-    if (response.ok) {
-      const html = await response.text();
-      const matches = [...html.matchAll(/href="([^"]+\.(?:jpe?g|png|webp))"/gi)];
-      files = matches
-        .map((match) => match[1])
-        .filter((name) => !name.startsWith('.'))
-        .map((name) => name.replace(/ /g, '%20'))
-        .map((name) => `${dataRoot}images/gallery/${name}`);
-    }
+
+    // Vercel blocks folder listing — will ALWAYS error
+    // so we skip auto-detection and use fallback.
+    console.warn("Folder listing blocked on Vercel — using default list.");
+
   } catch (error) {
-    console.warn('Falling back to default gallery list', error);
+    console.warn('Error loading gallery, falling back', error);
   }
 
-  if (!files.length) {
-    files = defaultGalleryImages.map((src) => `${dataRoot}${src}`);
-  }
+  // Always use fallback list (safe)
+  files = defaultGalleryImages.map((src) => `${dataRoot}${src}`);
 
   if (preview) {
     renderGallery(preview, files, Number(preview.dataset.limit) || 4);
@@ -200,6 +208,7 @@ async function loadGallery() {
 
 function renderGallery(container, images, limit) {
   const subset = limit && limit > 0 ? images.slice(0, limit) : images;
+
   container.innerHTML = subset
     .map(
       (src) => `
@@ -210,13 +219,16 @@ function renderGallery(container, images, limit) {
       `
     )
     .join('');
+
   enableLazyImages(container);
 }
 
 function getGalleryCaption(path) {
-  const filename = path.split('/').pop().toLowerCase().replace(/ /g, '%20');
+  const filename = path.split('/').pop().toLowerCase();
   return galleryCaptions[filename] || 'Calm Rangestan wall finish';
 }
+
+/* ------------------------- FOOTER YEAR ------------------------- */
 
 function updateYear() {
   document.querySelectorAll('#year').forEach((node) => {
