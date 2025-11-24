@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://example-rangestan-site.com/sitemap.xml

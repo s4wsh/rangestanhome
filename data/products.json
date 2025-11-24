@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "name": "Minimal Olive Geometry",
+    "category": "Handmade frame | 50x70 cm",
+    "price": "1,200,000 T",
+    "image": "images/products/01.png"
+  },
+  {
+    "id": 2,
+    "name": "Lime Relief Diptych",
+    "category": "Mixed media plaster | 60x90 cm",
+    "price": "1,950,000 T",
+    "image": "images/products/03%20-%20high%20queality.png"
+  },
+  {
+    "id": 3,
+    "name": "Indigo Texture Study",
+    "category": "Giclee print | 40x60 cm",
+    "price": "1,050,000 T",
+    "image": "images/products/01.png"
+  },
+  {
+    "id": 4,
+    "name": "Sandstone Horizon Panel",
+    "category": "Layered pigment on wood | 45x90 cm",
+    "price": "2,150,000 T",
+    "image": "images/products/03%20-%20high%20queality.png"
+  },
+  {
+    "id": 5,
+    "name": "Soft Gradient Accent Piece",
+    "category": "Hand-painted canvas | 60x80 cm",
+    "price": "1,480,000 T",
+    "image": "images/products/01.png"
+  }
+]
