@@ -3,6 +3,7 @@ const nav = document.getElementById('siteNav');
 const navToggle = document.querySelector('.nav-toggle');
 const langButtons = document.querySelectorAll('.lang-button');
 const revealTargets = document.querySelectorAll('.reveal');
+
 const placeholderImage =
   'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
 
@@ -82,6 +83,7 @@ async function loadProducts() {
     const response = await fetch(`${dataRoot}data/products.json`);
     if (!response.ok) throw new Error('Failed to load products');
     const products = await response.json();
+
     const markup = products
       .map((product) => renderProductCard(product))
       .join('');
@@ -90,6 +92,7 @@ async function loadProducts() {
       list.innerHTML = markup;
       enableLazyImages(list);
     }
+
     if (preview) {
       preview.innerHTML = products
         .slice(0, 3)
@@ -107,9 +110,10 @@ async function loadProducts() {
 
 function renderProductCard(product) {
   const waText = encodeURIComponent(
-    "Hi, I'm interested in this wall art product. Please share details."
+    "سلام، برای این محصول دیواری اطلاعات بیشتری می‌خواهم."
   );
-  const waLink = `https://wa.me/98919996608?text=${waText}`;
+
+  const waLink = `https://wa.me/989191996608?text=${waText}`;
   const imageSrc = `${dataRoot}${product.image}`;
 
   return `
@@ -123,7 +127,7 @@ function renderProductCard(product) {
       </div>
       <div class="product-card-actions">
         <a class="btn btn-secondary" href="${waLink}" target="_blank" rel="noreferrer">
-          Ask via WhatsApp
+          پرسیدن در واتساپ
         </a>
       </div>
     </article>
@@ -142,16 +146,12 @@ async function loadBlog() {
     const posts = await response.json();
 
     if (blogList) {
-      blogList.innerHTML = posts
-        .map((post) => renderBlogCard(post))
-        .join('');
+      blogList.innerHTML = posts.map(renderBlogCard).join('');
       enableLazyImages(blogList);
     }
+
     if (blogPreview) {
-      blogPreview.innerHTML = posts
-        .slice(0, 3)
-        .map((post) => renderBlogCard(post))
-        .join('');
+      blogPreview.innerHTML = posts.slice(0, 3).map(renderBlogCard).join('');
       enableLazyImages(blogPreview);
     }
   } catch (error) {
@@ -170,24 +170,18 @@ function renderBlogCard(post) {
       <img class="lazy-img" src="${placeholderImage}" data-src="${imageSrc}"
            alt="${post.title}" loading="lazy">
       <div class="blog-card-content">
-        <p class="blog-card-date">${
-          new Date(post.date).toLocaleDateString('en-US', {
-            month: 'short',
-            day: 'numeric',
-            year: 'numeric'
-          })
-        }</p>
+        <p class="blog-card-date">${new Date(post.date).toLocaleDateString('en-US')}</p>
         <h3>${post.title}</h3>
         <p>${post.excerpt || ''}</p>
       </div>
       <div class="blog-card-actions">
-        <a class="btn btn-secondary" href="${post.link}">Read article</a>
+        <a class="btn btn-secondary" href="${post.link}">ادامه مطلب</a>
       </div>
     </article>
   `;
 }
 
-/* ------------------------- GALLERY (UPDATED FULL VERSION) ------------------------- */
+/* ------------------------- GALLERY ------------------------- */
 
 const defaultGalleryImages = [
   '/images/gallery/mm.webp',
@@ -205,18 +199,18 @@ const defaultGalleryImages = [
 ];
 
 const galleryCaptions = {
-  'mm.webp': 'Layered monochrome mural',
-  'stairs.jpg': 'Clean stairwell repaint',
-  'sal.webp': 'Soft lime-wash hallway',
-  'yel.webp': 'Balanced accent wall',
-  'teamwork.webp': 'Crew preparing a feature wall',
-  'god.webp': 'Handcrafted artistic wall finish',
-  'mus.webp': 'Modern artistic brush texture',
-  'tree.webp': 'Natural textured wall',
-  'tel.jpg': 'Soft pastel tone finish',
-  'img-6345.jpeg': 'Real repaint project — modern white',
-  'img-6353.jpeg': 'Living room wall refresh',
-  'img-6415.jpeg': 'Bright hallway repaint'
+  'mm.webp': 'دیوار هنری چندلایه',
+  'stairs.jpg': 'رنگ‌آمیزی تمیز راه‌پله',
+  'sal.webp': 'راهروی روشن و آرام',
+  'yel.webp': 'دیوار تاکیدی متعادل',
+  'teamwork.webp': 'آماده‌سازی دیوار توسط تیم',
+  'god.webp': 'اجرای هنری دستی',
+  'mus.webp': 'بافت برس مدرن',
+  'tree.webp': 'بافت طبیعی آرام',
+  'tel.jpg': 'دیوار با تون پاستلی',
+  'img-6345.jpeg': 'پروژه واقعی — سفید مدرن',
+  'img-6353.jpeg': 'تازه‌سازی دیوار نشیمن',
+  'img-6415.jpeg': 'روشن‌سازی راهرو'
 };
 
 async function loadGallery() {
@@ -224,8 +218,7 @@ async function loadGallery() {
   const gallery = document.getElementById('gallery-grid');
   if (!preview && !gallery) return;
 
-  // Folder listing on Vercel will always fail → use fallback
-  let files = defaultGalleryImages.map((src) => `${dataRoot}${src}`);
+  const files = defaultGalleryImages.map((src) => `${dataRoot}${src}`);
 
   if (preview) {
     renderGallery(preview, files, Number(preview.dataset.limit) || 4);
@@ -243,7 +236,7 @@ function renderGallery(container, images, limit) {
       (src) => `
       <figure class="card gallery-card">
         <img class="lazy-img" src="${placeholderImage}"
-             data-src="${src}" alt="Rangestan project" loading="lazy">
+             data-src="${src}" alt="پروژه رنگستان" loading="lazy">
         <figcaption>${getGalleryCaption(src)}</figcaption>
       </figure>`
     )
@@ -254,7 +247,7 @@ function renderGallery(container, images, limit) {
 
 function getGalleryCaption(path) {
   const filename = path.split('/').pop().toLowerCase();
-  return galleryCaptions[filename] || 'Calm Rangestan wall finish';
+  return galleryCaptions[filename] || 'اجرای دیوار آرام رنگستان';
 }
 
 /* ------------------------- FOOTER YEAR ------------------------- */
