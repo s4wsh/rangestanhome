@@ -88,13 +88,12 @@ p {
 
 .ltr {
   direction: ltr;
-  text-align: left;
-  unicode-bidi: bidi-override;
+  unicode-bidi: plaintext;
 }
 
 .eyebrow {
   font-size: 0.95rem;
-  color: var(--lime);
+  color: var(--navy) !important;
   font-weight: 600;
   letter-spacing: -0.01em;
   margin: 0 0 0.6rem;
@@ -158,7 +157,7 @@ p {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 1rem 0.2rem;
+  padding: 1.3rem 0.4rem;
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: calc(var(--radius) - 4px);
