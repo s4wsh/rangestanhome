@@ -1,97 +1,258 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>رنگستان | کیفیتی که دیده می‌شود، هنری که می‌ماند</title>
 
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-bar">
+      <a href="#home" class="brand" aria-label="رنگستان">
+        <img src="images/logo/rangestan-persian-logo-lockup(vertical-clean)-dark.png" alt="رنگستان" class="brand-lockup">
+      </a>
 
-<header class="site-header">
-  <div class="container">
-    <img src="images/logo/rangestan-persian-logo-lockup(vertical-clean)-dark.png" alt="Rangestan Logo">
-  </div>
-</header>
+      <button class="menu-toggle" data-menu-toggle aria-label="باز کردن منو">
+        <span></span><span></span>
+      </button>
 
-<!-- HERO SECTION -->
-<section class="hero" id="home">
-  <div class="hero-wrap">
-    <img src="images/gallery/yel.jpg" alt="فضای آرامش‌بخش رنگستان" class="hero-bg">
-    <div class="hero-content">
-      <h1>رنگستان</h1>
-      <p>ما هر دیوار را فرصتی برای خلق آرامش و کیفیتی ماندگار می‌دانیم.</p>
+      <nav class="main-nav" data-nav>
+        <a href="#home">خانه</a>
+        <a href="#why">چرا رنگستان</a>
+        <a href="#gallery">گالری</a>
+        <a href="#contact">ارتباط</a>
+      </nav>
     </div>
-  </div>
-</section>
+  </header>
 
-<!-- WHY RANGESTAN -->
-<section class="why">
-  <div class="container">
-    <h2>چرا رنگستان؟</h2>
-    <p>
-      رنگستان تیمی متعهد و باتجربه در رنگ‌آمیزی و نوسازی خانه است که با رویکردی دقیق،
-      از آماده‌سازی اصولی تا اجرای تمیز و حرفه‌ای همراه شماست.
-    </p>
-  </div>
-</section>
+  <main>
 
-<!-- PROCESS SECTION -->
-<section class="process">
-  <div class="container process-grid">
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero-bg">
+        <img src="images/hero/ladyflower-2.jpg" alt="نقاشی دیواری گل‌بانوی رنگستان">
+      </div>
 
-    <div class="process-card">
-      <img src="images/gallery/stairs.jpg" alt="بررسی و آماده‌سازی دیوار">
-      <h3>بررسی و آماده‌سازی</h3>
-      <p>شناخت دقیق سطح و اصلاح زیرسازی پیش از رنگ‌آمیزی</p>
-    </div>
+      <div class="container hero-inner">
+        <h1 class="reveal">کیفیتی که دیده می‌شود، هنری که می‌ماند.</h1>
 
-    <div class="process-card">
-      <img src="images/process/to-fix.jpg" alt="اجرای دقیق رنگ">
-      <h3>اجرای رنگ</h3>
-      <p>کار تمیز، یکنواخت و مطابق استاندارد</p>
-    </div>
+        <p class="lede reveal">
+          با تیم متخصص رنگستان، هر دیوار با زیرسازی اصولی و اجرای تمیز به سطحی آرام، یکدست و قابل اعتماد تبدیل می‌شود.
+        </p>
 
-    <div class="process-card">
-      <img src="images/gallery/mus.jpg" alt="تحویل نهایی">
-      <h3>تحویل نهایی</h3>
-      <p>فضایی تازه، تمیز و آرامش‌بخش</p>
-    </div>
+        <div class="cta-row reveal">
+          <a class="btn primary" href="https://wa.me/989191996608" target="_blank">مشاوره واتساپی</a>
+          <a class="btn ghost" href="#gallery">مشاهده گالری</a>
+        </div>
 
-  </div>
-</section>
+        <div class="hero-meta reveal">
+          <span>زمان‌بندی شفاف و تحویل دقیق</span>
+          <span>پوشش و نظافت کامل پس از کار</span>
+          <span>مشاوره رنگ ویژه هر فضا</span>
+        </div>
+      </div>
+    </section>
 
-<!-- GALLERY -->
-<section class="gallery" id="gallery">
-  <div class="container">
-    <h2>نگاهی به اجراهای ما</h2>
 
-    <div class="gallery-grid">
-      <figure>
-        <img src="images/gallery/teamwork-copy.jpg" alt="تیم اجرایی رنگستان">
-        <figcaption>تیم اجرایی در حال آماده‌سازی سطح</figcaption>
-      </figure>
+    <!-- WHY RANGESTAN -->
+    <section class="why" id="why" aria-labelledby="why-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">چرا رنگستان؟</p>
 
-      <figure>
-        <img src="images/gallery/yel.jpg" alt="فضای مدرن">
-        <figcaption>رنگ گرم در نشیمن مدرن</figcaption>
-      </figure>
+          <!-- Smaller heading class -->
+          <h2 id="why-title" class="sub-hero">
+            جایی که کیفیتِ واقعی دیده می‌شود و آرامشِ خانه شما مهم‌ترین نتیجه کار است.
+          </h2>
 
-      <figure>
-        <img src="images/gallery/stairs.jpg" alt="راه‌پله">
-        <figcaption>دیوار راه‌پله با بافت ظریف</figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
+          <p class="muted">
+            تجربه‌ای لوکس با اجرای بی‌نقص. هر پروژه از همان ابتدا با دقت فنی، انتخاب مواد مناسب و برنامه‌ریزی شفاف پیش می‌رود.
+            هدف ما فقط رنگ‌کردن نیست—می‌خواهیم فضای زندگی شما تمیزتر، روشن‌تر و چشم‌نوازتر از قبل شود.
+          </p>
+        </div>
 
-<footer class="site-footer">
-  <div class="container">
-    <p>© Rangestan Home — تمامی حقوق محفوظ است</p>
-  </div>
-</footer>
+        <div class="cards">
+          <article class="card reveal">
+            <h3>زیرسازی حرفه‌ای و اصولی</h3>
+            <p>رفع ترک، موج، نم و طبله با بتونه‌کاری کنترل‌شده، سنباده‌زنی دقیق و پرایمر مناسب.</p>
+          </article>
 
-<script src="js/app.js"></script>
+          <article class="card reveal">
+            <h3>پوشش یکنواخت و استاندارد</h3>
+            <p>اجرای دقیق لایه‌ها با ابزار حرفه‌ای و کنترل ضخامت برای سطح صاف و بادوام.</p>
+          </article>
+
+          <article class="card reveal">
+            <h3>افکت‌های هنری و مینیمال</h3>
+            <p>پتینه و بافت‌های نرم مدرن برای خلق دیوار شاخص بدون شلوغی بصری.</p>
+          </article>
+
+          <article class="card reveal">
+            <h3>رنگ‌آمیزی تخصصی چوب و درب‌ها</h3>
+            <p>پرداخت مخملی و مقاوم در برابر خط‌وخش با توجه دقیق به لبه‌ها.</p>
+          </article>
+
+          <article class="card reveal">
+            <h3>محیط‌های بیرونی و نما</h3>
+            <p>استفاده از رنگ‌های مقاوم UV برای اجرای بادوام فضای باز.</p>
+          </article>
+
+          <article class="card reveal">
+            <h3>تحویل پاک و منظم</h3>
+            <p>جمع‌کردن ابزار، پوشش کامل وسایل و نظافت نهایی پیش از تحویل.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- PROCESS -->
+    <section class="process" id="process">
+      <div class="container">
+
+        <div class="section-head reveal">
+          <p class="eyebrow">مراحل کار</p>
+          <h2>هر دیوار از کجا شروع می‌شود و چطور تمام می‌شود؟</h2>
+
+          <!-- Removed extra sentence -->
+          <p class="muted">بخشی از مراحل واقعی زیرسازی و اجرای رنگستان.</p>
+        </div>
+
+        <div class="process-grid">
+
+          <figure class="process-card reveal">
+            <img src="images/process/third.jpg" alt="مرحله بررسی و آماده‌سازی اولیه">
+          </figure>
+
+          <figure class="process-card reveal">
+            <img src="images/process/to-fix.jpg" alt="مرمت ترک‌ها و سطح‌سازی تخصصی">
+          </figure>
+
+          <figure class="process-card reveal">
+            <img src="images/process/04.png" alt="اجرای نهایی و سطح صاف و یکنواخت">
+          </figure>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- BEFORE / AFTER -->
+    <section class="before-after" id="before-after">
+      <div class="container">
+
+        <div class="section-head reveal">
+          <h2>بازسازی قبل و بعد</h2>
+          <p class="muted">نمای واضح از تغییر دیوار پیش و پس از اجرای تمیز و روشن رنگستان.</p>
+        </div>
+
+        <figure class="process-card reveal">
+          <div class="before-after-frame">
+            <img src="images/process/to-fix.jpg" alt="دیوار پیش از بازسازی">
+            <img src="images/gallery/third.jpg" alt="دیوار پس از اجرای تمیز رنگستان">
+          </div>
+        </figure>
+
+      </div>
+    </section>
+
+
+    <!-- GALLERY -->
+    <section class="gallery" id="gallery" aria-labelledby="gallery-title">
+      <div class="container">
+
+        <div class="section-head reveal">
+          <p class="eyebrow">گالری</p>
+          <h2 id="gallery-title">جایی که کیفیتِ رنگستان دیده می‌شود.</h2>
+          <p class="muted">
+            گزیده‌ای از فضاهای مسکونی و ویلایی که با اجرای دقیق و تمیز رنگستان، روشن‌تر و منظم‌تر شده‌اند.
+          </p>
+        </div>
+
+        <div class="gallery-grid">
+
+          <figure class="gallery-card reveal">
+            <img src="images/gallery/sal.jpg" alt="سالن پذیرایی با نور نرم" loading="lazy">
+          </figure>
+
+          <figure class="gallery-card reveal">
+            <img src="images/gallery/yel.jpg" alt="رنگ گرم در نشیمن مدرن" loading="lazy">
+          </figure>
+
+          <figure class="gallery-card reveal">
+            <img src="images/gallery/stairs.jpg" alt="دیوار راه‌پله با بافت ظریف" loading="lazy">
+          </figure>
+
+          <figure class="gallery-card reveal">
+            <img src="images/gallery/mus.jpg" alt="سقف آرامش‌بخش اتاق خواب" loading="lazy">
+          </figure>
+
+          <figure class="gallery-card reveal">
+            <img src="images/gallery/tree.jpg" alt="نمای بیرونی مقاوم" loading="lazy">
+          </figure>
+
+          <figure class="gallery-card reveal">
+            <img src="images/gallery/teamwork-copy.jpg" alt="تیم اجرایی رنگستان" loading="lazy">
+          </figure>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+
+        <div class="contact-card reveal">
+          <div class="contact-copy">
+
+            <p class="eyebrow">ارتباط مستقیم</p>
+
+            <!-- Updated CTA heading -->
+            <h2 id="contact-title">برای هماهنگی بازدید و مشاوره تخصصی کنار شما هستیم.</h2>
+
+            <p class="muted">
+              پیشنهاد رنگ و افکت متناسب با نور و متریال فضا. شمیرانات و مناطق شمالی تهران تحت پوشش مستقیم تیم اجرایی ما هستند.
+            </p>
+
+            <div class="contact-meta">
+              <span class="pill">شمیرانات</span>
+              <span class="pill">بازدید حضوری</span>
+              <span class="pill">برنامه‌ریزی شفاف</span>
+            </div>
+          </div>
+
+          <div class="contact-actions">
+            <a class="btn primary"
+               href="https://wa.me/989191996608?text=سلام%20وقت%20بخیر،%20برای%20مشاوره"
+               target="_blank" rel="noopener">
+               گفتگوی واتساپی
+            </a>
+
+            <div class="contact-lines">
+              <p class="label">تلفن</p>
+              <a class="contact-link ltr" href="tel:+989191996608">+98 919 199 6608</a>
+
+              <p class="label">ایمیل</p>
+              <a class="contact-link ltr" href="mailto:rangestanhome@gmail.com">rangestanhome@gmail.com</a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="js/app.js" defer></script>
 </body>
 </html>
