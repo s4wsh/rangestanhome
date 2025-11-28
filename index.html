@@ -14,39 +14,31 @@
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="رنگستان | کیفیتی که دیده می‌شود، هنری که می‌ماند">
+  <meta property="og:title" content="رنگستان | دیواری که می‌درخشد، خانه‌ای که نفس می‌کشد">
   <meta property="og:description"
-        content="هر دیوار برای ما یک فرصت است؛ اجرای اصولی، رنگ یکنواخت، و تحویل تمیز و بدون دردسر.">
+        content="دیوار فقط سطح نیست؛ بخشی از کیفیت زندگی شماست. رنگستان با اجرای دقیق و تمیز، خانه را ماندگارتر می‌کند.">
   <meta property="og:url" content="https://rangestanhome.com/">
   <meta property="og:image" content="https://rangestanhome.com/images/hero/ladyflower-2.jpg">
-
-  <!-- GA4 (ID را عوض کن) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
-  </script>
 
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
   <!-- Top bar -->
+  <!-- Top bar -->
   <div class="usp-bar">
-    نقاشی تخصصی دیوار در شمیرانات | مشاوره سریع در واتساپ: ۰۹۱۹ ۱۹۹ ۶۶ ۰۸
-  </div>
+    نقاشی تخصصی دیوار در شمیرانات | مشاوره سریع در واتساپ:
+    <span style="direction:ltr; unicode-bidi:embed">+98 919 199 6608</span>
 
   <!-- HEADER -->
   <header class="site-header" id="top">
     <div class="container header-inner">
-      <a href="#top" class="brand">
-        <img src="images/logo/rangestan-persian-logo-lockup(verti...n)-dark.png"
+      <a href="#home" class="brand">
+        <img src="images/logo/logomark-dark.png"
              alt="رنگستان | RangestanHome" class="brand-logo">
       </a>
 
-      <nav class="main-nav">
+      <nav class="main-nav" id="mainNav">
         <a href="#why">چرا رنگستان</a>
         <a href="#process">مسیر کار</a>
         <a href="#services">خدمات</a>
@@ -58,7 +50,7 @@
         مشاوره واتساپی
       </a>
 
-      <button class="menu-toggle" aria-label="باز کردن منو">
+      <button class="menu-toggle" aria-label="باز کردن منو" onclick="document.getElementById('mainNav').classList.toggle('active')">
         <span></span><span></span>
       </button>
     </div>
@@ -67,15 +59,21 @@
   <main>
 
     <!-- HERO GRID -->
-    <section class="hero-grid" id="home">
-      <div class="container hero-layout">
+    <section class="hero-grid" id="home" style="padding-top:70px;">
+      <div class="container hero-layout" style="transform: translateY(-30px);">
+
         <article class="hero-card hero-primary reveal">
-          <div class="pill">کیفیتی که دیده می‌شود، هنری که می‌ماند</div>
-          <h1>هر دیوار، دقیق و جمع‌وجور اجرا می‌شود.</h1>
+
+          <div class="pill">رنگستان چیست؟</div>
+
+          <h1>رنگستان، جایی که دیوار تبدیل به حس می‌شود.</h1>
+
           <p class="lede">
-            رنگستان روی دیوارهای کوچک و بزرگ تمرکز دارد؛ زیرسازی اصولی، رنگ یکنواخت و تحویل تمیز بدون ردکار.
-            کافی است چند عکس در واتساپ بفرستید تا طرح و زمان‌بندی آماده شود.
+            رنگستان یک تیم جوان، حرفه‌ای و دقیق در نوسازی و رنگ‌آمیزی خانه است.
+            ما فقط رنگ نمی‌زنیم؛ با زیرسازی اصولی، اجرای بی‌نقص و نظم کاری، فضایی می‌سازیم که تمیز، ماندگار و الهام‌بخش باشد.
+            هر پروژه با نگاه مهندسی و تجربه اجرا می‌شود تا خانه شما زیباتر، سالم‌تر و باارزش‌تر شود.
           </p>
+
           <div class="hero-actions">
             <a class="btn primary"
                href="https://wa.me/989191996608?text=سلام،%20برای%20مشاوره%20نقاشی%20خانه%20پیام%20می‌دهم"
@@ -84,195 +82,19 @@
             </a>
             <a class="btn ghost" href="#gallery">دیدن گالری</a>
           </div>
+
           <div class="hero-meta">
-            <span>زیرسازی و ترمیم ترک و نم</span>
+            <span>زیرسازی تخصصی و ترمیم دقیق</span>
             <span>قیمت و زمان‌بندی شفاف</span>
-            <span>تحویل تمیز و آماده زندگی</span>
+            <span>تحویل تمیز و بدون ردکار</span>
           </div>
-          <img src="images/gallery/hero-image.jpg" alt="اجرای تمیز رنگستان"
-               class="hero-art">
+
+          <img src="images/gallery/hero-image.jpg"
+               alt="اجرای حرفه‌ای رنگستان"
+               class="hero-art"
+               style="height:380px; object-fit:cover;">
         </article>
 
-        <article class="hero-card hero-sale reveal">
-          <div class="pill outline">طرح ویژه زمستان</div>
-          <h3>تا ۴۰٪ تخفیف برای اجراهای محدود</h3>
-          <p class="muted">برای واحدهای مسکونی و دیوار شاخص؛ رزرو سریع تا ظرفیت پر نشده است.</p>
-          <img src="images/gallery/to-fix.jpg" alt="تخفیف زمستانی رنگستان" class="sale-art">
-          <a class="btn white"
-             href="https://wa.me/989191996608?text=سلام،%20برای%20استفاده%20از%20تخفیف%20زمستانی%20پیام%20می‌دهم"
-             target="_blank" rel="noopener">
-            رزرو تخفیف
-          </a>
-        </article>
-      </div>
-    </section>
-
-    <!-- CTA STRIP / PROCESS -->
-    <section class="cta-band" id="process">
-      <div class="container cta-inner">
-        <div class="cta-copy reveal">
-          <p class="eyebrow">مسیر اجرا</p>
-          <h2>چند پیام در واتساپ، یک دیوار آماده و براق.</h2>
-          <p class="muted">
-            ارسال عکس، پیشنهاد رنگ و بافت، زمان‌بندی دقیق، اجرای تمیز و جمع‌آوری کامل کارگاه موقت.
-            همه‌چیز شفاف و بدون دردسر.
-          </p>
-          <div class="cta-chips">
-            <span>پیش‌نمایش رنگ</span>
-            <span>رفع ترک و طبله</span>
-            <span>تمیزکاری پایانی</span>
-          </div>
-          <a class="btn light"
-             href="https://wa.me/989191996608?text=سلام،%20برای%20هماهنگی%20بازدید%20پیام%20می‌دهم"
-             target="_blank" rel="noopener">
-            هماهنگی سریع
-          </a>
-        </div>
-        <div class="cta-visual reveal">
-          <img src="images/gallery/stairs.jpg" alt="زیرسازی و تمیزکاری راه‌پله">
-        </div>
-      </div>
-    </section>
-
-    <!-- SERVICES / PRODUCT GRID -->
-    <section class="product-section" id="services">
-      <div class="container">
-        <div class="section-head centered">
-          <h2>فضای مناسب خود را پیدا کنید.</h2>
-          <p class="muted">چه یک اتاق خواب کوچک باشد یا لابی برج، تیم رنگستان دیوار را جمع‌وجور، تمیز و دقیق تحویل می‌دهد.</p>
-        </div>
-
-        <div class="product-grid">
-          <article class="product-card reveal">
-            <p class="tag hot">پرطرفدار</p>
-            <img src="images/gallery/yel.jpg" alt="رنگ‌آمیزی داخلی روشن">
-            <h3>رنگ‌آمیزی داخلی</h3>
-            <p class="price">شروع از ۴۹۰ هزار تومان / متر</p>
-          </article>
-
-          <article class="product-card reveal">
-            <img src="images/gallery/wall-painting.jpg" alt="دیوار شاخص و هنری">
-            <h3>دیوار شاخص و هنری</h3>
-            <p class="price">طرح اختصاصی، اجرا بافت‌دار</p>
-          </article>
-
-          <article class="product-card reveal">
-            <p class="tag hot">ترمیم</p>
-            <img src="images/gallery/to-fix.jpg" alt="ترمیم ترک و نم">
-            <h3>ترمیم و زیرسازی</h3>
-            <p class="price">رفع نم، بتونه‌کاری و پرایمر</p>
-          </article>
-
-          <article class="product-card reveal">
-            <img src="images/gallery/tree.jpg" alt="رنگ‌آمیزی فضای بیرونی">
-            <h3>رنگ‌آمیزی بیرونی</h3>
-            <p class="price">مقاوم در برابر آفتاب و رطوبت</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- PRESS / WHY -->
-    <section class="press-section" id="why">
-      <div class="container">
-        <div class="section-head centered">
-          <h2>زیر ذره‌بین مشتری‌ها</h2>
-          <p class="muted">صاحبان خانه می‌گویند رنگستان دیوارها را بدون شلوغی، تمیز و دقیق تحویل می‌دهد.</p>
-        </div>
-        <div class="press-grid">
-          <article class="press-card reveal">
-            <span class="press-logo">خانه‌دار وسواسی</span>
-            <p>«سطح‌سازی‌شان به‌قدری تمیز بود که بعد از رنگ، هیچ رد سنباده‌ای نماند.»</p>
-          </article>
-          <article class="press-card reveal">
-            <span class="press-logo">معمار پروژه</span>
-            <p>«در آپارتمان‌های کوچک، بدون شلوغی اضافه کار کردند و تحویل دقیق بود.»</p>
-          </article>
-          <article class="press-card reveal">
-            <span class="press-logo">مدیر مجتمع</span>
-            <p>«زمان‌بندی که گفتند را دقیق اجرا کردند و لابی را تمیزتر از قبل تحویل دادند.»</p>
-          </article>
-          <article class="press-card reveal">
-            <span class="press-logo">کافه مالک</span>
-            <p>«دیوار شاخص کافه را بافت‌دار زدند؛ مشتری‌ها هر روز می‌پرسند چه کسی اجرا کرده.»</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- GALLERY -->
-    <section class="gallery-section" id="gallery">
-      <div class="container">
-        <div class="section-head centered">
-          <h2>گالری اجرا</h2>
-        </div>
-        <div class="gallery-grid">
-          <img src="images/gallery/img.jpg" alt="اجرای داخلی روشن" class="reveal">
-          <img src="images/gallery/mus.jpg" alt="سقف و دیوار با رنگ خنثی" class="reveal">
-          <img src="images/gallery/third.jpg" alt="راهروی مدرن" class="reveal">
-          <img src="images/gallery/sal.jpg" alt="نشیمن مینیمال" class="reveal">
-          <img src="images/gallery/teamwork-copy.jpg" alt="تیم اجرایی رنگستان" class="reveal">
-          <img src="images/gallery/yel.jpg" alt="دیوار شاخص با رنگ گرم" class="reveal">
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT + FOOTER -->
-    <section class="contact-section" id="contact">
-      <div class="container contact-columns">
-        <div class="contact-card reveal">
-          <p class="eyebrow">ارتباط مستقیم</p>
-          <h2>برای بازدید و برآورد، پیام بدهید.</h2>
-          <p class="muted">شمیرانات و مناطق شمالی تهران تحت پوشش مستقیم تیم رنگستان هستند.</p>
-          <div class="contact-actions">
-            <a class="btn primary"
-               href="https://wa.me/989191996608?text=سلام،%20برای%20بازدید%20و%20برآورد%20هزینه%20پیام%20می‌دهم"
-               target="_blank" rel="noopener">
-              شروع مکالمه در واتساپ
-            </a>
-            <div class="contact-lines">
-              <p><span class="label">تلفن:</span> <a href="tel:+989191996608" class="contact-link">۰۹۱۹ ۱۹۹ ۶۶ ۰۸</a></p>
-              <p><span class="label">اینستاگرام:</span> <a href="https://www.instagram.com/rangestanhome/"
-                     target="_blank" rel="noopener" class="contact-link">@rangestanhome</a></p>
-            </div>
-          </div>
-        </div>
-
-        <footer class="site-footer reveal">
-          <div class="footer-brand">
-            <img src="images/logo/logotype-persian-dark.png"
-                 alt="رنگستان" class="footer-logo">
-            <p>کار ما زمانی تمام می‌شود که خانه‌تان حس آرامش تازه پیدا کند و شما با خیال راحت از نتیجه لذت ببرید.</p>
-          </div>
-
-          <div class="footer-cols">
-            <div>
-              <h4>رنگستان</h4>
-              <a href="#why">چرا رنگستان</a>
-              <a href="#services">خدمات</a>
-              <a href="#gallery">گالری</a>
-            </div>
-            <div>
-              <h4>خدمات</h4>
-              <span>رنگ‌آمیزی داخلی</span>
-              <span>دیوار شاخص</span>
-              <span>ترمیم و زیرسازی</span>
-              <span>نمای بیرونی</span>
-            </div>
-            <div>
-              <h4>ارتباط</h4>
-              <a href="tel:+989191996608">۰۹۱۹ ۱۹۹ ۶۶ ۰۸</a>
-              <a href="https://www.instagram.com/rangestanhome/" target="_blank" rel="noopener">Instagram</a>
-              <a href="https://wa.me/989191996608" target="_blank" rel="noopener">WhatsApp</a>
-            </div>
-          </div>
-        </footer>
-      </div>
-
-      <div class="footer-bottom">
-        <div class="container">
-          <p>© RangestanHome — کیفیتی که دیده می‌شود، هنری که می‌ماند.</p>
-        </div>
       </div>
     </section>
 
