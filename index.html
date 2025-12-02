@@ -41,30 +41,35 @@
     </div>
   </header>
 
-  <!-- 🔶 HERO -->
+ <!-- 🔶 HERO -->
 <main class="pt-[180px] pb-16">
-  <section class="max-w-[1100px] mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-6">
+  <section class="max-w-[1100px] mx-auto px-4 grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-6">
 
-    <!-- IMAGE CARD (+20% height) -->
-    <div class="bg-white/80 backdrop-blur-sm rounded-3xl p-4 shadow-xl border border-black/5 image-card overflow-hidden h-[140%]">
+    <!-- LEFT — BIG HERO IMAGE -->
+    <div class="bg-white/80 backdrop-blur-sm rounded-3xl p-4 shadow-xl border border-black/5 overflow-hidden">
       <img
         src="images/gallery/hero-image.jpg"
         alt="نمونه اجرای رنگستان"
-        class="w-full h-full object-cover rounded-2xl shadow-lg hero-img"
+        class="w-full h-full rounded-2xl shadow-lg object-cover"
+        style="aspect-ratio: 4 / 3;"
       />
     </div>
 
-    <!-- TEXT CARD (-30% smaller) -->
-    <div class="bg-white/80 backdrop-blur-sm rounded-3xl p-6 shadow-xl border border-black/5 flex flex-col gap-4 text-card h-[70%]">
-      <p class="font-medium text-gray-800">
+    <!-- RIGHT — THIN INFO CARD -->
+    <div class="bg-white/80 backdrop-blur-sm rounded-3xl p-6 shadow-xl border border-black/5 flex flex-col gap-4">
+
+      <p class="font-semibold text-lg text-gray-800">
         رنگستان به ساختن فضاهایی می‌اندیشد که نور و نظم در آن‌ها حضور زنده دارند.
       </p>
-      <p class="text-gray-700">
+
+      <p class="text-gray-700 leading-relaxed">
         باور داریم با پیش‌برنامه‌ریزی و بررسی دقیق هر پروژه، شانس اجرای بی‌نقص و کسب رضایت شما فراهم می‌شود.
       </p>
-      <p class="text-gray-700">
+
+      <p class="text-gray-700 leading-relaxed">
         هدف ما کیفیتی ماندگار و هنری است که در فضا باقی بماند.
       </p>
+
     </div>
 
   </section>
