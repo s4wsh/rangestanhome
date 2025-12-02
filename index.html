@@ -4,57 +4,69 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>رنگستان | آرامش دیوار</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
 
-  <!-- نوار اطلاعات مشکی -->
-  <div class="top-info">
-    <div class="container top-info-inner">
-      <div class="top-info-item right">
-        خدمات نقاشی و نوسازی دیوار در شمیرانات (لواسان، اوشان، فشم، میگون…)
-      </div>
-      <div class="top-info-item center">
-        ⏰ ساعت پاسخ‌گویی: ۸ صبح تا ۸ شب
-      </div>
-      <div class="top-info-item left">
-        📞 <a href="tel:09191996608">۰۹۱۹۱۹۹۶۶۰۸ – تماس مستقیم</a>
-      </div>
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@200..900&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Vazirmatn', sans-serif;
+      background: linear-gradient(135deg, #f7f4ec, #ede7d7);
+    }
+  </style>
+
+</head>
+<body class="min-h-screen overflow-x-hidden">
+
+  <!-- 🔶 TOP BLACK BAR -->
+  <div class="w-full fixed top-0 right-0 left-0 bg-black text-white text-sm py-2 z-50">
+    <div class="max-w-[1100px] mx-auto px-4 flex justify-between items-center gap-2">
+      <span>خدمات نقاشی و نوسازی دیوار در شمیرانات (لواسان، اوشان، فشم، میگون…)</span>
+      <span>⏰ ساعت پاسخ‌گویی: ۸ صبح تا ۸ شب</span>
+      <a href="tel:09191996608" class="hover:text-gray-300">
+        📞 ۰۹۱۹۱۹۹۶۶۰۸ – تماس مستقیم
+      </a>
     </div>
   </div>
 
-  <!-- هدر سفید -->
-  <header class="top-header">
-    <div class="container header-inner">
-      <img src="images/logo/logomark-dark.png" alt="رنگستان" class="header-logo">
+  <!-- 🔶 WHITE HEADER -->
+  <header class="w-full fixed top-[40px] right-0 left-0 bg-white h-[70px] shadow-sm flex justify-center z-40">
+    <div class="max-w-[1100px] w-full flex justify-center items-center">
+      <img src="images/logo/logomark-dark.png" class="h-9" alt="رنگستان" />
     </div>
   </header>
 
-  <!-- هیرو -->
-  <main>
-    <section class="minimal-hero">
-      <div class="container hero-grid">
+  <!-- 🔶 HERO -->
+  <main class="pt-[180px] pb-16">
+    <section class="max-w-[1100px] mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-6">
 
-        <!-- کارت تصویر -->
-        <div class="hero-card image-card">
-          <img class="hero-image" src="images/gallery/hero-image.jpg" alt="نمونه اجرای رنگستان">
-        </div>
-
-        <!-- کارت متن -->
-        <div class="hero-card text-card">
-          <h1 class="section-title">آرامش دیوار، نظمِ روشن</h1>
-          <p class="hero-subtitle">خانه‌ای که نور و سکون را از دل جزئیات می‌گیرد.</p>
-          <p class="minimal-line">رنگستان به خلق فضاهایی می‌اندیشد که نور، سکون و نظم در آن‌ها جریان دارد.</p>
-          <p class="minimal-line">هر دیوار با ترمیم دقیق و رنگ‌آمیزی آراسته، دوباره آرام می‌شود.</p>
-          <p class="minimal-line">طراحی سه‌بعدی و اجرای تمیز، بین درون و بیرون آشتی برقرار می‌کند.</p>
-          <p class="minimal-line">سادگی ایرانی را به زیبایی ماندگار گره می‌زنیم.</p>
-        </div>
-
+      <!-- IMAGE CARD -->
+      <div class="bg-white/80 backdrop-blur-sm rounded-3xl p-4 shadow-xl border border-black/5 image-card overflow-hidden">
+        <img
+          src="images/gallery/hero-image.jpg"
+          alt="نمونه اجرای رنگستان"
+          class="w-full rounded-2xl shadow-lg hero-img"
+        />
       </div>
+
+      <!-- TEXT CARD -->
+      <div class="bg-white/80 backdrop-blur-sm rounded-3xl p-6 shadow-xl border border-black/5 flex flex-col gap-3 text-card">
+        <p class="font-medium text-gray-700">رنكستان به خلق فضاهايى مى انديشد كه نور، سكون و نظم در آن ها</p>
+        <p>جريان دارد. ما باور داريم هر خانه بايد آرامش خود را باز يابد؛ از دلٍ</p>
+        <p>ترميم دقيق تارنكً آميزى آراسته و طراحى سه بعدى، هدف ما ساختن</p>
+        <p>فضاهاييست كه بين درون وبيرون آشتى برقرار كنند و زيبايي ماندكار</p>
+        <p>را با سادكى ايرانى پيوند دهند.</p>
+      </div>
+
     </section>
   </main>
 
-  <!-- 🔥 اضافه شدن اسکریپت افکت -->
+  <!-- JS -->
   <script src="js/app.js"></script>
 
 </body>
