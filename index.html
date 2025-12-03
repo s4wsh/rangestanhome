@@ -5,18 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>رنگستان | نقاشی تخصصی دیوار</title>
 
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@200..900&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bar-h: 48px;
-      --bar-h-sm: 54px;
-      --gap: 10px;
-      --header-h: 68px;
-
-      --main-pt: calc(var(--bar-h) + var(--gap) + var(--header-h));
-      --main-pt-sm: calc(var(--bar-h-sm) + var(--gap) + var(--header-h));
+      --bar-h: 40px;
+      --header-gap: 10px;
+      --header-h: 72px;
+      --header-h-sm: 80px;
+      --main-pt: calc(var(--bar-h) + var(--header-gap) + var(--header-h));
+      --main-pt-sm: calc(var(--bar-h) + var(--header-gap) + var(--header-h-sm));
     }
 
     body {
@@ -24,90 +28,86 @@
       background: linear-gradient(135deg, #f7f4ec, #ede7d7);
     }
 
-    /* scroll hide */
-    #topBar {
-      transition: transform .35s ease;
-    }
+    /* Slide bar animations */
     .hide-bar { transform: translateY(-100%); }
     .show-bar { transform: translateY(0); }
-
-    #headerBar {
-      transition: top .35s ease;
-    }
+    #topBar { transition: transform .35s ease; }
+    #headerBar { transition: top .35s ease; }
   </style>
 </head>
 
 <body class="min-h-screen overflow-x-hidden">
 
-  <!-- 🔶 BLACK TOP BAR -->
+  <!-- 🟤 TOP BLACK BAR -->
   <div id="topBar"
-       class="w-full fixed top-0 right-0 left-0 bg-black text-white py-2.5 sm:py-3
-              z-50 text-[11px] sm:text-sm leading-[1.8] show-bar">
-    <div class="max-w-[1100px] mx-auto px-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-1 sm:gap-3">
-      <span class="font-medium">خدمات نقاشی و نوسازی دیوار</span>
-      <span class="font-medium">⏰ ۸ صبح تا ۸ شب</span>
-      <a href="tel:09191996608" class="hover:text-gray-300 font-semibold">📞 ۰۹۱۹۱۹۹۶۶۰۸ – تماس مستقیم</a>
-    </div>
+       class="w-full fixed top-0 right-0 left-0 bg-black text-white
+              flex items-center justify-center
+              z-50 text-[12px] sm:text-sm show-bar"
+       style="height: var(--bar-h);">
+    <span class="font-semibold whitespace-nowrap">📞 تماس مستقیم: ۰۹۱۹۱۹۹۶۶۰۸</span>
   </div>
 
   <!-- ⚪ HEADER LOGO CARD -->
   <header id="headerBar"
-          class="w-full fixed right-0 left-0 z-40 mt-[var(--bar-h)] sm:mt-[var(--bar-h-sm)] flex justify-center">
-    <div class="max-w-[1100px] w-full mx-auto px-4">
-      <div class="bg-white rounded-3xl shadow-xl border border-black/5
-                  h-[var(--header-h)] flex items-center justify-center px-5">
-        <img src="images/logo/logomark-dark.png" class="h-8 sm:h-9" alt="رنگستان" />
-      </div>
+          class="fixed w-full right-0 left-0 z-40 bg-white/95 backdrop-blur
+                 border-b border-black/10 flex justify-center px-4"
+          style="top: calc(var(--bar-h) + var(--header-gap)); height: var(--header-h);">
+    <div class="max-w-[1100px] w-full flex items-center justify-center">
+      <img src="images/logo/logomark-dark.png"
+           class="h-8 sm:h-9" alt="رنگستان">
     </div>
   </header>
 
   <!-- HERO -->
   <main id="mainContent"
-        class="pt-[var(--main-pt)] sm:pt-[var(--main-pt-sm)] pb-20 sm:pb-24 transition-all">
+        class="transition-all pb-20 sm:pb-24"
+        style="padding-top: var(--main-pt);">
     <section class="max-w-[1100px] mx-auto px-4 grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-6 sm:gap-8">
 
-      <!-- LEFT IMAGE -->
-      <div class="bg-white/80 backdrop-blur-sm rounded-3xl p-4 shadow-xl border border-black/5">
-        <img src="images/gallery/hero-image.jpg" alt="نمونه اجرای رنگستان"
-             class="w-full rounded-2xl object-cover"
-             style="aspect-ratio:4/3;">
+      <!-- LEFT IMAGE CARD -->
+      <div class="bg-white/80 backdrop-blur-sm rounded-3xl p-3 sm:p-4
+                  shadow-xl border border-black/5 overflow-hidden">
+        <img src="images/gallery/hero-image.jpg"
+             alt="نمونه اجرای رنگستان"
+             class="w-full rounded-2xl shadow-lg object-cover"
+             style="aspect-ratio: 4/3;">
       </div>
 
-      <!-- RIGHT TEXT -->
-      <div class="bg-white/80 backdrop-blur-sm rounded-3xl p-6 sm:p-7 shadow-xl border border-black/5 flex flex-col gap-4">
-        <p class="font-semibold text-[15px] sm:text-lg text-gray-800 leading-relaxed">
+      <!-- RIGHT TEXT CARD -->
+      <div class="bg-white/80 backdrop-blur-sm rounded-3xl p-5 sm:p-7
+                  shadow-xl border border-black/5 flex flex-col gap-3 sm:gap-4">
+        <p class="font-semibold text-[15px] sm:text-lg text-gray-800 leading-normal sm:leading-relaxed">
           رنگستان به ساختن فضاهایی می‌اندیشد که نور و نظم در آن‌ها حضور زنده دارند.
         </p>
-
-        <p class="text-gray-700 text-[13px] sm:text-base leading-relaxed">
+        <p class="text-gray-700 text-[13px] sm:text-base leading-normal sm:leading-relaxed">
           باور داریم با پیش‌برنامه‌ریزی و بررسی دقیق هر پروژه، شانس اجرای بی‌نقص و کسب رضایت شما فراهم می‌شود.
         </p>
-
-        <p class="text-gray-700 text-[13px] sm:text-base leading-relaxed">
+        <p class="text-gray-700 text-[13px] sm:text-base leading-normal sm:leading-relaxed">
           هدف ما کیفیتی ماندگار و هنری است که در فضا باقی بماند.
         </p>
-
-        <p class="text-xs sm:text-sm font-bold text-gray-900 mt-8">
+        <p class="text-xs sm:text-sm font-bold text-gray-900 mt-6 sm:mt-8">
           نقاشی تخصصی دیوار و ترمیم
         </p>
       </div>
+
     </section>
   </main>
 
-  <!-- JS - Hide Scroll -->
+  <!-- JS – Hide on scroll -->
   <script>
     let lastScroll = 0;
-    const bar = document.getElementById("topBar");
-    const main = document.getElementById("mainContent");
-
+    const topBar = document.getElementById("topBar");
+    
     window.addEventListener("scroll", () => {
-      const cur = window.pageYOffset;
-      if (cur > lastScroll && cur > 60) {
-        bar.classList.add("hide-bar");
+      const current = window.pageYOffset;
+      if (current > lastScroll && current > 60) {
+        topBar.classList.add("hide-bar");
+        topBar.classList.remove("show-bar");
       } else {
-        bar.classList.remove("hide-bar");
+        topBar.classList.remove("hide-bar");
+        topBar.classList.add("show-bar");
       }
-      lastScroll = cur;
+      lastScroll = current;
     });
   </script>
 
