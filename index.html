@@ -5,156 +5,109 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>رنگستان | نقاشی تخصصی دیوار</title>
 
-  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@200..900&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --top-h: 56px;
-      --top-h-sm: 62px;
-      --header-top: 48px;
-      --header-top-sm: 55px;
-      --main-pt: 160px;
-      --main-pt-sm: 185px;
-      --compact-top: 14px;
-      --compact-top-sm: 18px;
-      --compact-main: 120px;
-      --compact-main-sm: 140px;
+      --bar-h: 48px;
+      --bar-h-sm: 54px;
+      --gap: 10px;
+      --header-h: 68px;
+
+      --main-pt: calc(var(--bar-h) + var(--gap) + var(--header-h));
+      --main-pt-sm: calc(var(--bar-h-sm) + var(--gap) + var(--header-h));
     }
+
     body {
       font-family: 'Vazirmatn', sans-serif;
       background: linear-gradient(135deg, #f7f4ec, #ede7d7);
     }
 
-    /* Slide bar animations */
-    .hide-bar {
-      transform: translateY(-100%);
-    }
-    .show-bar {
-      transform: translateY(0);
-    }
-    #topBar, #headerBar {
-      transition: transform 0.35s ease, top 0.3s ease;
-    }
+    /* scroll hide */
     #topBar {
-      min-height: var(--top-h);
+      transition: transform .35s ease;
     }
+    .hide-bar { transform: translateY(-100%); }
+    .show-bar { transform: translateY(0); }
+
     #headerBar {
-      top: var(--header-top) !important;
-    }
-    #mainContent {
-      padding-top: var(--main-pt) !important;
-    }
-    @media (min-width: 640px) {
-      #topBar { min-height: var(--top-h-sm); }
-      #headerBar { top: var(--header-top-sm) !important; }
-      #mainContent { padding-top: var(--main-pt-sm) !important; }
+      transition: top .35s ease;
     }
   </style>
 </head>
 
 <body class="min-h-screen overflow-x-hidden">
 
-  <!-- 🟤 TOP BLACK BAR -->
+  <!-- 🔶 BLACK TOP BAR -->
   <div id="topBar"
-       class="w-full fixed top-0 right-0 left-0 bg-black text-white py-3 sm:py-3.5 
-              z-40 text-[11px] sm:text-sm leading-[1.8] show-bar">
+       class="w-full fixed top-0 right-0 left-0 bg-black text-white py-2.5 sm:py-3
+              z-50 text-[11px] sm:text-sm leading-[1.8] show-bar">
     <div class="max-w-[1100px] mx-auto px-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-1 sm:gap-3">
-      <span class="font-medium text-white/95">خدمات نقاشی و نوسازی دیوار</span>
-      <span class="font-medium text-white/90">⏰ ۸ صبح تا ۸ شب</span>
+      <span class="font-medium">خدمات نقاشی و نوسازی دیوار</span>
+      <span class="font-medium">⏰ ۸ صبح تا ۸ شب</span>
       <a href="tel:09191996608" class="hover:text-gray-300 font-semibold">📞 ۰۹۱۹۱۹۹۶۶۰۸ – تماس مستقیم</a>
     </div>
   </div>
 
   <!-- ⚪ HEADER LOGO CARD -->
   <header id="headerBar"
-          class="w-full fixed right-0 left-0 top-[48px] sm:top-[55px] z-30 px-4 flex justify-center">
-    <div class="max-w-[1100px] w-full">
+          class="w-full fixed right-0 left-0 z-40 mt-[var(--bar-h)] sm:mt-[var(--bar-h-sm)] flex justify-center">
+    <div class="max-w-[1100px] w-full mx-auto px-4">
       <div class="bg-white rounded-3xl shadow-xl border border-black/5
-                  h-[60px] sm:h-[72px] flex items-center justify-center px-5">
-        <img src="images/logo/logomark-dark.png"
-             class="h-7 sm:h-9"
-             alt="رنگستان">
+                  h-[var(--header-h)] flex items-center justify-center px-5">
+        <img src="images/logo/logomark-dark.png" class="h-8 sm:h-9" alt="رنگستان" />
       </div>
     </div>
   </header>
 
   <!-- HERO -->
   <main id="mainContent"
-        class="pt-[160px] sm:pt-[185px] pb-20 sm:pb-24 transition-all">
+        class="pt-[var(--main-pt)] sm:pt-[var(--main-pt-sm)] pb-20 sm:pb-24 transition-all">
     <section class="max-w-[1100px] mx-auto px-4 grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-6 sm:gap-8">
 
-      <!-- LEFT IMAGE CARD -->
-      <div class="bg-white/80 backdrop-blur-sm rounded-3xl p-3 sm:p-4 shadow-xl border border-black/5 overflow-hidden">
-        <img src="images/gallery/hero-image.jpg"
-             alt="نمونه اجرای رنگستان"
-             class="w-full rounded-2xl shadow-lg object-cover"
-             style="aspect-ratio: 4/3;">
+      <!-- LEFT IMAGE -->
+      <div class="bg-white/80 backdrop-blur-sm rounded-3xl p-4 shadow-xl border border-black/5">
+        <img src="images/gallery/hero-image.jpg" alt="نمونه اجرای رنگستان"
+             class="w-full rounded-2xl object-cover"
+             style="aspect-ratio:4/3;">
       </div>
 
-      <!-- RIGHT TEXT CARD -->
-      <div class="bg-white/80 backdrop-blur-sm rounded-3xl p-5 sm:p-7 shadow-xl border border-black/5 flex flex-col gap-3 sm:gap-4">
-        <p class="font-semibold text-[15px] sm:text-lg text-gray-800 leading-normal sm:leading-relaxed">
+      <!-- RIGHT TEXT -->
+      <div class="bg-white/80 backdrop-blur-sm rounded-3xl p-6 sm:p-7 shadow-xl border border-black/5 flex flex-col gap-4">
+        <p class="font-semibold text-[15px] sm:text-lg text-gray-800 leading-relaxed">
           رنگستان به ساختن فضاهایی می‌اندیشد که نور و نظم در آن‌ها حضور زنده دارند.
         </p>
-        <p class="text-gray-700 text-[13px] sm:text-base leading-normal sm:leading-relaxed">
+
+        <p class="text-gray-700 text-[13px] sm:text-base leading-relaxed">
           باور داریم با پیش‌برنامه‌ریزی و بررسی دقیق هر پروژه، شانس اجرای بی‌نقص و کسب رضایت شما فراهم می‌شود.
         </p>
-        <p class="text-gray-700 text-[13px] sm:text-base leading-normal sm:leading-relaxed">
+
+        <p class="text-gray-700 text-[13px] sm:text-base leading-relaxed">
           هدف ما کیفیتی ماندگار و هنری است که در فضا باقی بماند.
         </p>
 
-        <p class="text-xs sm:text-sm font-bold text-gray-900 mt-6 sm:mt-8">
+        <p class="text-xs sm:text-sm font-bold text-gray-900 mt-8">
           نقاشی تخصصی دیوار و ترمیم
         </p>
       </div>
-
     </section>
   </main>
 
-  <!-- JS – Hide on scroll -->
+  <!-- JS - Hide Scroll -->
   <script>
     let lastScroll = 0;
-    const topBar  = document.getElementById("topBar");
-    const header  = document.getElementById("headerBar");
-    const main    = document.getElementById("mainContent");
-
-    const prefersDesktop = () => window.matchMedia("(min-width: 640px)").matches;
-
-    const setStack = (compact = false) => {
-      const desktop = prefersDesktop();
-      if (compact) {
-        header.style.top = desktop ? `var(--compact-top-sm)` : `var(--compact-top)`;
-        main.style.paddingTop = desktop ? `var(--compact-main-sm)` : `var(--compact-main)`;
-      } else {
-        header.style.top = desktop ? `var(--header-top-sm)` : `var(--header-top)`;
-        main.style.paddingTop = desktop ? `var(--main-pt-sm)` : `var(--main-pt)`;
-      }
-    };
-
-    // Initialize positions on load and resize to keep layers separate.
-    setStack(false);
-    window.addEventListener("resize", () => setStack(topBar.classList.contains("hide-bar")));
+    const bar = document.getElementById("topBar");
+    const main = document.getElementById("mainContent");
 
     window.addEventListener("scroll", () => {
-      const current = window.pageYOffset;
-
-      if (current > lastScroll && current > 60) {
-        topBar.classList.add("hide-bar");
-        topBar.classList.remove("show-bar");
-        setStack(true);
+      const cur = window.pageYOffset;
+      if (cur > lastScroll && cur > 60) {
+        bar.classList.add("hide-bar");
       } else {
-        topBar.classList.remove("hide-bar");
-        topBar.classList.add("show-bar");
-        setStack(false);
+        bar.classList.remove("hide-bar");
       }
-
-      lastScroll = current;
+      lastScroll = cur;
     });
   </script>
 
