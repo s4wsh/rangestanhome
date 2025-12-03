@@ -26,9 +26,15 @@
       background: linear-gradient(135deg, #f7f4ec, #ede7d7);
     }
 
-    .hide-bar { transform: translateY(-100%); }
-    .show-bar { transform: translateY(0); }
-    #topBar { transition: transform .35s ease; }
+    .hide {
+      transform: translateY(-130%);
+    }
+    .show {
+      transform: translateY(0);
+    }
+    #topBar, #headerBar {
+      transition: transform .35s ease;
+    }
   </style>
 </head>
 
@@ -38,7 +44,7 @@
   <div id="topBar"
        class="w-full fixed top-0 right-0 left-0 bg-black text-white
               flex items-center justify-center z-50 text-[13px]
-              border-b border-black/15 show-bar"
+              border-b border-black/15 show"
        style="height: var(--bar-h);">
     <span class="font-semibold whitespace-nowrap">📞 تماس مستقیم: ۰۹۱۹۱۹۹۶۶۰۸</span>
   </div>
@@ -49,7 +55,7 @@
                bg-white/90 backdrop-blur-md
                rounded-b-3xl shadow-lg
                border-[4px] border-black/10
-               flex justify-center"
+               flex justify-center show"
         style="top: calc(var(--bar-h) + var(--header-gap)); height: var(--header-h);">
     <div class="max-w-[1100px] w-full flex justify-center items-center">
       <img src="images/logo/logomark-dark.png"
@@ -101,7 +107,7 @@
              style="aspect-ratio: 4/3;">
       </div>
 
-      <!-- ⭐ NEW SERVICES INFO CARD -->
+      <!-- SERVICES INFO CARD -->
       <div class="bg-white/85 backdrop-blur-sm rounded-3xl p-6 shadow-xl border border-black/5 flex flex-col gap-3">
 
         <p class="text-[17px] sm:text-[18px] font-extrabold text-gray-900 leading-relaxed">
@@ -129,23 +135,35 @@
 
       </div>
 
+      <!-- ⭐ WHATSAPP CTA CARD -->
+      <a href="https://wa.me/989191996608"
+         class="bg-white/90 backdrop-blur-md rounded-3xl shadow-lg border-[4px] border-black/10
+                flex items-center justify-center gap-3 p-4 text-[15px] sm:text-[17px]
+                font-bold text-green-700 hover:bg-white transition">
+        💬 پشتیبانی سریع واتساپ — همین حالا پیام دهید
+      </a>
+
     </section>
   </main>
 
+  <!-- SCROLL LOGIC / HEADER + TOP BAR BOTH SLIDE -->
   <script>
     let lastScroll = 0;
     const topBar = document.getElementById("topBar");
-    
+    const headerBar = document.getElementById("headerBar");
+
     window.addEventListener("scroll", () => {
       const current = window.pageYOffset;
+
       if (current > lastScroll && current > 60) {
-        topBar.classList.add("hide-bar");
-        topBar.classList.remove("show-bar");
+        topBar.classList.replace("show", "hide");
+        headerBar.classList.replace("show", "hide");
       } else {
-        topBar.classList.remove("hide-bar");
-        topBar.classList.add("show-bar");
+        topBar.classList.replace("hide", "show");
+        headerBar.classList.replace("hide", "show");
       }
-      lastScroll = current;
+
+      lastScroll = current <= 0 ? 0 : current;
     });
   </script>
 
