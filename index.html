@@ -43,26 +43,26 @@
     <span class="font-semibold whitespace-nowrap">📞 تماس مستقیم: ۰۹۱۹۱۹۹۶۶۰۸</span>
   </div>
 
-  <!-- HEADER AS CARD STYLED -->
- <header id="headerBar"
+  <!-- HEADER -->
+  <header id="headerBar"
         class="fixed w-full right-0 left-0 z-40 px-4
                bg-white/90 backdrop-blur-md
                rounded-b-3xl shadow-lg
                border-[4px] border-black/10
                flex justify-center"
         style="top: calc(var(--bar-h) + var(--header-gap)); height: var(--header-h);">
-  <div class="max-w-[1100px] w-full flex justify-center items-center">
-    <img src="images/logo/logomark-dark.png"
-         class="h-9" alt="رنگستان">
-  </div>
-</header>
+    <div class="max-w-[1100px] w-full flex justify-center items-center">
+      <img src="images/logo/logomark-dark.png"
+           class="h-9" alt="رنگستان">
+    </div>
+  </header>
 
   <!-- MAIN HERO -->
   <main id="mainContent"
         class="transition-all pb-24"
         style="padding-top: var(--main-pt);">
 
-    <section class="max-w-[1100px] mx-auto px-4 grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-8">
+    <section class="max-w-[1100px] mx-auto px-4 flex flex-col gap-8">
 
       <!-- HERO IMAGE CARD -->
       <div class="bg-white/85 backdrop-blur-sm rounded-3xl p-4
@@ -91,6 +91,16 @@
         </p>
 
       </div>
+
+      <!-- ⭐ SECOND ARTWORK CARD ADDED -->
+      <div class="bg-white/85 backdrop-blur-sm rounded-3xl p-4
+                  shadow-xl border border-black/5 overflow-hidden">
+        <img src="images/gallery/artwork-2.jpg"
+             alt="اجرای دیگر رنگستان"
+             class="w-full rounded-2xl shadow-lg object-cover"
+             style="aspect-ratio: 4/3;">
+      </div>
+
     </section>
   </main>
 
