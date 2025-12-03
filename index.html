@@ -16,11 +16,9 @@
   <style>
     :root {
       --bar-h: 40px;
-      --header-gap: 10px;
+      --header-gap: 8px;
       --header-h: 72px;
-      --header-h-sm: 80px;
       --main-pt: calc(var(--bar-h) + var(--header-gap) + var(--header-h));
-      --main-pt-sm: calc(var(--bar-h) + var(--header-gap) + var(--header-h-sm));
     }
 
     body {
@@ -31,41 +29,41 @@
     .hide-bar { transform: translateY(-100%); }
     .show-bar { transform: translateY(0); }
     #topBar { transition: transform .35s ease; }
-    #headerBar { transition: top .35s ease; }
   </style>
 </head>
 
 <body class="min-h-screen overflow-x-hidden">
 
-  <!-- 🟤 TOP BLACK BAR + BORDER ADDED -->
+  <!-- TOP BLACK BAR -->
   <div id="topBar"
        class="w-full fixed top-0 right-0 left-0 bg-black text-white
-              flex items-center justify-center
-              z-50 text-[12px] sm:text-sm show-bar
-              border-b border-black/10 rounded-b-3xl"
+              flex items-center justify-center z-50 text-[13px]
+              border-b border-black/15 show-bar"
        style="height: var(--bar-h);">
     <span class="font-semibold whitespace-nowrap">📞 تماس مستقیم: ۰۹۱۹۱۹۹۶۶۰۸</span>
   </div>
 
-  <!-- ⚪ HEADER LOGO -->
+  <!-- HEADER AS CARD STYLED -->
   <header id="headerBar"
-          class="fixed w-full right-0 left-0 z-40 bg-white/95 backdrop-blur
-                 border-b border-black/10 flex justify-center px-4"
+          class="fixed w-full right-0 left-0 z-40 px-4
+                 bg-white/90 backdrop-blur-md
+                 rounded-b-3xl shadow-lg border border-black/5 flex justify-center"
           style="top: calc(var(--bar-h) + var(--header-gap)); height: var(--header-h);">
-    <div class="max-w-[1100px] w-full flex items-center justify-center">
+    <div class="max-w-[1100px] w-full flex justify-center items-center">
       <img src="images/logo/logomark-dark.png"
-           class="h-8 sm:h-9" alt="رنگستان">
+           class="h-9" alt="رنگستان">
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- MAIN HERO -->
   <main id="mainContent"
-        class="transition-all pb-20 sm:pb-24"
+        class="transition-all pb-24"
         style="padding-top: var(--main-pt);">
-    <section class="max-w-[1100px] mx-auto px-4 grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-6 sm:gap-8">
 
-      <!-- LEFT IMAGE CARD -->
-      <div class="bg-white/80 backdrop-blur-sm rounded-3xl p-3 sm:p-4
+    <section class="max-w-[1100px] mx-auto px-4 grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-8">
+
+      <!-- HERO IMAGE CARD -->
+      <div class="bg-white/85 backdrop-blur-sm rounded-3xl p-4
                   shadow-xl border border-black/5 overflow-hidden">
         <img src="images/gallery/hero-image.jpg"
              alt="نمونه اجرای رنگستان"
@@ -73,28 +71,26 @@
              style="aspect-ratio: 4/3;">
       </div>
 
-      <!-- RIGHT TEXT CARD — NEW TEXT APPLIED -->
-      <div class="bg-white/80 backdrop-blur-sm rounded-3xl p-5 sm:p-7
-                  shadow-xl border border-black/5 flex flex-col gap-3 sm:gap-4">
+      <!-- TEXT CONTENT CARD -->
+      <div class="bg-white/85 backdrop-blur-sm rounded-3xl p-6 shadow-xl border border-black/5 flex flex-col gap-4">
 
-        <p class="text-[14px] sm:text-base text-gray-800 leading-relaxed">
+        <p class="text-[17px] sm:text-[19px] font-extrabold text-gray-900 leading-relaxed">
           رنگستان، اجرای دقیق دیوار از آماده‌سازی تا پایان کار.
         </p>
 
-        <p class="text-[13px] sm:text-base text-gray-700 leading-relaxed">
+        <p class="text-[14px] sm:text-[16px] text-gray-700 leading-relaxed">
           ما ترک‌ها و ناهمواری‌ها را کاملاً ترمیم می‌کنیم، زیرسازی اصولی انجام می‌دهیم و از رنگ‌های تاییدشده برای طول عمر بیشتر استفاده می‌کنیم.
         </p>
 
-        <p class="text-[13px] sm:text-base text-gray-700 leading-relaxed">
-          پوشش کامل کف و مبلمان، اجرای تمیز و تحویل بموقع.
+        <p class="text-[14px] sm:text-[16px] text-gray-700 leading-relaxed">
+          پوشش کامل کف و مبلمان، اجرای تمیز بدون پاشش رنگ، سرعت بالا و تحویل قابل‌اطمینان — تجربه‌ای که آرامش شما را حفظ می‌کند.
         </p>
 
-        <p class="text-xs sm:text-sm font-bold text-gray-900 mt-6 sm:mt-8">
+        <p class="text-xs sm:text-sm font-bold text-gray-900 mt-4">
           نقاشی و ترمیم تخصصی دیوار — نتیجه‌ای تمیز و ماندگار
         </p>
 
       </div>
-
     </section>
   </main>
 
