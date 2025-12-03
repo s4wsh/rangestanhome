@@ -14,6 +14,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@200..900&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --top-h: 56px;
+      --top-h-sm: 62px;
+      --header-top: 48px;
+      --header-top-sm: 55px;
+      --main-pt: 160px;
+      --main-pt-sm: 185px;
+      --compact-top: 14px;
+      --compact-top-sm: 18px;
+      --compact-main: 120px;
+      --compact-main-sm: 140px;
+    }
     body {
       font-family: 'Vazirmatn', sans-serif;
       background: linear-gradient(135deg, #f7f4ec, #ede7d7);
@@ -28,6 +40,20 @@
     }
     #topBar, #headerBar {
       transition: transform 0.35s ease, top 0.3s ease;
+    }
+    #topBar {
+      min-height: var(--top-h);
+    }
+    #headerBar {
+      top: var(--header-top) !important;
+    }
+    #mainContent {
+      padding-top: var(--main-pt) !important;
+    }
+    @media (min-width: 640px) {
+      #topBar { min-height: var(--top-h-sm); }
+      #headerBar { top: var(--header-top-sm) !important; }
+      #mainContent { padding-top: var(--main-pt-sm) !important; }
     }
   </style>
 </head>
@@ -98,19 +124,34 @@
     const header  = document.getElementById("headerBar");
     const main    = document.getElementById("mainContent");
 
+    const prefersDesktop = () => window.matchMedia("(min-width: 640px)").matches;
+
+    const setStack = (compact = false) => {
+      const desktop = prefersDesktop();
+      if (compact) {
+        header.style.top = desktop ? `var(--compact-top-sm)` : `var(--compact-top)`;
+        main.style.paddingTop = desktop ? `var(--compact-main-sm)` : `var(--compact-main)`;
+      } else {
+        header.style.top = desktop ? `var(--header-top-sm)` : `var(--header-top)`;
+        main.style.paddingTop = desktop ? `var(--main-pt-sm)` : `var(--main-pt)`;
+      }
+    };
+
+    // Initialize positions on load and resize to keep layers separate.
+    setStack(false);
+    window.addEventListener("resize", () => setStack(topBar.classList.contains("hide-bar")));
+
     window.addEventListener("scroll", () => {
       const current = window.pageYOffset;
 
       if (current > lastScroll && current > 60) {
         topBar.classList.add("hide-bar");
         topBar.classList.remove("show-bar");
-        header.style.top = "14px";
-        main.style.paddingTop = "120px";
+        setStack(true);
       } else {
         topBar.classList.remove("hide-bar");
         topBar.classList.add("show-bar");
-        header.style.top = "48px";
-        main.style.paddingTop = "160px";
+        setStack(false);
       }
 
       lastScroll = current;
