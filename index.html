@@ -5,13 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>رنگستان | نقاشی تخصصی دیوار</title>
 
-  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@200..900&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -26,12 +20,9 @@
       background: linear-gradient(135deg, #f7f4ec, #ede7d7);
     }
 
-    .hide {
-      transform: translateY(-130%);
-    }
-    .show {
-      transform: translateY(0);
-    }
+    .hide { transform: translateY(-130%); }
+    .show { transform: translateY(0); }
+
     #topBar, #headerBar {
       transition: transform .35s ease;
     }
@@ -40,30 +31,29 @@
 
 <body class="min-h-screen overflow-x-hidden">
 
-  <!-- TOP BLACK BAR -->
+  <!-- 🔶 TOP BLACK BAR -->
   <div id="topBar"
-       class="w-full fixed top-0 right-0 left-0 bg-black text-white
-              flex items-center justify-center z-50 text-[13px]
+       class="w-full fixed top-0 right-0 left-0 bg-black text-white z-50
+              flex items-center justify-center text-[13px]
               border-b border-black/15 show"
        style="height: var(--bar-h);">
     <span class="font-semibold whitespace-nowrap">📞 تماس مستقیم: ۰۹۱۹۱۹۹۶۶۰۸</span>
   </div>
 
-  <!-- HEADER -->
+  <!-- ⚪ HEADER -->
   <header id="headerBar"
-        class="fixed w-full right-0 left-0 z-40 px-4
+        class="fixed w-full right-0 left-0 z-40 px-4 show
                bg-white/90 backdrop-blur-md
                rounded-b-3xl shadow-lg
                border-[4px] border-black/10
-               flex justify-center show"
+               flex justify-center"
         style="top: calc(var(--bar-h) + var(--header-gap)); height: var(--header-h);">
     <div class="max-w-[1100px] w-full flex justify-center items-center">
-      <img src="images/logo/logomark-dark.png"
-           class="h-9" alt="رنگستان">
+      <img src="images/logo/logomark-dark.png" class="h-9" alt="رنگستان">
     </div>
   </header>
 
-  <!-- MAIN HERO -->
+  <!-- 🏠 MAIN CONTENT -->
   <main id="mainContent"
         class="transition-all pb-24"
         style="padding-top: var(--main-pt);">
@@ -71,10 +61,8 @@
     <section class="max-w-[1100px] mx-auto px-4 flex flex-col gap-8">
 
       <!-- HERO IMAGE CARD -->
-      <div class="bg-white/85 backdrop-blur-sm rounded-3xl p-4
-                  shadow-xl border border-black/5 overflow-hidden">
+      <div class="bg-white/85 backdrop-blur-sm rounded-3xl p-4 shadow-xl border border-black/5 overflow-hidden">
         <img src="images/gallery/hero-image.jpg"
-             alt="نمونه اجرای رنگستان"
              class="w-full rounded-2xl shadow-lg object-cover"
              style="aspect-ratio: 4/3;">
       </div>
@@ -87,66 +75,51 @@
         </p>
 
         <p class="text-[14px] sm:text-[16px] text-gray-700 leading-relaxed">
-         رﻧﮕﺴﺘﺎن ﯾﮏ ﺗﯿﻢ ﺟﻮان و ﺑﺎﺗﺠﺮﺑﻪ در زﻣﯿﻨﻪ ی رﻧﮓ آﻣﯿﺰی ﺧﺎﻧﻪ اﺳﺖ و ﺑﺎ روﯾﮑﺮدی ﻓﻨﯽ و دﻗﯿﻖ وارد
+          رﻧﮕﺴﺘﺎن ﯾﮏ ﺗﯿﻢ ﺟﻮان و ﺑﺎﺗﺠﺮﺑﻪ در زﻣﯿﻨﻪ ی رﻧﮓ آﻣﯿﺰی ﺧﺎﻧﻪ اﺳﺖ و ﺑﺎ روﯾﮑﺮدی ﻓﻨﯽ و دﻗﯿﻖ وارد
           ﻧﻮﺳﺎزی ﺧﺎﻧﻪ ﺷﺪه؛ از آﻣﺎده ﺳﺎزی اﺳﺘﺎﻧﺪارد ﺗﺎ رﻧﮓ آﻣﯿﺰی ﯾﮑﻨﻮاﺧﺖ و ﺗﺮﻣﯿﻢ ﺣﺮﻓﻪ ای. ﻫﺪف ﻣﺎ اراﺋﻪ ی
          ﮐﺎری ﺗﻤﯿﺰ، ﻣﺎﻧﺪﮔﺎر و اﻗﺘﺼﺎدی اﺳﺖ.
         </p>
-        
+
         <p class="text-xs sm:text-sm font-bold text-gray-900 mt-4">
           نقاشی و ترمیم تخصصی دیوار — نتیجه‌ای تمیز و ماندگار
         </p>
 
       </div>
 
-      <!-- SECOND ARTWORK CARD --> 
-      <div class="bg-white/85 backdrop-blur-sm rounded-3xl p-4
-                  shadow-xl border border-black/5 overflow-hidden">
+      <!-- ARTWORK CARD -->
+      <div class="bg-white/85 backdrop-blur-sm rounded-3xl p-4 shadow-xl border border-black/5 overflow-hidden">
         <img src="images/gallery/mus.jpg"
-             alt="اجرای دیگر رنگستان"
              class="w-full rounded-2xl shadow-lg object-cover"
              style="aspect-ratio: 4/3;">
       </div>
 
-      <!-- SERVICES INFO CARD -->
+      <!-- UPDATED SERVICES INFO CARD -->
       <div class="bg-white/85 backdrop-blur-sm rounded-3xl p-6 shadow-xl border border-black/5 flex flex-col gap-3">
 
         <p class="text-[17px] sm:text-[18px] font-extrabold text-gray-900 leading-relaxed">
-          رنگستان؛ اجرای مطمئن و تمیز با تحویل به‌موقع
+          رنگستان — اجرای دقیق و تحویل طبق قول
         </p>
 
-        <p class="text-[14px] sm:text-[16px] text-gray-700 leading-relaxed">
-          زیرسازی اصولی، رنگ‌آمیزی یکنواخت و نتیجه‌ای ماندگار.
-        </p>
-        <p class="text-[14px] sm:text-[16px] text-gray-700 leading-relaxed">
-          مشاوره و پیش‌نمایش سریع در واتساپ.
-        </p>
-        <p class="text-[14px] sm:text-[16px] text-gray-700 leading-relaxed">
-          قیمت‌گذاری شفاف بدون هزینه پنهان.
-        </p>
-        <p class="text-[14px] sm:text-[16px] text-gray-700 leading-relaxed">
-          زمان‌بندی دقیق و پایبندی کامل به قول تحویل.
-        </p>
-        <p class="text-[14px] sm:text-[16px] text-gray-700 leading-relaxed">
-          اجرای تمیز و جمع‌کردن کامل ابزار پس از کار.
-        </p>
-        <p class="text-[14px] sm:text-[16px] text-gray-700 leading-relaxed">
-          پاسخ‌گویی سریع و هماهنگی آسان در واتساپ.
-        </p>
+        <p class="text-[14px] sm:text-[16px] text-gray-700 leading-relaxed">• مشاوره و پیش‌نمایش سریع از طریق واتساپ.</p>
+        <p class="text-[14px] sm:text-[16px] text-gray-700 leading-relaxed">• قیمت‌گذاری شفاف براساس متر، نوع رنگ و وضعیت دیوار.</p>
+        <p class="text-[14px] sm:text-[16px] text-gray-700 leading-relaxed">• زمان‌بندی مشخص و پایبندی کامل به روز تحویل.</p>
+        <p class="text-[14px] sm:text-[16px] text-gray-700 leading-relaxed">• زیرسازی اصولی و رنگ‌آمیزی یکنواخت برای نتیجه‌ای ماندگار.</p>
+        <p class="text-[14px] sm:text-[16px] text-gray-700 leading-relaxed">• اجرای تمیز و تحویل فضا بدون ردّ کار و ابزار.</p>
 
       </div>
 
-      <!-- ⭐ WHATSAPP CTA CARD -->
+      <!-- UPDATED CTA CARD -->
       <a href="https://wa.me/989191996608"
          class="bg-white/90 backdrop-blur-md rounded-3xl shadow-lg border-[4px] border-black/10
                 flex items-center justify-center gap-3 p-4 text-[15px] sm:text-[17px]
                 font-bold text-green-700 hover:bg-white transition">
-        💬 پشتیبانی سریع واتساپ — همین حالا پیام دهید
+        💬 پیش‌نمایش سریع دیوار — پیام در واتساپ
       </a>
 
     </section>
   </main>
 
-  <!-- SCROLL LOGIC / HEADER + TOP BAR BOTH SLIDE -->
+  <!-- SCROLL BEHAVIOR -->
   <script>
     let lastScroll = 0;
     const topBar = document.getElementById("topBar");
@@ -154,7 +127,6 @@
 
     window.addEventListener("scroll", () => {
       const current = window.pageYOffset;
-
       if (current > lastScroll && current > 60) {
         topBar.classList.replace("show", "hide");
         headerBar.classList.replace("show", "hide");
@@ -162,7 +134,6 @@
         topBar.classList.replace("hide", "show");
         headerBar.classList.replace("hide", "show");
       }
-
       lastScroll = current <= 0 ? 0 : current;
     });
   </script>
