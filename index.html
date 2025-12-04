@@ -23,7 +23,6 @@
     .show { transform: translateY(0); }
     #topBar, #headerBar { transition: transform .35s ease; }
 
-    /* Updated gallery card unified styling */
     .gallery-card {
       background: rgba(255,255,255,0.85);
       backdrop-filter: blur(6px);
@@ -103,9 +102,26 @@
         </p>
       </div>
 
-      <!-- ARTWORK -->
-      <div class="bg-white/85 backdrop-blur-sm rounded-3xl p-4 shadow-xl border border-black/5 overflow-hidden">
-        <img src="images/gallery/mus.jpg" class="w-full rounded-2xl shadow-lg object-cover md:h-[460px]">
+      <!-- ARTWORK + WHY -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+
+        <!-- ARTWORK -->
+        <div class="bg-white/85 backdrop-blur-sm rounded-3xl p-4 shadow-xl border border-black/5 overflow-hidden">
+          <img src="images/gallery/mus.jpg" class="w-full rounded-2xl shadow-lg object-cover md:h-[460px]">
+        </div>
+
+        <!-- WHY -->
+        <div class="bg-white/85 backdrop-blur-sm rounded-3xl p-6 shadow-xl border border-black/5 h-full flex items-center">
+          <ul class="text-[14px] sm:text-[16px] text-gray-700 leading-relaxed space-y-2 list-disc pr-6">
+            <li>زیرسازی اصولی، رنگ‌آمیزی یکنواخت و نتیجه‌ای ماندگار</li>
+            <li>مشاوره و پیش‌نمایش سریع در واتساپ</li>
+            <li>قیمت‌گذاری شفاف بدون هزینه پنهان</li>
+            <li>زمان‌بندی دقیق و پایبندی کامل به قول تحویل</li>
+            <li>اجرای تمیز و جمع‌کردن کامل ابزار</li>
+            <li>پاسخ‌گویی سریع و هماهنگی آسان در واتساپ</li>
+          </ul>
+        </div>
+
       </div>
 
       <!-- SERVICES -->
@@ -130,18 +146,6 @@
           <p class="font-bold text-gray-900 mt-2">دیوارنگاری حرفه‌ای</p>
           <p class="text-[13px] text-gray-600 mt-1">نقاشی هنری و سفارشی</p>
         </div>
-      </div>
-
-      <!-- INFO -->
-      <div class="bg-white/85 backdrop-blur-sm rounded-3xl p-6 shadow-xl border border-black/5">
-        <ul class="text-[14px] sm:text-[16px] text-gray-700 leading-relaxed space-y-2 list-disc pr-6">
-          <li>زیرسازی اصولی، رنگ‌آمیزی یکنواخت و نتیجه‌ای ماندگار</li>
-          <li>مشاوره و پیش‌نمایش سریع در واتساپ</li>
-          <li>قیمت‌گذاری شفاف بدون هزینه پنهان</li>
-          <li>زمان‌بندی دقیق و پایبندی کامل به قول تحویل</li>
-          <li>اجرای تمیز و جمع‌کردن کامل ابزار</li>
-          <li>پاسخ‌گویی سریع و هماهنگی آسان در واتساپ</li>
-        </ul>
       </div>
 
       <!-- ⭐ GALLERY -->
