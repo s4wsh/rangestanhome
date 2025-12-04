@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>رنگستان | نقاشی تخصصی دیوار</title>
-
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
@@ -14,24 +13,17 @@
       --header-h: 72px;
       --main-pt: calc(var(--bar-h) + var(--header-gap) + var(--header-h));
     }
-
     body {
       font-family: 'Vazirmatn', sans-serif;
       background: linear-gradient(135deg, #f7f4ec, #ede7d7);
     }
-
     .hide { transform: translateY(-130%); }
     .show { transform: translateY(0); }
-
-    #topBar, #headerBar {
-      transition: transform .35s ease;
-    }
+    #topBar, #headerBar { transition: transform .35s ease; }
   </style>
 </head>
 
 <body class="min-h-screen overflow-x-hidden">
-
-  <!-- 🔶 TOP BLACK BAR -->
   <div id="topBar"
        class="w-full fixed top-0 right-0 left-0 bg-black text-white z-50
               flex items-center justify-center text-[13px]
@@ -40,7 +32,6 @@
     <span class="font-semibold whitespace-nowrap">📞 تماس مستقیم: ۰۹۱۹۱۹۹۶۶۰۸</span>
   </div>
 
-  <!-- ⚪ HEADER -->
   <header id="headerBar"
         class="fixed w-full right-0 left-0 z-40 px-4 show
                bg-white/90 backdrop-blur-md
@@ -53,7 +44,6 @@
     </div>
   </header>
 
-  <!-- MAIN CONTENT -->
   <main id="mainContent"
         class="transition-all pb-24"
         style="padding-top: var(--main-pt);">
@@ -69,91 +59,87 @@
 
       <!-- TEXT CONTENT CARD -->
       <div class="bg-white/85 backdrop-blur-sm rounded-3xl p-6 shadow-xl border border-black/5 flex flex-col gap-4">
-
         <p class="text-[17px] sm:text-[19px] font-extrabold text-gray-900 leading-relaxed">
           رنگستان، اجرای دقیق دیوار از آماده‌سازی تا پایان کار.
         </p>
-
         <p class="text-[14px] sm:text-[16px] text-gray-700 leading-relaxed">
-          رﻧﮕﺴﺘﺎن ﯾﮏ ﺗﯿﻢ ﺟﻮان و ﺑﺎﺗﺠﺮﺑﻪ در زﻣﯿﻨﻪ ی رﻧﮓ آﻣﯿﺰی ﺧﺎﻧﻪ اﺳﺖ و ﺑﺎ روﯾﮑﺮدی ﻓﻨﯽ و دﻗﯿﻖ
-          وارد ﻧﻮﺳﺎزی ﺧﺎﻧﻪ ﺷﺪه؛ از آﻣﺎده ﺳﺎزی اﺳﺘﺎﻧﺪارد ﺗﺎ رﻧﮓ آﻣﯿﺰی ﯾﮑﻨﻮاﺧﺖ و ﺗﺮﻣﯿﻢ ﺣﺮﻓﻪ‌ای.
+          رﻧﮕﺴﺘﺎن ﯾﮏ ﺗﯿﻢ ﺟﻮان و ﺑﺎﺗﺠﺮﺑﻪ در زﻣﯿﻨﻪ ی رﻧﮓ آﻣﯿﺰی ﺧﺎﻧﻪ اﺳﺖ و ﺑﺎ روﯾﮑﺮدی ﻓﻨﯽ و دﻗﯿﻖ وارد
+          ﻧﻮﺳﺎزی ﺧﺎﻧﻪ ﺷﺪه؛ از آﻣﺎده ﺳﺎزی اﺳﺘﺎﻧﺪارد ﺗﺎ رﻧﮓ آﻣﯿﺰی ﯾﮑﻨﻮاﺧﺖ و ﺗﺮﻣﯿﻢ ﺣﺮﻓﻪ‌ای.
           هدف ما ارائه‌ی کاری تمیز، ماندگار و اقتصادی است.
         </p>
-
         <p class="text-xs sm:text-sm font-bold text-gray-900 mt-4">
           نقاشی و ترمیم تخصصی دیوار — نتیجه‌ای تمیز و ماندگار
         </p>
       </div>
 
-      <!-- ARTWORK CARD -->
+      <!-- ARTWORK -->
       <div class="bg-white/85 backdrop-blur-sm rounded-3xl p-4 shadow-xl border border-black/5 overflow-hidden">
         <img src="images/gallery/mus.jpg"
              class="w-full rounded-2xl shadow-lg object-cover"
              style="aspect-ratio: 4/3;">
       </div>
 
-      <!-- 🆕 SERVICES SECTION -->
+      <!-- SERVICES (4 cards) -->
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-
         <div class="bg-white/90 backdrop-blur-md rounded-3xl p-5 shadow-xl border border-black/5 text-center">
           <span class="text-3xl">🎨</span>
-          <p class="text-[15px] font-bold text-gray-900 mt-2">نقاشی تخصصی دیوار</p>
-          <p class="text-[13px] text-gray-700 mt-1">اجرای یکنواخت و با دوام</p>
+          <p class="font-bold text-gray-900 mt-2">نقاشی تخصصی دیوار</p>
         </div>
 
         <div class="bg-white/90 backdrop-blur-md rounded-3xl p-5 shadow-xl border border-black/5 text-center">
           <span class="text-3xl">🛠️</span>
-          <p class="text-[15px] font-bold text-gray-900 mt-2">ترمیم و بازسازی دیوار</p>
-          <p class="text-[13px] text-gray-700 mt-1">رفع نم، ترک و شکستگی</p>
+          <p class="font-bold text-gray-900 mt-2">ترمیم و بازسازی دیوار</p>
         </div>
 
         <div class="bg-white/90 backdrop-blur-md rounded-3xl p-5 shadow-xl border border-black/5 text-center">
           <span class="text-3xl">✨</span>
-          <p class="text-[15px] font-bold text-gray-900 mt-2">تکسچرهای ویژه</p>
-          <p class="text-[13px] text-gray-700 mt-1">پتینه، استاکو، گچی</p>
+          <p class="font-bold text-gray-900 mt-2">تکسچرهای ویژه</p>
         </div>
 
-        <!-- 🎭 NEW SERVICE CARD -->
         <div class="bg-white/90 backdrop-blur-md rounded-3xl p-5 shadow-xl border border-black/5 text-center">
           <span class="text-3xl">🎭</span>
-          <p class="text-[15px] font-bold text-gray-900 mt-2">دیوارنگاری حرفه‌ای</p>
-          <p class="text-[13px] text-gray-700 mt-1">نقاشی هنری و سفارشی</p>
+          <p class="font-bold text-gray-900 mt-2">دیوارنگاری حرفه‌ای</p>
         </div>
-
       </div>
 
-      <!-- SERVICES INFO CARD -->
-      <div class="bg-white/85 backdrop-blur-sm rounded-3xl p-6 shadow-xl border border-black/5 flex flex-col gap-3">
-
-        <p class="text-[14px] sm:text-[16px] text-gray-700 leading-relaxed">
-          • مشاوره و پیش‌نمایش سریع از طریق واتساپ.
-        </p>
-        <p class="text-[14px] sm:text-[16px] text-gray-700 leading-relaxed">
-          • قیمت‌گذاری شفاف براساس متر، نوع رنگ و وضعیت دیوار.
-        </p>
-        <p class="text-[14px] sm:text-[16px] text-gray-700 leading-relaxed">
-          • زمان‌بندی مشخص و پایبندی کامل به روز تحویل.
-        </p>
-        <p class="text-[14px] sm:text-[16px] text-gray-700 leading-relaxed">
-          • زیرسازی اصولی و رنگ‌آمیزی یکنواخت برای نتیجه‌ای ماندگار.
-        </p>
-        <p class="text-[14px] sm:text-[16px] text-gray-700 leading-relaxed">
-          • اجرای تمیز و تحویل فضا بدون ردّ کار و ابزار.
-        </p>
+      <!-- SERVICE INFO -->
+      <div class="bg-white/85 backdrop-blur-sm rounded-3xl p-6 shadow-xl border border-black/5">
+        <ul class="text-[14px] sm:text-[16px] text-gray-700 leading-relaxed space-y-2 list-disc list-outside pr-6">
+          <li>مشاوره و پیش‌نمایش سریع از طریق واتساپ.</li>
+          <li>قیمت‌گذاری شفاف براساس متر، نوع رنگ و وضعیت دیوار.</li>
+          <li>زمان‌بندی مشخص و پایبندی کامل به روز تحویل.</li>
+          <li>زیرسازی اصولی و رنگ‌آمیزی یکنواخت برای نتیجه‌ای ماندگار.</li>
+          <li>اجرای تمیز و تحویل فضا بدون ردّ کار و ابزار.</li>
+        </ul>
       </div>
 
-      <!-- CTA CARD -->
+      <!-- 🔥 NEW SWIPE GALLERY -->
+      <div class="bg-white/85 backdrop-blur-sm rounded-3xl p-4 shadow-xl border border-black/5">
+        <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-2"
+             style="scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;">
+          
+          <img src="images/gallery/tree.jpg" class="w-[80%] sm:w-[40%] rounded-2xl shadow-lg snap-center" style="aspect-ratio:4/3;">
+          <img src="images/gallery/god.jpg" class="w-[80%] sm:w-[40%] rounded-2xl shadow-lg snap-center" style="aspect-ratio:4/3;">
+          <img src="images/gallery/sal.jpg" class="w-[80%] sm:w-[40%] rounded-2xl shadow-lg snap-center" style="aspect-ratio:4/3;">
+          <img src="images/gallery/mm.jpg" class="w-[80%] sm:w-[40%] rounded-2xl shadow-lg snap-center" style="aspect-ratio:4/3;">
+          <img src="images/gallery/teamwork-copy.jpg" class="w-[80%] sm:w-[40%] rounded-2xl shadow-lg snap-center" style="aspect-ratio:4/3;">
+          <img src="images/gallery/third.jpg" class="w-[80%] sm:w-[40%] rounded-2xl shadow-lg snap-center" style="aspect-ratio:4/3;">
+          <img src="images/gallery/to-fix.jpg" class="w-[80%] sm:w-[40%] rounded-2xl shadow-lg snap-center" style="aspect-ratio:4/3;">
+          <img src="images/gallery/wall-painting.jpg" class="w-[80%] sm:w-[40%] rounded-2xl shadow-lg snap-center" style="aspect-ratio:4/3;">
+        
+        </div>
+      </div>
+
+      <!-- CTA -->
       <a href="https://wa.me/989191996608"
          class="bg-white/90 backdrop-blur-md rounded-3xl shadow-lg border-[4px] border-black/10
-                flex items-center justify-center gap-3 p-4 text-[15px] sm:text-[17px]
-                font-bold text-green-700 hover:bg-white transition">
+                flex items-center justify-center gap-3 p-4 font-bold text-green-700 hover:bg-white transition">
         💬 پیش‌نمایش سریع دیوار — پیام در واتساپ
       </a>
 
     </section>
   </main>
 
-  <!-- SCROLL BEHAVIOR -->
   <script>
     let lastScroll = 0;
     const topBar = document.getElementById("topBar");
