@@ -13,36 +13,53 @@
       --header-h: 72px;
       --main-pt: calc(var(--bar-h) + var(--header-gap) + var(--header-h));
     }
+
     body {
       font-family: 'Vazirmatn', sans-serif;
       background: linear-gradient(135deg, #f7f4ec, #ede7d7);
     }
+
     .hide { transform: translateY(-130%); }
     .show { transform: translateY(0); }
+
     #topBar, #headerBar { transition: transform .35s ease; }
 
-    /* 📌 GALLERY STYLES */
-    .gallery-img {
-      width: 75vw;
+    /* 📌 Swiper-style Gallery Enhancement */
+    .gallery-card {
+      background: #ffffff;
+      border-radius: 26px;
+      padding: 10px;
+      min-width: 75vw;
       max-width: 420px;
-      height: 55vh;
-      max-height: 380px;
-      object-fit: cover;
-      border-radius: 22px;
-      box-shadow: 0 18px 35px rgba(0,0,0,0.15);
-      transition: transform .35s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 12px 45px rgba(0,0,0,0.12);
     }
+
+    .gallery-img {
+      width: 100%;
+      height: 50vh;
+      max-height: 360px;
+      object-fit: cover;
+      border-radius: 20px;
+      transition: transform .45s ease, opacity .45s ease;
+    }
+
     #gallery {
-      perspective: 900px;
+      perspective: 1100px;
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
     }
+
     #gallery img {
-      transform: scale(.85);
-      opacity: .75;
+      transform: scale(.82) translateZ(0px);
+      opacity: .7;
     }
+
     #gallery img.active {
-      transform: scale(1) translateZ(40px);
+      transform: scale(1) translateZ(60px);
       opacity: 1;
     }
   </style>
@@ -82,85 +99,87 @@
              style="aspect-ratio: 4/3;">
       </div>
 
-      <!-- INTRO TEXT -->
+      <!-- INTRO -->
       <div class="bg-white/85 backdrop-blur-sm rounded-3xl p-6 shadow-xl border border-black/5 flex flex-col gap-4">
         <p class="text-[17px] sm:text-[19px] font-extrabold text-gray-900 leading-relaxed">
           رنگستان، اجرای دقیق دیوار از آماده‌سازی تا پایان کار.
         </p>
+
         <p class="text-[14px] sm:text-[16px] text-gray-700 leading-relaxed">
-          رنكستان يك تيم جوان و باتجربه در زمينه ى رنكً آميزى خانه است و با رويكردى فنى و دقيق وارد نوسازى خانه شده؛ از آماده سازى استاندارد تا رنكً آميزى يكنواخت و ترميم حرفه اى. هدف ما ارائه ى كارى تميز، ماندكار و اقتصادى است.        </p>
+          رنگستان يك تيم جوان و باتجربه در زمينه ى رنكً آميزى خانه است و با رويكردى فنى و دقيق وارد نوسازى خانه شده؛ از آماده سازى استاندارد تا رنكً آميزى يكنواخت و ترميم حرفه اى. هدف ما ارائه ى كارى تميز، ماندكار و اقتصادى است.
+        </p>
+
         <p class="text-xs sm:text-sm font-bold text-gray-900 mt-4">
           نقاشی و ترمیم تخصصی دیوار — نتیجه‌ای تمیز و ماندگار
         </p>
       </div>
 
-      <!-- ARTWORK -->
+      <!-- ARTWORK IMAGE -->
       <div class="bg-white/85 backdrop-blur-sm rounded-3xl p-4 shadow-xl border border-black/5 overflow-hidden">
         <img src="images/gallery/mus.jpg"
              class="w-full rounded-2xl shadow-lg object-cover"
              style="aspect-ratio: 4/3;">
       </div>
 
-      <!-- SERVICES (4) -->
+      <!-- SERVICES -->
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-        <div class="bg-white/90 backdrop-blur-md rounded-3xl p-5 shadow-xl border border-black/5 text-center">
+        <div class="bg-white/90 rounded-3xl p-5 shadow-xl border border-black/5 text-center">
           <span class="text-3xl">🎨</span>
           <p class="font-bold text-gray-900 mt-2">نقاشی تخصصی دیوار</p>
         </div>
-        <div class="bg-white/90 backdrop-blur-md rounded-3xl p-5 shadow-xl border border-black/5 text-center">
+        <div class="bg-white/90 rounded-3xl p-5 shadow-xl border border-black/5 text-center">
           <span class="text-3xl">🛠️</span>
-          <p class="font-bold text-gray-900 mt-2">ترمیم و بازسازی دیوار</p>
+          <p class="font-bold text-gray-900 mt-2">ترمیم و بازسازی</p>
         </div>
-        <div class="bg-white/90 backdrop-blur-md rounded-3xl p-5 shadow-xl border border-black/5 text-center">
+        <div class="bg-white/90 rounded-3xl p-5 shadow-xl border border-black/5 text-center">
           <span class="text-3xl">✨</span>
-          <p class="font-bold text-gray-900 mt-2">تکسچرهای ویژه</p>
+          <p class="font-bold text-gray-900 mt-2">تکسچر و پتینه</p>
         </div>
-        <div class="bg-white/90 backdrop-blur-md rounded-3xl p-5 shadow-xl border border-black/5 text-center">
+        <div class="bg-white/90 rounded-3xl p-5 shadow-xl border border-black/5 text-center">
           <span class="text-3xl">🎭</span>
-          <p class="font-bold text-gray-900 mt-2">دیوارنگاری حرفه‌ای</p>
+          <p class="font-bold text-gray-900 mt-2">دیوارنگاری هنری</p>
         </div>
       </div>
 
       <!-- INFO -->
       <div class="bg-white/85 backdrop-blur-sm rounded-3xl p-6 shadow-xl border border-black/5">
         <ul class="text-[14px] sm:text-[16px] text-gray-700 leading-relaxed space-y-2 list-disc pr-6">
-          <li>مشاوره و پیش‌نمایش سریع از طریق واتساپ.</li>
-          <li>قیمت‌گذاری شفاف براساس متر، نوع رنگ و وضعیت دیوار.</li>
-          <li>زمان‌بندی مشخص و پایبندی کامل به روز تحویل.</li>
-          <li>زیرسازی اصولی و رنگ‌آمیزی یکنواخت برای نتیجه‌ای ماندگار.</li>
-          <li>اجرای تمیز و تحویل فضا بدون ردّ کار و ابزار.</li>
+          <li>مشاوره و پیش‌نمایش سریع در واتساپ.</li>
+          <li>قیمت‌گذاری شفاف براساس متر و وضعیت دیوار.</li>
+          <li>تحویل دقیق طبق قول.</li>
+          <li>زیرسازی اصولی و اجرای تمیز.</li>
+          <li>بدون رد ابزار و کثیفی.</li>
         </ul>
       </div>
 
-      <!-- GALLERY -->
-      <div class="bg-white/85 backdrop-blur-sm rounded-3xl p-4 shadow-xl border border-black/5">
+      <!-- ⭐ GALLERY -->
+      <div class="bg-white/85 backdrop-blur-sm rounded-3xl p-6 shadow-xl border border-black/5">
         <div id="gallery"
-             class="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-6 scroll-smooth">
-              
-          <img src="images/gallery/tree.jpg" class="gallery-img snap-center">
-          <img src="images/gallery/god.jpg" class="gallery-img snap-center">
-          <img src="images/gallery/sal.jpg" class="gallery-img snap-center">
-          <img src="images/gallery/mm.jpg" class="gallery-img snap-center">
-          <img src="images/gallery/teamwork-copy.jpg" class="gallery-img snap-center">
-          <img src="images/gallery/third.jpg" class="gallery-img snap-center">
-          <img src="images/gallery/to-fix.jpg" class="gallery-img snap-center">
-          <img src="images/gallery/wall-painting.jpg" class="gallery-img snap-center">
+             class="flex gap-8 overflow-x-auto snap-x snap-mandatory pb-6 scroll-smooth touch-pan-x">
+
+          <div class="gallery-card snap-center"><img src="images/gallery/tree.jpg" class="gallery-img"></div>
+          <div class="gallery-card snap-center"><img src="images/gallery/god.jpg" class="gallery-img"></div>
+          <div class="gallery-card snap-center"><img src="images/gallery/sal.jpg" class="gallery-img"></div>
+          <div class="gallery-card snap-center"><img src="images/gallery/mm.jpg" class="gallery-img"></div>
+          <div class="gallery-card snap-center"><img src="images/gallery/teamwork-copy.jpg" class="gallery-img"></div>
+          <div class="gallery-card snap-center"><img src="images/gallery/third.jpg" class="gallery-img"></div>
+          <div class="gallery-card snap-center"><img src="images/gallery/to-fix.jpg" class="gallery-img"></div>
+          <div class="gallery-card snap-center"><img src="images/gallery/wall-painting.jpg" class="gallery-img"></div>
 
         </div>
       </div>
 
       <!-- CTA -->
       <a href="https://wa.me/989191996608"
-         class="bg-white/90 backdrop-blur-md rounded-3xl shadow-lg border-[4px] border-black/10
-                flex items-center justify-center gap-3 p-4 font-bold text-green-700 hover:bg-white transition">
-        💬 پیش‌نمایش سریع دیوار — پیام در واتساپ
+         class="bg-white/90 backdrop-blur-md rounded-3xl shadow-lg border-[4px] border-black/10 flex items-center justify-center gap-3 p-4 font-bold text-green-700 hover:bg-white transition">
+        💬 پیش‌نمایش سریع — پیام در واتساپ
       </a>
 
     </section>
   </main>
 
   <script>
-    // SCROLL HIDE HEADER
+    // 🟡 Hide Header On Scroll
     let lastScroll = 0;
     const topBar = document.getElementById("topBar");
     const headerBar = document.getElementById("headerBar");
@@ -177,20 +196,20 @@
       lastScroll = Math.max(current, 0);
     });
 
-    // GALLERY ZOOM EFFECT
+    // 🔵 Center-Zoom Gallery Effect
     const gallery = document.getElementById("gallery");
     const imgs = gallery.querySelectorAll("img");
 
     function activateCenter() {
       const center = gallery.scrollLeft + gallery.clientWidth / 2;
-      let closest;
-      let closestDist = Infinity;
+      let closest = null;
+      let minDist = Infinity;
 
       imgs.forEach(img => {
-        const box = img.offsetLeft + img.clientWidth / 2;
-        const dist = Math.abs(center - box);
-        if (dist < closestDist) {
-          closestDist = dist;
+        const boxCenter = img.offsetLeft + img.clientWidth / 2;
+        const dist = Math.abs(center - boxCenter);
+        if (dist < minDist) {
+          minDist = dist;
           closest = img;
         }
       });
