@@ -38,7 +38,6 @@
     .gallery-img {
       width: 100%;
       height: 50vh;
-      max-height: 360px;
       object-fit: cover;
       border-radius: 20px;
       transition: transform .45s ease, opacity .45s ease;
@@ -84,7 +83,7 @@
 
       <!-- HERO -->
       <div class="bg-white/85 backdrop-blur-sm rounded-3xl p-4 shadow-xl border border-black/5 overflow-hidden">
-        <img src="images/gallery/hero-image.jpg" class="w-full rounded-2xl shadow-lg object-cover" style="aspect-ratio: 4/3;">
+        <img src="images/gallery/hero-image.jpg" class="w-full rounded-2xl shadow-lg object-cover md:h-[460px]">
       </div>
 
       <!-- INTRO -->
@@ -92,54 +91,58 @@
         <p class="text-[17px] sm:text-[19px] font-extrabold text-gray-900 leading-relaxed">
           رنگستان، اجرای دقیق دیوار از آماده‌سازی تا پایان کار.
         </p>
-
         <p class="text-[14px] sm:text-[16px] text-gray-700 leading-relaxed">
           رنگستان یک تیم جوان و باتجربه در زمینه نقاشی ساختمان است که با رویکرد فنی و دقیق وارد نوسازی شده؛ از آماده‌سازی اصولی تا رنگ‌آمیزی یکنواخت و ترمیم حرفه‌ای. هدف ما ارائه کاری تمیز، ماندگار و اقتصادی است.
         </p>
-
         <p class="text-xs sm:text-sm font-bold text-gray-900 mt-4">
           نقاشی و ترمیم تخصصی دیوار — نتیجه‌ای تمیز و ماندگار
         </p>
       </div>
 
-      <!-- ARTWORK IMAGE -->
+      <!-- ARTWORK -->
       <div class="bg-white/85 backdrop-blur-sm rounded-3xl p-4 shadow-xl border border-black/5 overflow-hidden">
-        <img src="images/gallery/mus.jpg" class="w-full rounded-2xl shadow-lg object-cover" style="aspect-ratio: 4/3;">
+        <img src="images/gallery/mus.jpg" class="w-full rounded-2xl shadow-lg object-cover md:h-[460px]">
       </div>
 
       <!-- SERVICES -->
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-
         <div class="bg-white/90 rounded-3xl p-5 shadow-xl border border-black/5 text-center">
           <span class="text-3xl">🎨</span>
           <p class="font-bold text-gray-900 mt-2">نقاشی تخصصی دیوار</p>
           <p class="text-[13px] text-gray-600 mt-1">اجرای یکنواخت و با دوام</p>
         </div>
-
         <div class="bg-white/90 rounded-3xl p-5 shadow-xl border border-black/5 text-center">
           <span class="text-3xl">🛠️</span>
           <p class="font-bold text-gray-900 mt-2">ترمیم و بازسازی دیوار</p>
           <p class="text-[13px] text-gray-600 mt-1">رفع نم، ترک و شکستگی</p>
         </div>
-
         <div class="bg-white/90 rounded-3xl p-5 shadow-xl border border-black/5 text-center">
           <span class="text-3xl">✨</span>
           <p class="font-bold text-gray-900 mt-2">تکسچرهای ویژه</p>
           <p class="text-[13px] text-gray-600 mt-1">پتینه، استاکو، گچی</p>
         </div>
-
         <div class="bg-white/90 rounded-3xl p-5 shadow-xl border border-black/5 text-center">
           <span class="text-3xl">🎭</span>
           <p class="font-bold text-gray-900 mt-2">دیوارنگاری حرفه‌ای</p>
           <p class="text-[13px] text-gray-600 mt-1">نقاشی هنری و سفارشی</p>
         </div>
+      </div>
 
+      <!-- INFO -- updated list -->
+      <div class="bg-white/85 backdrop-blur-sm rounded-3xl p-6 shadow-xl border border-black/5">
+        <ul class="text-[14px] sm:text-[16px] text-gray-700 leading-relaxed space-y-2 list-disc pr-6">
+          <li>زیرسازی اصولی، رنگ‌آمیزی یکنواخت و نتیجه‌ای ماندگار</li>
+          <li>مشاوره و پیش‌نمایش سریع در واتساپ</li>
+          <li>قیمت‌گذاری شفاف بدون هزینه پنهان</li>
+          <li>زمان‌بندی دقیق و پایبندی کامل به قول تحویل</li>
+          <li>اجرای تمیز و جمع‌کردن کامل ابزار</li>
+          <li>پاسخ‌گویی سریع و هماهنگی آسان در واتساپ</li>
+        </ul>
       </div>
 
       <!-- ⭐ GALLERY -->
       <div id="gallery"
            class="flex gap-8 overflow-x-auto snap-x snap-mandatory pb-6 scroll-smooth touch-pan-x">
-
         <div class="gallery-card snap-center"><img src="images/gallery/tree.jpg" class="gallery-img"></div>
         <div class="gallery-card snap-center"><img src="images/gallery/god.jpg" class="gallery-img"></div>
         <div class="gallery-card snap-center"><img src="images/gallery/sal.jpg" class="gallery-img"></div>
@@ -148,7 +151,6 @@
         <div class="gallery-card snap-center"><img src="images/gallery/third.jpg" class="gallery-img"></div>
         <div class="gallery-card snap-center"><img src="images/gallery/to-fix.jpg" class="gallery-img"></div>
         <div class="gallery-card snap-center"><img src="images/gallery/wall-painting.jpg" class="gallery-img"></div>
-
       </div>
 
       <!-- CTA -->
