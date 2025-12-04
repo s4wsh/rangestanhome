@@ -6,7 +6,7 @@
   <title>رنگستان | نقاشی تخصصی دیوار</title>
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <style>
+    <style>
     :root {
       --bar-h: 40px;
       --header-gap: 8px;
@@ -23,19 +23,20 @@
     .show { transform: translateY(0); }
     #topBar, #headerBar { transition: transform .35s ease; }
 
+    /* 🎯 Gallery Fix: Proper shadow breathing, no clipping */
     .gallery-card {
       background: rgba(255,255,255,0.85);
       backdrop-filter: blur(6px);
       border: 1px solid rgba(0,0,0,0.05);
       border-radius: 26px;
-      padding: 10px;
+      padding: 20px; /* more breathing room */
       min-width: 75vw;
       max-width: 420px;
       display: flex;
       justify-content: center;
       align-items: center;
-      box-shadow: 0 12px 45px rgba(0,0,0,0.12);
-      overflow: hidden;
+      overflow: visible; /* 👈 FIX: allow shadows outside */
+      transition: transform .45s ease;
     }
 
     .gallery-img {
@@ -43,7 +44,10 @@
       height: 50vh;
       object-fit: cover;
       border-radius: 20px;
-      transition: transform .45s ease, opacity .45s ease;
+      opacity: .6;
+      transform: scale(.82);
+      box-shadow: none;
+      transition: transform .45s ease, opacity .45s ease, box-shadow .45s ease;
     }
 
     #gallery {
@@ -53,16 +57,14 @@
       scroll-behavior: smooth;
     }
 
-    #gallery img {
-      transform: scale(.82) translateZ(0px);
-      opacity: .7;
-    }
-
-    #gallery img.active {
-      transform: scale(1) translateZ(60px);
+    /* Active center item gets spotlight */
+    .gallery-img.active {
       opacity: 1;
+      transform: scale(1.02) translateZ(60px);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.20);
     }
   </style>
+
 </head>
 
 <body class="min-h-screen overflow-x-hidden">
