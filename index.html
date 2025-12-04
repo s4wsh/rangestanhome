@@ -63,18 +63,6 @@
       scroll-behavior: smooth;
     }
 
-    .dot {
-      width: 8px;
-      height: 8px;
-      background: #bbb;
-      border-radius: 50%;
-      transition: background .3s ease, transform .3s ease;
-    }
-
-    .dot.active {
-      background: #333;
-      transform: scale(1.4);
-    }
   </style>
 
 </head>
@@ -153,6 +141,7 @@
         </div>
       </div>
 
+      <!-- ⭐ Mobile + Desktop scroll still works -->
       <div id="gallery"
         class="flex gap-8 overflow-x-auto snap-x snap-mandatory pb-4 scroll-smooth touch-pan-x">
         <div class="gallery-card snap-center"><img src="images/gallery/tree.jpg" class="gallery-img"></div>
@@ -164,8 +153,6 @@
         <div class="gallery-card snap-center"><img src="images/gallery/to-fix.jpg" class="gallery-img"></div>
         <div class="gallery-card snap-center"><img src="images/gallery/wall-painting.jpg" class="gallery-img"></div>
       </div>
-
-      <div id="dots" class="flex gap-2 justify-center -mt-3 mb-4"></div>
 
       <a href="https://wa.me/989191996608"
         class="bg-white/90 backdrop-blur-md rounded-3xl shadow-lg border-[4px] border-black/10 flex items-center justify-center gap-3 p-4 font-bold text-green-700 hover:bg-white transition">
@@ -194,15 +181,6 @@
 
     const gallery = document.getElementById("gallery");
     const imgs = gallery.querySelectorAll("img");
-    const dotsContainer = document.getElementById("dots");
-
-    imgs.forEach(() => {
-      const dot = document.createElement("div");
-      dot.classList.add("dot");
-      dotsContainer.appendChild(dot);
-    });
-
-    const dots = dotsContainer.querySelectorAll(".dot");
 
     function activateCenter() {
       let closestIndex = 0;
@@ -219,9 +197,6 @@
 
       imgs.forEach(i => i.classList.remove("active"));
       imgs[closestIndex].classList.add("active");
-
-      dots.forEach(d => d.classList.remove("active"));
-      dots[closestIndex].classList.add("active");
     }
 
     gallery.addEventListener("scroll", () =>
