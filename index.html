@@ -23,8 +23,11 @@
     .show { transform: translateY(0); }
     #topBar, #headerBar { transition: transform .35s ease; }
 
+    /* Updated gallery card unified styling */
     .gallery-card {
-      background: #ffffff;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(0,0,0,0.05);
       border-radius: 26px;
       padding: 10px;
       min-width: 75vw;
@@ -33,6 +36,7 @@
       justify-content: center;
       align-items: center;
       box-shadow: 0 12px 45px rgba(0,0,0,0.12);
+      overflow: hidden;
     }
 
     .gallery-img {
@@ -128,7 +132,7 @@
         </div>
       </div>
 
-      <!-- INFO -- updated list -->
+      <!-- INFO -->
       <div class="bg-white/85 backdrop-blur-sm rounded-3xl p-6 shadow-xl border border-black/5">
         <ul class="text-[14px] sm:text-[16px] text-gray-700 leading-relaxed space-y-2 list-disc pr-6">
           <li>زیرسازی اصولی، رنگ‌آمیزی یکنواخت و نتیجه‌ای ماندگار</li>
