@@ -21,10 +21,8 @@
 
     .hide { transform: translateY(-130%); }
     .show { transform: translateY(0); }
-
     #topBar, #headerBar { transition: transform .35s ease; }
 
-    /* 📌 Swiper-style Gallery Enhancement */
     .gallery-card {
       background: #ffffff;
       border-radius: 26px;
@@ -67,36 +65,26 @@
 
 <body class="min-h-screen overflow-x-hidden">
   <div id="topBar"
-       class="w-full fixed top-0 right-0 left-0 bg-black text-white z-50
-              flex items-center justify-center text-[13px]
-              border-b border-black/15 show"
+       class="w-full fixed top-0 right-0 left-0 bg-black text-white z-50 flex items-center justify-center text-[13px] border-b border-black/15 show"
        style="height: var(--bar-h);">
     <span class="font-semibold whitespace-nowrap">📞 تماس مستقیم: ۰۹۱۹۱۹۹۶۶۰۸</span>
   </div>
 
   <header id="headerBar"
-        class="fixed w-full right-0 left-0 z-40 px-4 show
-               bg-white/90 backdrop-blur-md
-               rounded-b-3xl shadow-lg
-               border-[4px] border-black/10
-               flex justify-center"
+        class="fixed w-full right-0 left-0 z-40 px-4 show bg-white/90 backdrop-blur-md rounded-b-3xl shadow-lg border-[4px] border-black/10 flex justify-center"
         style="top: calc(var(--bar-h) + var(--header-gap)); height: var(--header-h);">
     <div class="max-w-[1100px] w-full flex justify-center items-center">
       <img src="images/logo/logomark-dark.png" class="h-9" alt="رنگستان">
     </div>
   </header>
 
-  <main id="mainContent"
-        class="transition-all pb-24"
-        style="padding-top: var(--main-pt);">
+  <main id="mainContent" class="transition-all pb-24" style="padding-top: var(--main-pt);">
 
     <section class="max-w-[1100px] mx-auto px-4 flex flex-col gap-8">
 
       <!-- HERO -->
       <div class="bg-white/85 backdrop-blur-sm rounded-3xl p-4 shadow-xl border border-black/5 overflow-hidden">
-        <img src="images/gallery/hero-image.jpg"
-             class="w-full rounded-2xl shadow-lg object-cover"
-             style="aspect-ratio: 4/3;">
+        <img src="images/gallery/hero-image.jpg" class="w-full rounded-2xl shadow-lg object-cover" style="aspect-ratio: 4/3;">
       </div>
 
       <!-- INTRO -->
@@ -106,7 +94,7 @@
         </p>
 
         <p class="text-[14px] sm:text-[16px] text-gray-700 leading-relaxed">
-          رنگستان يك تيم جوان و باتجربه در زمينه ى رنكً آميزى خانه است و با رويكردى فنى و دقيق وارد نوسازى خانه شده؛ از آماده سازى استاندارد تا رنكً آميزى يكنواخت و ترميم حرفه اى. هدف ما ارائه ى كارى تميز، ماندكار و اقتصادى است.
+          رنگستان یک تیم جوان و باتجربه در زمینه نقاشی ساختمان است که با رویکرد فنی و دقیق وارد نوسازی شده؛ از آماده‌سازی اصولی تا رنگ‌آمیزی یکنواخت و ترمیم حرفه‌ای. هدف ما ارائه کاری تمیز، ماندگار و اقتصادی است.
         </p>
 
         <p class="text-xs sm:text-sm font-bold text-gray-900 mt-4">
@@ -116,57 +104,51 @@
 
       <!-- ARTWORK IMAGE -->
       <div class="bg-white/85 backdrop-blur-sm rounded-3xl p-4 shadow-xl border border-black/5 overflow-hidden">
-        <img src="images/gallery/mus.jpg"
-             class="w-full rounded-2xl shadow-lg object-cover"
-             style="aspect-ratio: 4/3;">
+        <img src="images/gallery/mus.jpg" class="w-full rounded-2xl shadow-lg object-cover" style="aspect-ratio: 4/3;">
       </div>
 
       <!-- SERVICES -->
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+
         <div class="bg-white/90 rounded-3xl p-5 shadow-xl border border-black/5 text-center">
           <span class="text-3xl">🎨</span>
           <p class="font-bold text-gray-900 mt-2">نقاشی تخصصی دیوار</p>
+          <p class="text-[13px] text-gray-600 mt-1">اجرای یکنواخت و با دوام</p>
         </div>
+
         <div class="bg-white/90 rounded-3xl p-5 shadow-xl border border-black/5 text-center">
           <span class="text-3xl">🛠️</span>
-          <p class="font-bold text-gray-900 mt-2">ترمیم و بازسازی</p>
+          <p class="font-bold text-gray-900 mt-2">ترمیم و بازسازی دیوار</p>
+          <p class="text-[13px] text-gray-600 mt-1">رفع نم، ترک و شکستگی</p>
         </div>
+
         <div class="bg-white/90 rounded-3xl p-5 shadow-xl border border-black/5 text-center">
           <span class="text-3xl">✨</span>
-          <p class="font-bold text-gray-900 mt-2">تکسچر و پتینه</p>
+          <p class="font-bold text-gray-900 mt-2">تکسچرهای ویژه</p>
+          <p class="text-[13px] text-gray-600 mt-1">پتینه، استاکو، گچی</p>
         </div>
+
         <div class="bg-white/90 rounded-3xl p-5 shadow-xl border border-black/5 text-center">
           <span class="text-3xl">🎭</span>
-          <p class="font-bold text-gray-900 mt-2">دیوارنگاری هنری</p>
+          <p class="font-bold text-gray-900 mt-2">دیوارنگاری حرفه‌ای</p>
+          <p class="text-[13px] text-gray-600 mt-1">نقاشی هنری و سفارشی</p>
         </div>
-      </div>
 
-      <!-- INFO -->
-      <div class="bg-white/85 backdrop-blur-sm rounded-3xl p-6 shadow-xl border border-black/5">
-        <ul class="text-[14px] sm:text-[16px] text-gray-700 leading-relaxed space-y-2 list-disc pr-6">
-          <li>مشاوره و پیش‌نمایش سریع در واتساپ.</li>
-          <li>قیمت‌گذاری شفاف براساس متر و وضعیت دیوار.</li>
-          <li>تحویل دقیق طبق قول.</li>
-          <li>زیرسازی اصولی و اجرای تمیز.</li>
-          <li>بدون رد ابزار و کثیفی.</li>
-        </ul>
       </div>
 
       <!-- ⭐ GALLERY -->
-      <div class="bg-white/85 backdrop-blur-sm rounded-3xl p-6 shadow-xl border border-black/5">
-        <div id="gallery"
-             class="flex gap-8 overflow-x-auto snap-x snap-mandatory pb-6 scroll-smooth touch-pan-x">
+      <div id="gallery"
+           class="flex gap-8 overflow-x-auto snap-x snap-mandatory pb-6 scroll-smooth touch-pan-x">
 
-          <div class="gallery-card snap-center"><img src="images/gallery/tree.jpg" class="gallery-img"></div>
-          <div class="gallery-card snap-center"><img src="images/gallery/god.jpg" class="gallery-img"></div>
-          <div class="gallery-card snap-center"><img src="images/gallery/sal.jpg" class="gallery-img"></div>
-          <div class="gallery-card snap-center"><img src="images/gallery/mm.jpg" class="gallery-img"></div>
-          <div class="gallery-card snap-center"><img src="images/gallery/teamwork-copy.jpg" class="gallery-img"></div>
-          <div class="gallery-card snap-center"><img src="images/gallery/third.jpg" class="gallery-img"></div>
-          <div class="gallery-card snap-center"><img src="images/gallery/to-fix.jpg" class="gallery-img"></div>
-          <div class="gallery-card snap-center"><img src="images/gallery/wall-painting.jpg" class="gallery-img"></div>
+        <div class="gallery-card snap-center"><img src="images/gallery/tree.jpg" class="gallery-img"></div>
+        <div class="gallery-card snap-center"><img src="images/gallery/god.jpg" class="gallery-img"></div>
+        <div class="gallery-card snap-center"><img src="images/gallery/sal.jpg" class="gallery-img"></div>
+        <div class="gallery-card snap-center"><img src="images/gallery/mm.jpg" class="gallery-img"></div>
+        <div class="gallery-card snap-center"><img src="images/gallery/teamwork-copy.jpg" class="gallery-img"></div>
+        <div class="gallery-card snap-center"><img src="images/gallery/third.jpg" class="gallery-img"></div>
+        <div class="gallery-card snap-center"><img src="images/gallery/to-fix.jpg" class="gallery-img"></div>
+        <div class="gallery-card snap-center"><img src="images/gallery/wall-painting.jpg" class="gallery-img"></div>
 
-        </div>
       </div>
 
       <!-- CTA -->
@@ -179,7 +161,6 @@
   </main>
 
   <script>
-    // 🟡 Hide Header On Scroll
     let lastScroll = 0;
     const topBar = document.getElementById("topBar");
     const headerBar = document.getElementById("headerBar");
@@ -196,7 +177,6 @@
       lastScroll = Math.max(current, 0);
     });
 
-    // 🔵 Center-Zoom Gallery Effect
     const gallery = document.getElementById("gallery");
     const imgs = gallery.querySelectorAll("img");
 
@@ -206,8 +186,8 @@
       let minDist = Infinity;
 
       imgs.forEach(img => {
-        const boxCenter = img.offsetLeft + img.clientWidth / 2;
-        const dist = Math.abs(center - boxCenter);
+        const rect = img.getBoundingClientRect().left + img.clientWidth / 2;
+        const dist = Math.abs((window.innerWidth / 2) - rect);
         if (dist < minDist) {
           minDist = dist;
           closest = img;
@@ -219,7 +199,7 @@
     }
 
     gallery.addEventListener("scroll", () =>
-      window.requestAnimationFrame(activateCenter)
+      requestAnimationFrame(activateCenter)
     );
     activateCenter();
   </script>
