@@ -157,51 +157,6 @@ body {
   font-size: 1.1rem;
   color: var(--muted);
 }
-
-/* 📸 GALLERY FIX — BOTH MOBILE & DESKTOP */
-
-#gallery {
-  min-height: 260px !important;
-  display: flex;
-  overflow-x: auto;
-  gap: 6vw;
-  padding-inline: 5vw;
-  align-items: center;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  overscroll-behavior-x: contain;
-  scroll-behavior: smooth;
-}
-
-.gallery-card {
-  width: 90vw;
-  flex: 0 0 90vw;
-  aspect-ratio: 3/2;
-  background: #ffffff;
-  border-radius: 22px;
-  padding: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  scroll-snap-align: center;
-  scroll-snap-stop: always;
-}
-
-.gallery-img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover;
-  border-radius: 20px;
-  box-shadow: 0 22px 48px rgba(0,0,0,.22);
-  opacity: .8;
-  transition: .35s ease;
-}
-
-.gallery-img.active {
-  opacity: 1;
-  transform: scale(1.05);
-}
-
 /* DESKTOP */
 @media(min-width: 768px) {
   .gallery-card {
