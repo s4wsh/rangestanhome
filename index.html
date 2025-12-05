@@ -23,54 +23,61 @@
     .show { transform: translateY(0); }
     #topBar, #headerBar { transition: transform .35s ease; }
 
-    /* 📱 Mobile gallery fix */
     #gallery {
-      display: flex;
-      gap: 6vw;
-      overflow-x: auto;
+      perspective: 1100px;
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
-      overflow-y: visible;
-      padding-bottom: 6px;
-      padding-inline: 0;
-      touch-action: pan-x;
       scroll-behavior: smooth;
-      overscroll-behavior-x: contain;
-      align-items: center; /* ⭐ FINAL FIX */
     }
 
-    .snap-buffer {
-      flex: 0 0 5vw;
-      scroll-snap-align: center;
-    }
+    /* 📱 Mobile gallery fix */
+    @media(max-width: 767px) {
+      #gallery {
+        display: flex;
+        gap: 6vw;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        overflow-y: visible;
+        padding-bottom: 6px;
+        padding-inline: 5vw;
+        scroll-padding-inline: 5vw;
+        touch-action: pan-x;
+        scroll-behavior: smooth;
+        overscroll-behavior-x: contain;
+        align-items: center;
+      }
 
-    .gallery-card {
-      width: 90vw;
-      flex: 0 0 90vw;
-      aspect-ratio: 3/2;
-      border-radius: 22px;
-      background: #fff;
-      padding: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      scroll-snap-align: center;
-      scroll-snap-stop: always;
-      overflow: visible;
-    }
+      .gallery-card {
+        width: 90vw;
+        max-width: 90vw;
+        min-width: 90vw;
+        flex: 0 0 90vw;
+        aspect-ratio: 3/2;
+        border-radius: 22px;
+        background: #fff;
+        padding: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
+        overflow: visible;
+      }
 
-    .gallery-img {
-      width: 100%;
-      height: 100%;
-      border-radius: 20px;
-      object-fit: cover;
-      box-shadow: 0 22px 48px rgba(0,0,0,.22);
-      transition: transform .3s ease, opacity .3s ease;
-    }
+      .gallery-img {
+        width: 100%;
+        height: 100%;
+        border-radius: 20px;
+        object-fit: cover;
+        box-shadow: 0 22px 48px rgba(0,0,0,.22);
+        transition: transform .3s ease, opacity .3s ease;
+      }
 
-    .gallery-img.active {
-      transform: scale(1.05);
-      opacity: 1;
+      .gallery-img.active {
+        transform: scale(1.05);
+        opacity: 1;
+      }
     }
 
     @media(min-width: 768px) {
