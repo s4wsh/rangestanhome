@@ -23,90 +23,7 @@
     .show { transform: translateY(0); }
     #topBar, #headerBar { transition: transform .35s ease; }
 
-    #gallery {
-      perspective: 1100px;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      scroll-behavior: smooth;
-    }
-
-    /* 📱 Mobile gallery fix */
-    @media(max-width: 767px) {
-      #gallery {
-        display: flex;
-        gap: 6vw;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        overflow-y: visible;
-        padding-bottom: 6px;
-        padding-inline: 5vw;
-        scroll-padding-inline: 5vw;
-        touch-action: pan-x;
-        scroll-behavior: smooth;
-        overscroll-behavior-x: contain;
-        align-items: center;
-      }
-
-      .gallery-card {
-        width: 90vw;
-        max-width: 90vw;
-        min-width: 90vw;
-        flex: 0 0 90vw;
-        aspect-ratio: 3/2;
-        border-radius: 22px;
-        background: #fff;
-        padding: 14px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        scroll-snap-align: center;
-        scroll-snap-stop: always;
-        overflow: visible;
-      }
-
-      .gallery-img {
-        width: 100%;
-        height: 100%;
-        border-radius: 20px;
-        object-fit: cover;
-        box-shadow: 0 22px 48px rgba(0,0,0,.22);
-        transition: transform .3s ease, opacity .3s ease;
-      }
-
-      .gallery-img.active {
-        transform: scale(1.05);
-        opacity: 1;
-      }
-    }
-
-    @media(min-width: 768px) {
-      #gallery {
-        padding-inline: 5vw;
-      }
-
-      .gallery-card {
-        width: 420px;
-        flex: 0 0 420px;
-        border-radius: 28px;
-        padding: 22px;
-        transition: transform .35s ease;
-      }
-
-      .gallery-img {
-        border-radius: 22px;
-        opacity: .55;
-        transform: scale(.88);
-        box-shadow: 0 20px 45px rgba(0,0,0,.12);
-        transition: transform .45s ease, opacity .45s ease, box-shadow .45s ease;
-      }
-
-      .gallery-img.active {
-        opacity: 1;
-        transform: scale(1) translateZ(35px);
-        box-shadow: 0 30px 70px rgba(0,0,0,.22);
-      }
-    }
+    /* gallery CSS remains but unused */
   </style>
 
 </head>
@@ -185,20 +102,7 @@
         </div>
       </div>
 
-      <div id="gallery">
-        <div class="snap-buffer"></div>
-
-        <div class="gallery-card"><img src="images/gallery/tree.jpg" class="gallery-img"></div>
-        <div class="gallery-card"><img src="images/gallery/god.jpg" class="gallery-img"></div>
-        <div class="gallery-card"><img src="images/gallery/sal.jpg" class="gallery-img"></div>
-        <div class="gallery-card"><img src="images/gallery/mm.jpg" class="gallery-img"></div>
-        <div class="gallery-card"><img src="images/gallery/teamwork-copy.jpg" class="gallery-img"></div>
-        <div class="gallery-card"><img src="images/gallery/third.jpg" class="gallery-img"></div>
-        <div class="gallery-card"><img src="images/gallery/to-fix.jpg" class="gallery-img"></div>
-        <div class="gallery-card"><img src="images/gallery/wall-painting.jpg" class="gallery-img"></div>
-
-        <div class="snap-buffer"></div>
-      </div>
+      <!-- 🚫 GALLERY REMOVED COMPLETELY -->
 
       <a href="https://wa.me/989191996608"
         class="bg-white/90 backdrop-blur-md rounded-3xl shadow-lg border-[4px] border-black/10 flex items-center justify-center gap-3 p-4 font-bold text-green-700 hover:bg-white transition">
@@ -224,31 +128,6 @@
       }
       lastScroll = Math.max(current, 0);
     });
-
-    const gallery = document.getElementById("gallery");
-    const imgs = gallery.querySelectorAll("img");
-
-    function activateCenter() {
-      let closestIndex = 0;
-      let minDist = Infinity;
-
-      imgs.forEach((img, index) => {
-        const rect = img.getBoundingClientRect().left + img.clientWidth / 2;
-        const dist = Math.abs((window.innerWidth / 2) - rect);
-        if (dist < minDist) {
-          minDist = dist;
-          closestIndex = index;
-        }
-      });
-
-      imgs.forEach(i => i.classList.remove("active"));
-      imgs[closestIndex].classList.add("active");
-    }
-
-    gallery.addEventListener("scroll", () =>
-      requestAnimationFrame(activateCenter)
-    );
-    activateCenter();
   </script>
 
 </body>
