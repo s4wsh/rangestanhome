@@ -32,10 +32,15 @@
       -webkit-overflow-scrolling: touch;
       overflow-y: visible;
       padding-bottom: 6px;
-      padding-inline: 5vw;
-      scroll-padding-inline: 5vw;
+      padding-inline: 0; /* reset */
       touch-action: pan-x;
       scroll-behavior: smooth;
+      overscroll-behavior-x: contain;
+    }
+
+    .snap-buffer {
+      flex: 0 0 5vw;
+      scroll-snap-align: center;
     }
 
     .gallery-card {
@@ -69,6 +74,10 @@
 
     /* 💻 Desktop */
     @media(min-width: 768px) {
+      #gallery {
+        padding-inline: 5vw;
+      }
+
       .gallery-card {
         width: 420px;
         flex: 0 0 420px;
@@ -171,6 +180,8 @@
 
       <!-- 📸 Fixed Slider -->
       <div id="gallery">
+        <div class="snap-buffer"></div>
+
         <div class="gallery-card"><img src="images/gallery/tree.jpg" class="gallery-img"></div>
         <div class="gallery-card"><img src="images/gallery/god.jpg" class="gallery-img"></div>
         <div class="gallery-card"><img src="images/gallery/sal.jpg" class="gallery-img"></div>
@@ -179,6 +190,8 @@
         <div class="gallery-card"><img src="images/gallery/third.jpg" class="gallery-img"></div>
         <div class="gallery-card"><img src="images/gallery/to-fix.jpg" class="gallery-img"></div>
         <div class="gallery-card"><img src="images/gallery/wall-painting.jpg" class="gallery-img"></div>
+
+        <div class="snap-buffer"></div>
       </div>
 
       <a href="https://wa.me/989191996608"
