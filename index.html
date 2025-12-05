@@ -24,21 +24,33 @@
     #topBar, #headerBar { transition: transform .35s ease; }
 
     /* 📱 Mobile gallery fix */
+    #gallery {
+      display: flex;
+      gap: 6vw;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      overflow-y: visible;
+      padding-bottom: 6px;
+      padding-inline: 5vw;
+      scroll-padding-inline: 5vw;
+      touch-action: pan-x;
+      scroll-behavior: smooth;
+    }
+
     .gallery-card {
       width: 90vw;
-      min-width: 90vw;
-      max-width: 90vw;
       flex: 0 0 90vw;
       aspect-ratio: 3/2;
-      background: #fff;
       border-radius: 22px;
+      background: #fff;
       padding: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: visible;
       scroll-snap-align: center;
       scroll-snap-stop: always;
+      overflow: visible;
     }
 
     .gallery-img {
@@ -51,21 +63,20 @@
     }
 
     .gallery-img.active {
-      transform: scale(1.04);
+      transform: scale(1.05);
       opacity: 1;
     }
 
-    /* 💻 Desktop perfect version keeps working */
+    /* 💻 Desktop */
     @media(min-width: 768px) {
       .gallery-card {
-        min-width: 420px;
-        max-width: 420px;
         width: 420px;
         flex: 0 0 420px;
-        padding: 22px;
         border-radius: 28px;
+        padding: 22px;
         transition: transform .35s ease;
       }
+
       .gallery-img {
         border-radius: 22px;
         opacity: .55;
@@ -73,22 +84,12 @@
         box-shadow: 0 20px 45px rgba(0,0,0,.12);
         transition: transform .45s ease, opacity .45s ease, box-shadow .45s ease;
       }
+
       .gallery-img.active {
         opacity: 1;
         transform: scale(1) translateZ(35px);
         box-shadow: 0 30px 70px rgba(0,0,0,.22);
       }
-    }
-
-    #gallery {
-      perspective: 1100px;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      scroll-behavior: smooth;
-      padding-inline: 5vw;
-      scroll-padding-inline: 5vw;
-      overflow-y: visible;
-      touch-action: pan-x;
     }
   </style>
 
@@ -168,8 +169,8 @@
         </div>
       </div>
 
-      <div id="gallery"
-        class="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 scroll-smooth touch-pan-x">
+      <!-- 📸 Fixed Slider -->
+      <div id="gallery">
         <div class="gallery-card"><img src="images/gallery/tree.jpg" class="gallery-img"></div>
         <div class="gallery-card"><img src="images/gallery/god.jpg" class="gallery-img"></div>
         <div class="gallery-card"><img src="images/gallery/sal.jpg" class="gallery-img"></div>
