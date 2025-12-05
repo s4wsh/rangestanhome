@@ -32,10 +32,11 @@
       -webkit-overflow-scrolling: touch;
       overflow-y: visible;
       padding-bottom: 6px;
-      padding-inline: 0; /* reset */
+      padding-inline: 0;
       touch-action: pan-x;
       scroll-behavior: smooth;
       overscroll-behavior-x: contain;
+      align-items: center; /* ⭐ FINAL FIX */
     }
 
     .snap-buffer {
@@ -72,7 +73,6 @@
       opacity: 1;
     }
 
-    /* 💻 Desktop */
     @media(min-width: 768px) {
       #gallery {
         padding-inline: 5vw;
@@ -178,7 +178,6 @@
         </div>
       </div>
 
-      <!-- 📸 Fixed Slider -->
       <div id="gallery">
         <div class="snap-buffer"></div>
 
