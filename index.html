@@ -6,64 +6,83 @@
   <title>رنگستان | نقاشی تخصصی دیوار</title>
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <style>
-    :root {
-      --bar-h: 40px;
-      --header-gap: 8px;
-      --header-h: 72px;
-      --main-pt: calc(var(--bar-h) + var(--header-gap) + var(--header-h));
+ <style>
+  :root {
+    --bar-h: 40px;
+    --header-gap: 8px;
+    --header-h: 72px;
+    --main-pt: calc(var(--bar-h) + var(--header-gap) + var(--header-h));
+  }
+
+  body {
+    font-family: 'Vazirmatn', sans-serif;
+    background: linear-gradient(135deg, #f7f4ec, #ede7d7);
+  }
+
+  .hide { transform: translateY(-130%); }
+  .show { transform: translateY(0); }
+  #topBar, #headerBar { transition: transform .35s ease; }
+
+  /* 📱 Mobile default — fix card visual */
+  .gallery-card {
+    min-width: 78vw;
+    aspect-ratio: 3/2;
+    background: #fff;
+    border-radius: 22px;
+    padding: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    scroll-snap-align: center;
+  }
+
+  .gallery-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 18px;
+    object-fit: cover;
+    box-shadow: 0 15px 38px rgba(0,0,0,.15);
+    transition: transform .3s ease, opacity .3s ease;
+  }
+
+  .gallery-img.active {
+    transform: scale(1.03);
+    opacity: 1;
+  }
+
+  /* 💻 Desktop version — keep your best result */
+  @media(min-width: 768px) {
+    .gallery-card {
+      min-width: 420px;
+      max-width: 420px;
+      padding: 22px;
+      border-radius: 28px;
+      overflow: visible;
+      transition: transform .35s ease;
     }
-
-    body {
-      font-family: 'Vazirmatn', sans-serif;
-      background: linear-gradient(135deg, #f7f4ec, #ede7d7);
+    .gallery-img {
+      border-radius: 22px;
+      opacity: .55;
+      transform: scale(.88);
+      box-shadow: 0 20px 45px rgba(0,0,0,.12);
+      transition: transform .45s ease, opacity .45s ease, box-shadow .45s ease;
     }
-
-    .hide { transform: translateY(-130%); }
-    .show { transform: translateY(0); }
-    #topBar, #headerBar { transition: transform .35s ease; }
-
-    @media(min-width: 768px) {
-      .gallery-card {
-        min-width: 420px;
-        max-width: 420px;
-        aspect-ratio: 3/2;
-        background: #fff;
-        border-radius: 28px;
-        padding: 22px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: visible;
-        transition: transform .35s ease;
-      }
-
-      .gallery-img {
-        width: 100%;
-        height: 100%;
-        border-radius: 22px;
-        object-fit: cover;
-        box-shadow: 0 20px 45px rgba(0,0,0,.12);
-        opacity: .55;
-        transform: scale(.88);
-        transition: transform .45s ease, opacity .45s ease, box-shadow .45s ease;
-      }
-
-      .gallery-img.active {
-        opacity: 1;
-        transform: scale(1) translateZ(35px);
-        box-shadow: 0 30px 70px rgba(0,0,0,.22);
-      }
+    .gallery-img.active {
+      opacity: 1;
+      transform: scale(1) translateZ(35px);
+      box-shadow: 0 30px 70px rgba(0,0,0,.22);
     }
+  }
 
-    #gallery {
-      perspective: 1100px;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      scroll-behavior: smooth;
-    }
+  #gallery {
+    perspective: 1100px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+</style>
 
-  </style>
 
 </head>
 
