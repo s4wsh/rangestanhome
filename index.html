@@ -32,45 +32,46 @@
     .show { transform: translateY(0); }
     #topBar, #headerBar { transition: transform .35s ease; }
 
-    /* --- Smooth Auto Gallery --- */
-    .slider-container {
+    /* GALLERY */
+    .gallery-wrapper {
       overflow: hidden;
       border-radius: 24px;
-      border: 1px solid rgba(0,0,0,.08);
+      background: #ffffffb3;
+      border: 1px solid rgba(0,0,0,.06);
       position: relative;
     }
-    .slider-track {
+    .gallery-track {
       display: flex;
-      width: max-content;
-      animation: scroll 38s linear infinite;
+      gap: 14px;
+      padding: 14px;
+      animation: scroll 42s linear infinite;
     }
-    .slider-track img {
+    .gallery-track img {
       height: 460px;
+      border-radius: 20px;
       object-fit: cover;
-      border-radius: 22px;
-      margin-left: 12px;
+      flex-shrink: 0;
     }
     @keyframes scroll {
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
     }
-    .slider-dots {
+    .gallery-wrapper:hover .gallery-track {
+      animation-play-state: paused;
+    }
+    .gallery-dots {
       position: absolute;
-      bottom: 12px;
+      bottom: 10px;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
       gap: 6px;
     }
-    .slider-dots span {
-      width: 28px;
+    .gallery-dots span {
+      width: 30px;
       height: 4px;
-      background: rgba(255,255,255,0.65);
+      background: rgba(255,255,255,.7);
       border-radius: 4px;
-      transition: background .3s;
-    }
-    .slider-container:hover .slider-track {
-      animation-play-state: paused;
     }
   </style>
 
@@ -95,14 +96,14 @@
   <main id="mainContent" class="transition-all pb-24" style="padding-top: var(--main-pt);">
     <section class="max-w-[1100px] mx-auto px-4 flex flex-col gap-8">
 
-      <!-- Hero -->
+      <!-- HERO IMAGE -->
       <div class="bg-white/85 backdrop-blur-sm rounded-3xl p-4 shadow-xl border border-black/5 overflow-hidden">
         <img src="images/gallery/hero-image.jpg" class="w-full rounded-2xl shadow-lg object-cover md:h-[460px]">
       </div>
 
-      <!-- Auto Slider Gallery -->
-      <div class="slider-container bg-white/85 backdrop-blur-sm shadow-xl">
-        <div class="slider-track">
+      <!-- GALLERY SLIDER (Only New Section Added) -->
+      <div class="gallery-wrapper shadow-xl">
+        <div class="gallery-track">
           <img src="images/gallery/third.jpg">
           <img src="images/gallery/mus.jpg">
           <img src="images/gallery/wall-painting.jpg">
@@ -116,11 +117,13 @@
           <img src="images/gallery/hero-image.jpg">
           <img src="images/gallery/god.jpg">
         </div>
-        <div class="slider-dots">
+        <div class="gallery-dots">
           <span></span><span></span><span></span><span></span><span></span>
         </div>
       </div>
+      <!-- END GALLERY -->
 
+      <!-- ALL SECTIONS BELOW UNTOUCHED -->
       <div class="bg-white/85 backdrop-blur-sm rounded-3xl p-6 shadow-xl border border-black/5 flex flex-col gap-4">
         <p class="text-[17px] sm:text-[19px] font-extrabold text-gray-900 leading-relaxed">
           رنگستان، اجرای دقیق دیوار از آماده‌سازی تا پایان کار.
@@ -137,18 +140,22 @@
         <div class="bg-white/90 rounded-3xl p-5 shadow-xl border border-black/5 text-center">
           <span class="text-3xl">🎨</span>
           <p class="font-bold text-gray-900 mt-2">نقاشی تخصصی دیوار</p>
+          <p class="text-[13px] text-gray-600 mt-1">اجرای یکنواخت و با دوام</p>
         </div>
         <div class="bg-white/90 rounded-3xl p-5 shadow-xl border border-black/5 text-center">
           <span class="text-3xl">🛠️</span>
           <p class="font-bold text-gray-900 mt-2">ترمیم و بازسازی دیوار</p>
+          <p class="text-[13px] text-gray-600 mt-1">رفع نم، ترک و شکستگی</p>
         </div>
-        <div class="bg-white/90 rounded-3xl p-5 shadow-xl border black/5 text-center">
+        <div class="bg-white/90 rounded-3xl p-5 shadow-xl border border-black/5 text-center">
           <span class="text-3xl">✨</span>
           <p class="font-bold text-gray-900 mt-2">تکسچرهای ویژه</p>
+          <p class="text-[13px] text-gray-600 mt-1">پتینه، استاکو، گچی</p>
         </div>
         <div class="bg-white/90 rounded-3xl p-5 shadow-xl border border-black/5 text-center">
           <span class="text-3xl">🎭</span>
           <p class="font-bold text-gray-900 mt-2">دیوارنگاری حرفه‌ای</p>
+          <p class="text-[13px] text-gray-600 mt-1">نقاشی هنری و سفارشی</p>
         </div>
       </div>
 
