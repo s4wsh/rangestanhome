@@ -7,7 +7,6 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-8Z72MFD1FR');
 </script>
 
@@ -33,6 +32,46 @@
     .show { transform: translateY(0); }
     #topBar, #headerBar { transition: transform .35s ease; }
 
+    /* --- Smooth Auto Gallery --- */
+    .slider-container {
+      overflow: hidden;
+      border-radius: 24px;
+      border: 1px solid rgba(0,0,0,.08);
+      position: relative;
+    }
+    .slider-track {
+      display: flex;
+      width: max-content;
+      animation: scroll 38s linear infinite;
+    }
+    .slider-track img {
+      height: 460px;
+      object-fit: cover;
+      border-radius: 22px;
+      margin-left: 12px;
+    }
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .slider-dots {
+      position: absolute;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 6px;
+    }
+    .slider-dots span {
+      width: 28px;
+      height: 4px;
+      background: rgba(255,255,255,0.65);
+      border-radius: 4px;
+      transition: background .3s;
+    }
+    .slider-container:hover .slider-track {
+      animation-play-state: paused;
+    }
   </style>
 
 </head>
@@ -56,8 +95,30 @@
   <main id="mainContent" class="transition-all pb-24" style="padding-top: var(--main-pt);">
     <section class="max-w-[1100px] mx-auto px-4 flex flex-col gap-8">
 
+      <!-- Hero -->
       <div class="bg-white/85 backdrop-blur-sm rounded-3xl p-4 shadow-xl border border-black/5 overflow-hidden">
         <img src="images/gallery/hero-image.jpg" class="w-full rounded-2xl shadow-lg object-cover md:h-[460px]">
+      </div>
+
+      <!-- Auto Slider Gallery -->
+      <div class="slider-container bg-white/85 backdrop-blur-sm shadow-xl">
+        <div class="slider-track">
+          <img src="images/gallery/third.jpg">
+          <img src="images/gallery/mus.jpg">
+          <img src="images/gallery/wall-painting.jpg">
+          <img src="images/gallery/IMG_8873.jpg">
+          <img src="images/gallery/sal.jpg">
+          <img src="images/gallery/mm.jpg">
+          <img src="images/gallery/tree.jpg">
+          <img src="images/gallery/fourth.jpg">
+          <img src="images/gallery/img.jpg">
+          <img src="images/gallery/teamwork-copy.jpg">
+          <img src="images/gallery/hero-image.jpg">
+          <img src="images/gallery/god.jpg">
+        </div>
+        <div class="slider-dots">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
       </div>
 
       <div class="bg-white/85 backdrop-blur-sm rounded-3xl p-6 shadow-xl border border-black/5 flex flex-col gap-4">
@@ -72,42 +133,22 @@
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-        <div class="bg-white/85 backdrop-blur-sm rounded-3xl p-4 shadow-xl border border-black/5 overflow-hidden">
-          <img src="images/gallery/mus.jpg" class="w-full rounded-2xl shadow-lg object-cover md:h-[460px]">
-        </div>
-        <div class="bg-white/85 backdrop-blur-sm rounded-3xl p-6 shadow-xl border border-black/5 h-full flex items-center">
-          <ul class="text-[14px] sm:text-[16px] text-gray-700 leading-relaxed space-y-2 list-disc pr-6">
-            <li>زیرسازی اصولی، رنگ‌آمیزی یکنواخت و نتیجه‌ای ماندگار</li>
-            <li>مشاوره و پیش‌نمایش سریع در واتساپ</li>
-            <li>قیمت‌گذاری شفاف بدون هزینه پنهان</li>
-            <li>زمان‌بندی دقیق و پایبندی کامل به قول تحویل</li>
-            <li>اجرای تمیز و جمع‌کردن کامل ابزار</li>
-            <li>پاسخ‌گویی سریع و هماهنگی آسان در واتساپ</li>
-          </ul>
-        </div>
-      </div>
-
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
         <div class="bg-white/90 rounded-3xl p-5 shadow-xl border border-black/5 text-center">
           <span class="text-3xl">🎨</span>
           <p class="font-bold text-gray-900 mt-2">نقاشی تخصصی دیوار</p>
-          <p class="text-[13px] text-gray-600 mt-1">اجرای یکنواخت و با دوام</p>
         </div>
         <div class="bg-white/90 rounded-3xl p-5 shadow-xl border border-black/5 text-center">
           <span class="text-3xl">🛠️</span>
           <p class="font-bold text-gray-900 mt-2">ترمیم و بازسازی دیوار</p>
-          <p class="text-[13px] text-gray-600 mt-1">رفع نم، ترک و شکستگی</p>
         </div>
-        <div class="bg-white/90 rounded-3xl p-5 shadow-xl border border-black/5 text-center">
+        <div class="bg-white/90 rounded-3xl p-5 shadow-xl border black/5 text-center">
           <span class="text-3xl">✨</span>
           <p class="font-bold text-gray-900 mt-2">تکسچرهای ویژه</p>
-          <p class="text-[13px] text-gray-600 mt-1">پتینه، استاکو، گچی</p>
         </div>
         <div class="bg-white/90 rounded-3xl p-5 shadow-xl border border-black/5 text-center">
           <span class="text-3xl">🎭</span>
           <p class="font-bold text-gray-900 mt-2">دیوارنگاری حرفه‌ای</p>
-          <p class="text-[13px] text-gray-600 mt-1">نقاشی هنری و سفارشی</p>
         </div>
       </div>
 
@@ -135,7 +176,6 @@
       }
       lastScroll = Math.max(current, 0);
     });
-
   </script>
 
 </body>
