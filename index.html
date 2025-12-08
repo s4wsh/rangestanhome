@@ -33,6 +33,216 @@
     .show { transform: translateY(0); }
     #topBar, #headerBar { transition: transform .35s ease; }
 
+    /* === Rangestan gallery styles === */
+
+    :root {
+      --rg-bg: #f7f4ec;
+      --rg-ink: #121110;
+      --rg-muted: #7a746c;
+      --rg-radius: 22px;
+      --rg-shadow: 0 22px 60px rgba(0,0,0,0.13);
+    }
+
+    .rg-gallery-shell {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .rg-gallery-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      gap: 8px;
+    }
+
+    .rg-gallery-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--rg-ink);
+    }
+
+    .rg-toggle-btn {
+      border: 1px solid rgba(0,0,0,0.08);
+      background: rgba(255,255,255,0.9);
+      border-radius: 999px;
+      padding: 6px 16px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--rg-muted);
+      transition: background .2s ease, box-shadow .2s ease, transform .1s ease, border-color .2s ease;
+      backdrop-filter: blur(6px);
+    }
+
+    .rg-toggle-btn span {
+      font-size: 0.78rem;
+    }
+
+    .rg-toggle-btn:hover {
+      background: #f3ebdd;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+      transform: translateY(-1px);
+    }
+
+    .rg-toggle-btn.rg-active {
+      color: var(--rg-ink);
+      border-color: rgba(0,0,0,0.16);
+    }
+
+    /* Slider view */
+
+    .rg-slider {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--rg-radius);
+      box-shadow: var(--rg-shadow);
+      background: #000;
+      touch-action: pan-y;
+    }
+
+    .rg-slider-track {
+      display: flex;
+      will-change: transform;
+      transition: transform 0.7s cubic-bezier(.18,.77,.45,1);
+    }
+
+    .rg-slide {
+      min-width: 100%;
+      user-select: none;
+      pointer-events: none;
+      position: relative;
+    }
+
+    .rg-slide img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      display: block;
+    }
+
+    .rg-slider-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      border: none;
+      background: rgba(0,0,0,.35);
+      color: #fdfbf6;
+      font-size: 20px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(8px);
+      z-index: 5;
+      transition: background .2s ease, transform .1s ease, opacity .2s ease;
+    }
+
+    .rg-slider-arrow:hover {
+      background: rgba(0,0,0,.6);
+      transform: translateY(-50%) scale(1.03);
+    }
+
+    .rg-slider-arrow.rg-prev { right: auto; left: 12px; }
+    .rg-slider-arrow.rg-next { right: 12px; }
+
+    .rg-slider-dots {
+      text-align: center;
+      padding: 10px 0 0;
+    }
+
+    .rg-slider-dot {
+      width: 9px;
+      height: 9px;
+      display: inline-block;
+      border-radius: 999px;
+      margin: 4px;
+      background: rgba(0,0,0,0.18);
+      cursor: pointer;
+      transition: background .2s ease, transform .15s ease, width .15s ease;
+    }
+
+    .rg-slider-dot.rg-active {
+      width: 18px;
+      background: rgba(0,0,0,0.75);
+      transform: translateY(-1px);
+    }
+
+    /* Grid view */
+
+    .rg-grid-view {
+      margin-top: 20px;
+    }
+
+    .rg-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 10px;
+    }
+
+    .rg-grid-item {
+      border: none;
+      padding: 0;
+      background: none;
+      cursor: pointer;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,.08);
+      position: relative;
+      transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+    }
+
+    .rg-grid-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .rg-grid-item::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top, rgba(255,255,255,0.4), transparent 55%);
+      opacity: 0;
+      transition: opacity .18s ease;
+    }
+
+    .rg-grid-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 34px rgba(0,0,0,.12);
+    }
+
+    .rg-grid-item:hover::after {
+      opacity: 1;
+    }
+
+    .rg-grid-item.rg-active {
+      outline: 2px solid rgba(0,0,0,0.6);
+      outline-offset: 2px;
+      filter: saturate(1.08);
+    }
+
+    .rg-hidden {
+      display: none;
+    }
+
+    @media (max-width: 640px) {
+      .rg-gallery-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .rg-slider-arrow {
+        width: 34px;
+        height: 34px;
+        font-size: 18px;
+      }
+    }
   </style>
 
 </head>
@@ -116,9 +326,234 @@
         💬 پیش‌نمایش سریع — پیام در واتساپ
       </a>
 
+      <!-- === Rangestan gallery section starts here === -->
+
+      <section class="rg-gallery-shell mt-10">
+        <div class="rg-gallery-header">
+          <div class="rg-gallery-title">نمونه کارهای اجرا شده رنگستان</div>
+          <button class="rg-toggle-btn" id="rgToggleBtn">
+            <span>نمایش شبکه‌ای</span>
+          </button>
+        </div>
+
+        <!-- Slider view -->
+        <div class="rg-slider-view" id="rgSliderView">
+          <div class="rg-slider" id="rgSlider">
+            <button class="rg-slider-arrow rg-prev" type="button" aria-label="نمونه قبلی">&#10094;</button>
+            <button class="rg-slider-arrow rg-next" type="button" aria-label="نمونه بعدی">&#10095;</button>
+
+            <div class="rg-slider-track" id="rgSliderTrack">
+              <!-- Slides using your files -->
+              <div class="rg-slide">
+                <img src="images/gallery/IMG_8873.jpg" loading="lazy" alt="نقاشی دیوار فضای داخلی">
+              </div>
+              <div class="rg-slide">
+                <img src="images/gallery/fourth.jpg" loading="lazy" alt="نمای خارجی و داربست نقاشی نما">
+              </div>
+              <div class="rg-slide">
+                <img src="images/gallery/hero-image.jpg" loading="lazy" alt="کافه و دیوار هنری رنگستان">
+              </div>
+              <div class="rg-slide">
+                <img src="images/gallery/img.jpg" loading="lazy" alt="مجسمه و پس‌زمینه نقاشی‌شده">
+              </div>
+              <div class="rg-slide">
+                <img src="images/gallery/mm.jpg" loading="lazy" alt="دیوار راهرو با طرح مدرن">
+              </div>
+              <div class="rg-slide">
+                <img src="images/gallery/teamwork-copy.jpg" loading="lazy" alt="اتاق جلسه با دیوار طرح‌دار">
+              </div>
+              <div class="rg-slide">
+                <img src="images/gallery/tree.jpg" loading="lazy" alt="نقاشی درخت روی دیوار">
+              </div>
+              <div class="rg-slide">
+                <img src="images/gallery/god.jpg" loading="lazy" alt="دیوارنگاری چهره فانتزی">
+              </div>
+              <div class="rg-slide">
+                <img src="images/gallery/sal.jpg" loading="lazy" alt="دیوار رنگی در فضای نشیمن">
+              </div>
+              <div class="rg-slide">
+                <img src="images/gallery/mus.jpg" loading="lazy" alt="نقاشی دیواری بزرگ با فیگور">
+              </div>
+              <div class="rg-slide">
+                <img src="images/gallery/third.jpg" loading="lazy" alt="فضای مینیمال با دیوار روشن">
+              </div>
+              <div class="rg-slide">
+                <img src="images/gallery/to-fix.jpg" loading="lazy" alt="قبل و بعد ترمیم دیوار">
+              </div>
+              <div class="rg-slide">
+                <img src="images/gallery/wall-painting.jpg" loading="lazy" alt="نقاشی دیواری در راهرو">
+              </div>
+            </div>
+          </div>
+          <div class="rg-slider-dots" id="rgSliderDots"></div>
+        </div>
+
+        <!-- Grid view -->
+        <div class="rg-grid-view rg-hidden" id="rgGridView">
+          <div class="rg-grid" id="rgGridContainer">
+            <!-- generated by JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- === Rangestan gallery section ends here === -->
+
     </section>
   </main>
 
+  <!-- gallery script -->
+  <script>
+    (function() {
+      const slider = document.getElementById("rgSlider");
+      const track = document.getElementById("rgSliderTrack");
+      const slides = Array.from(track.querySelectorAll(".rg-slide"));
+      const dotsContainer = document.getElementById("rgSliderDots");
+      const gridContainer = document.getElementById("rgGridContainer");
+      const toggleBtn = document.getElementById("rgToggleBtn");
+      const sliderView = document.getElementById("rgSliderView");
+      const gridView = document.getElementById("rgGridView");
+
+      let index = 0;
+      let isDragging = false;
+      let startX = 0;
+      let deltaX = 0;
+      let autoTimer;
+
+      // dots
+      slides.forEach((_, i) => {
+        const dot = document.createElement("span");
+        dot.className = "rg-slider-dot" + (i === 0 ? " rg-active" : "");
+        dot.addEventListener("click", () => goTo(i));
+        dotsContainer.appendChild(dot);
+      });
+      const dots = Array.from(document.querySelectorAll(".rg-slider-dot"));
+
+      // grid thumbnails
+      slides.forEach((slide, i) => {
+        const img = slide.querySelector("img");
+        const btn = document.createElement("button");
+        btn.className = "rg-grid-item" + (i === 0 ? " rg-active" : "");
+        btn.type = "button";
+        btn.dataset.index = i;
+
+        const thumb = img.cloneNode(true);
+        thumb.loading = "lazy";
+        btn.appendChild(thumb);
+
+        btn.addEventListener("click", () => {
+          goTo(i);
+          switchToSlider();
+        });
+
+        gridContainer.appendChild(btn);
+      });
+      const gridItems = Array.from(document.querySelectorAll(".rg-grid-item"));
+
+      function updateUI() {
+        track.style.transform = `translateX(-${index * 100}%)`;
+        dots.forEach((d, i) => d.classList.toggle("rg-active", i === index));
+        gridItems.forEach((g, i) => g.classList.toggle("rg-active", i === index));
+      }
+
+      function goTo(i) {
+        index = (i + slides.length) % slides.length;
+        track.style.transition = "transform 0.7s cubic-bezier(.18,.77,.45,1)";
+        updateUI();
+      }
+
+      document.querySelector(".rg-slider-arrow.rg-prev").addEventListener("click", () => {
+        goTo(index - 1);
+        resetAutoplay();
+      });
+
+      document.querySelector(".rg-slider-arrow.rg-next").addEventListener("click", () => {
+        goTo(index + 1);
+        resetAutoplay();
+      });
+
+      // drag / swipe
+      function startDrag(clientX) {
+        isDragging = true;
+        startX = clientX;
+        deltaX = 0;
+        track.style.transition = "none";
+        clearInterval(autoTimer);
+      }
+
+      function moveDrag(clientX) {
+        if (!isDragging) return;
+        deltaX = clientX - startX;
+        const movePercent = (deltaX / slider.offsetWidth) * 100;
+        track.style.transform = `translateX(calc(-${index * 100}% + ${movePercent}%))`;
+      }
+
+      function endDrag() {
+        if (!isDragging) return;
+        isDragging = false;
+        track.style.transition = "transform 0.7s cubic-bezier(.18,.77,.45,1)";
+
+        if (deltaX > 50) index--;
+        else if (deltaX < -50) index++;
+
+        index = (index + slides.length) % slides.length;
+        updateUI();
+        resetAutoplay();
+      }
+
+      // mouse
+      slider.addEventListener("mousedown", e => startDrag(e.clientX));
+      window.addEventListener("mousemove", e => moveDrag(e.clientX));
+      window.addEventListener("mouseup", endDrag);
+
+      // touch
+      slider.addEventListener("touchstart", e => startDrag(e.touches[0].clientX), { passive: true });
+      slider.addEventListener("touchmove", e => moveDrag(e.touches[0].clientX), { passive: true });
+      slider.addEventListener("touchend", endDrag);
+
+      // autoplay
+      function startAutoplay() {
+        autoTimer = setInterval(() => {
+          goTo(index + 1);
+        }, 4500);
+      }
+
+      function resetAutoplay() {
+        clearInterval(autoTimer);
+        startAutoplay();
+      }
+
+      slider.addEventListener("mouseenter", () => clearInterval(autoTimer));
+      slider.addEventListener("mouseleave", resetAutoplay);
+
+      startAutoplay();
+      updateUI();
+
+      // toggle views
+      function switchToGrid() {
+        sliderView.classList.add("rg-hidden");
+        gridView.classList.remove("rg-hidden");
+        toggleBtn.classList.add("rg-active");
+        toggleBtn.querySelector("span").textContent = "نمایش اسلایدی";
+        clearInterval(autoTimer);
+      }
+
+      function switchToSlider() {
+        sliderView.classList.remove("rg-hidden");
+        gridView.classList.add("rg-hidden");
+        toggleBtn.classList.remove("rg-active");
+        toggleBtn.querySelector("span").textContent = "نمایش شبکه‌ای";
+        resetAutoplay();
+      }
+
+      toggleBtn.addEventListener("click", () => {
+        const inGrid = !gridView.classList.contains("rg-hidden");
+        if (inGrid) switchToSlider();
+        else switchToGrid();
+      });
+    })();
+  </script>
+
+  <!-- existing header scroll script -->
   <script>
     let lastScroll = 0;
     const topBar = document.getElementById("topBar");
@@ -135,7 +570,6 @@
       }
       lastScroll = Math.max(current, 0);
     });
-
   </script>
 
 </body>
