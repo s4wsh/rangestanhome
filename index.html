@@ -32,255 +32,119 @@
   .show { transform: translateY(0); }
   #topBar, #headerBar { transition: transform .35s ease; }
 
-  /* === Rangestan gallery styles === */
-  :root {
-    --rg-bg: #f7f4ec;
-    --rg-ink: #121110;
-    --rg-muted: #7a746c;
-    --rg-radius: 22px;
-    --rg-shadow: 0 22px 60px rgba(0,0,0,0.13);
-  }
-
-  .rg-gallery-shell {
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .rg-gallery-header {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    margin-bottom: 8px;
-  }
-
-  .rg-toggle-btn {
-    border: 1px solid rgba(0,0,0,0.08);
-    background: rgba(255,255,255,0.9);
-    border-radius: 999px;
-    padding: 6px 16px;
-    font-size: 0.8rem;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    color: var(--rg-muted);
-    transition: background .2s ease, transform .1s ease;
-    backdrop-filter: blur(6px);
-  }
-
-  .rg-toggle-btn.rg-active {
-    color: var(--rg-ink);
-    background: #eee6d8;
-  }
-
-  .rg-slider {
-    position: relative;
-    overflow: hidden;
-    border-radius: var(--rg-radius);
-    box-shadow: var(--rg-shadow);
-    background: #000;
-    aspect-ratio: 16/10;
-  }
-
-  .rg-slider-track {
-    display: flex;
-    transition: transform 0.7s cubic-bezier(.18,.77,.45,1);
-  }
-
-  .rg-slide {
-    min-width: 100%;
-  }
-
-  .rg-slide img {
+  /* Slider styles */
+  .slider {
     width: 100%;
-    height: 100%;
-    object-fit: contain;
-    background: #000;
+    overflow: hidden;
+    position: relative;
+    border-radius: 18px;
   }
-
-  .rg-slider-arrow {
-    position: absolute;
-    top: 50%;
-    width: 36px;
-    height: 36px;
-    background: rgba(0,0,0,.4);
-    color: #fff;
-    border-radius: 999px;
-    display: grid;
-    place-content: center;
-    transform: translateY(-50%);
-    cursor: pointer;
-    border: none;
+  .slides {
+    display: flex;
+    transition: transform 0.6s ease-in-out;
   }
-
-  .rg-slider-arrow.rg-prev { left: 8px; }
-  .rg-slider-arrow.rg-next { right: 8px; }
-
-  .rg-slider-dots {
-    text-align: center;
-    padding-top: 10px;
+  .slide {
+    min-width: 100%;
+    border-radius: 18px;
   }
-
-  .rg-slider-dot {
+  .dots span {
     width: 9px;
     height: 9px;
-    background: rgba(0,0,0,0.25);
-    border-radius: 999px;
+    border-radius: 50%;
+    background: #ccc;
     display: inline-block;
-    margin: 4px;
+    transition: 0.3s;
   }
-
-  .rg-slider-dot.rg-active {
-    width: 18px;
-    background: rgba(0,0,0,0.75);
+  .dots span.active {
+    background: #000;
   }
-
-  .rg-grid-view {
-    margin-top: 18px;
-  }
-
-  .rg-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 12px;
-  }
-
-  .rg-grid-item {
-    border-radius: 16px;
-    overflow: hidden;
-    cursor: pointer;
-    box-shadow: 0 10px 28px rgba(0,0,0,.08);
-  }
-
-  .rg-grid-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .rg-hidden { display: none; }
 </style>
-</head>
 
+</head>
 <body class="min-h-screen overflow-x-hidden">
 
-<div id="topBar"
-  class="w-full fixed top-0 right-0 left-0 bg-black text-white z-50 flex items-center justify-center text-[13px] show"
-  style="height: var(--bar-h);">
-  📞 تماس مستقیم: ۰۹۱۹۱۹۹۶۶۰۸
-</div>
+  <div id="topBar"
+    class="w-full fixed top-0 right-0 left-0 bg-black text-white z-50 flex items-center justify-center text-[13px] border-b border-black/15 show"
+    style="height: var(--bar-h);">
+    <span class="font-semibold whitespace-nowrap">📞 تماس مستقیم: ۰۹۱۹۱۹۹۶۶۰۸</span>
+  </div>
 
-<header id="headerBar"
-  class="fixed w-full right-0 left-0 z-40 px-4 show bg-white/90 backdrop-blur-md rounded-b-3xl shadow-lg border-[4px] border-black/10 flex justify-center"
-  style="top: calc(var(--bar-h) + var(--header-gap)); height: var(--header-h);">
-  <img src="images/logo/logomark-dark.png" class="h-9" alt="رنگستان">
-</header>
-
-<main id="mainContent" class="pb-24" style="padding-top: var(--main-pt);">
-<section class="max-w-[1100px] mx-auto px-4 flex flex-col gap-8">
-
-  <!-- WhatsApp CTA stays -->
-  <a href="https://wa.me/989191996608"
-    class="bg-white/90 backdrop-blur-md rounded-3xl shadow-lg border-[4px] border-black/10 flex items-center justify-center gap-3 p-4 font-bold text-green-700 hover:bg-white transition mt-6">
-    💬 پیش‌نمایش سریع — پیام در واتساپ
-  </a>
-
-  <!-- === Gallery ONLY === -->
-  <section class="rg-gallery-shell">
-
-    <div class="rg-gallery-header">
-      <button class="rg-toggle-btn" id="rgToggleBtn">
-        <span>نمایش شبکه‌ای</span>
-      </button>
+  <header id="headerBar"
+    class="fixed w-full right-0 left-0 z-40 px-4 show bg-white/90 backdrop-blur-md rounded-b-3xl shadow-lg border-[4px] border-black/10 flex justify-center"
+    style="top: calc(var(--bar-h) + var(--header-gap)); height: var(--header-h);">
+    <div class="max-w-[1100px] w-full flex justify-center items-center">
+      <img src="images/logo/logomark-dark.png" class="h-9" alt="رنگستان">
     </div>
+  </header>
 
-    <div class="rg-slider-view" id="rgSliderView">
-      <div class="rg-slider" id="rgSlider">
-        <button class="rg-slider-arrow rg-prev">&#10094;</button>
-        <button class="rg-slider-arrow rg-next">&#10095;</button>
-        <div class="rg-slider-track" id="rgSliderTrack">
-          <div class="rg-slide"><img src="images/gallery/IMG_8873.jpg" /></div>
-          <div class="rg-slide"><img src="images/gallery/fourth.jpg" /></div>
-          <div class="rg-slide"><img src="images/gallery/hero-image.jpg" /></div>
-          <div class="rg-slide"><img src="images/gallery/img.jpg" /></div>
-          <div class="rg-slide"><img src="images/gallery/mm.jpg" /></div>
-          <div class="rg-slide"><img src="images/gallery/teamwork-copy.jpg" /></div>
-          <div class="rg-slide"><img src="images/gallery/tree.jpg" /></div>
-          <div class="rg-slide"><img src="images/gallery/god.jpg" /></div>
-          <div class="rg-slide"><img src="images/gallery/sal.jpg" /></div>
-          <div class="rg-slide"><img src="images/gallery/mus.jpg" /></div>
-          <div class="rg-slide"><img src="images/gallery/third.jpg" /></div>
-          <div class="rg-slide"><img src="images/gallery/to-fix.jpg" /></div>
-          <div class="rg-slide"><img src="images/gallery/wall-painting.jpg" /></div>
+  <main id="mainContent" class="transition-all pb-28" style="padding-top: var(--main-pt);">
+    <section class="max-w-[1100px] mx-auto px-4 flex flex-col gap-8">
+
+      <!-- Hero + About + Service Cards remain unchanged -->
+      <!-- ... YOUR EXISTING SECTIONS ... -->
+
+      <a href="https://wa.me/989191996608"
+        class="bg-white/90 backdrop-blur-md rounded-3xl shadow-lg border-[4px] border-black/10 flex items-center justify-center gap-3 p-4 font-bold text-green-700 hover:bg-white transition">
+        💬 پیش‌نمایش سریع — پیام در واتساپ
+      </a>
+
+      <!-- 🖼️ Modern Auto Gallery Slider -->
+      <div class="bg-white/85 backdrop-blur-sm rounded-3xl p-4 shadow-xl border border-black/5">
+        <div class="slider">
+          <div class="slides" id="slides">
+            <img src="images/gallery/gal1.jpg" class="slide object-cover md:h-[420px]" alt="">
+            <img src="images/gallery/gal2.jpg" class="slide object-cover md:h-[420px]" alt="">
+            <img src="images/gallery/gal3.jpg" class="slide object-cover md:h-[420px]" alt="">
+            <img src="images/gallery/gal4.jpg" class="slide object-cover md:h-[420px]" alt="">
+          </div>
+        </div>
+
+        <div class="dots flex justify-center gap-2 mt-3" id="dots">
+          <span></span><span></span><span></span><span></span>
         </div>
       </div>
-      <div class="rg-slider-dots" id="rgSliderDots"></div>
-    </div>
 
-    <div class="rg-grid-view rg-hidden" id="rgGridView">
-      <div class="rg-grid" id="rgGridContainer"></div>
-    </div>
+    </section>
+  </main>
 
-  </section>
+  <script>
+    let lastScroll = 0;
+    const topBar = document.getElementById("topBar");
+    const headerBar = document.getElementById("headerBar");
 
-</section>
-</main>
+    window.addEventListener("scroll", () => {
+      const current = window.pageYOffset;
+      if (current > lastScroll && current > 60) {
+        topBar.classList.replace("show", "hide");
+        headerBar.classList.replace("show", "hide");
+      } else {
+        topBar.classList.replace("hide", "show");
+        headerBar.classList.replace("hide", "show");
+      }
+      lastScroll = Math.max(current, 0);
+    });
 
-<script>
-(function() {
-  const slider=document.getElementById("rgSlider");
-  const track=document.getElementById("rgSliderTrack");
-  const slides=[...track.children];
-  const dotsContainer=document.getElementById("rgSliderDots");
-  const gridContainer=document.getElementById("rgGridContainer");
-  const toggle=document.getElementById("rgToggleBtn");
-  const sliderView=document.getElementById("rgSliderView");
-  const gridView=document.getElementById("rgGridView");
 
-  let index=0,auto;
+    /* ⭐ Auto & Manual Slider */
+    const slides = document.getElementById("slides");
+    const dots = document.querySelectorAll("#dots span");
+    let index = 0;
 
-  slides.forEach((s,i)=>{
-    let d=document.createElement("span");
-    d.className="rg-slider-dot"+(i===0?" rg-active":"");
-    d.onclick=()=>go(i);
-    dotsContainer.appendChild(d);
+    function showSlide(i) {
+      index = i;
+      slides.style.transform = `translateX(-${i * 100}%)`;
+      dots.forEach((dot, d) => dot.classList.toggle("active", d === i));
+    }
 
-    let g=document.createElement("button");
-    g.className="rg-grid-item";
-    g.onclick=()=>{go(i);sliderView.classList.remove("rg-hidden");gridView.classList.add("rg-hidden");toggle.classList.remove("rg-active")};
-    let im=s.children[0].cloneNode(true);
-    g.appendChild(im);
-    gridContainer.appendChild(g);
-  });
-  const dots=[...dotsContainer.children];
+    dots.forEach((dot, i) => dot.addEventListener("click", () => showSlide(i)));
 
-  function go(i){
-    index=(i+slides.length)%slides.length;
-    track.style.transform=`translateX(-${index*100}%)`;
-    dots.forEach((d,n)=>d.classList.toggle("rg-active",n===index));
-  }
+    setInterval(() => {
+      index = (index + 1) % dots.length;
+      showSlide(index);
+    }, 5000);
 
-  document.querySelector(".rg-prev").onclick=()=>{go(index-1)};
-  document.querySelector(".rg-next").onclick=()=>{go(index+1)};
+    showSlide(0);
+  </script>
 
-  toggle.onclick=()=>{
-    let gridOn=!gridView.classList.contains("rg-hidden");
-    if(gridOn){ sliderView.classList.remove("rg-hidden");gridView.classList.add("rg-hidden");toggle.classList.remove("rg-active") }
-    else { sliderView.classList.add("rg-hidden");gridView.classList.remove("rg-hidden");toggle.classList.add("rg-active") }
-  };
-
-  go(0);
-})();
-</script>
-
-<script>
-let lastScroll=0,topBar=document.getElementById("topBar"),header=document.getElementById("headerBar");
-window.addEventListener("scroll",()=>{
-  let y=window.pageYOffset;
-  if(y>lastScroll&&y>60){topBar.classList.replace("show","hide");header.classList.replace("show","hide")}
-  else{topBar.classList.replace("hide","show");header.classList.replace("hide","show")}
-  lastScroll=y;
-});
-</script>
 </body>
 </html>
