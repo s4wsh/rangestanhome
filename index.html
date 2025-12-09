@@ -32,35 +32,18 @@
   .show { transform: translateY(0); }
   #topBar, #headerBar { transition: transform .35s ease; }
 
-  /* Slider styles */
-  .slider {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-    border-radius: 18px;
-  }
-  .slides {
-    display: flex;
-    transition: transform 0.6s ease-in-out;
-  }
-  .slide {
-    min-width: 100%;
-    border-radius: 18px;
-  }
+  .slider { width: 100%; overflow: hidden; position: relative; }
+  .slides { display: flex; transition: transform .6s ease-in-out; }
+  .slide { min-width: 100%; }
   .dots span {
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    background: #ccc;
-    display: inline-block;
-    transition: 0.3s;
+    width: 9px; height: 9px; border-radius: 50%;
+    background: #ccc; display: inline-block;
   }
-  .dots span.active {
-    background: #000;
-  }
+  .dots span.active { background: #000; }
 </style>
 
 </head>
+
 <body class="min-h-screen overflow-x-hidden">
 
   <div id="topBar"
@@ -77,25 +60,82 @@
     </div>
   </header>
 
-  <main id="mainContent" class="transition-all pb-28" style="padding-top: var(--main-pt);">
+  <main id="mainContent" class="transition-all pb-32" style="padding-top: var(--main-pt);">
     <section class="max-w-[1100px] mx-auto px-4 flex flex-col gap-8">
 
-      <!-- Hero + About + Service Cards remain unchanged -->
-      <!-- ... YOUR EXISTING SECTIONS ... -->
+      <!-- RESTORED: Hero -->
+      <div class="bg-white/85 backdrop-blur-sm rounded-3xl p-4 shadow-xl border border-black/5 overflow-hidden">
+        <img src="images/gallery/hero-image.jpg" class="w-full rounded-2xl shadow-lg object-cover md:h-[460px]">
+      </div>
 
+      <!-- RESTORED: Intro -->
+      <div class="bg-white/85 backdrop-blur-sm rounded-3xl p-6 shadow-xl border border-black/5 flex flex-col gap-4">
+        <p class="text-[17px] sm:text-[19px] font-extrabold text-gray-900 leading-relaxed">
+          رنگستان، اجرای دقیق دیوار از آماده‌سازی تا پایان کار.
+        </p>
+        <p class="text-[14px] sm:text-[16px] text-gray-700 leading-relaxed">
+          رنگستان یک تیم جوان و باتجربه در زمینه نقاشی ساختمان است که با رویکرد فنی و دقیق وارد نوسازی شده؛ از آماده‌سازی اصولی تا رنگ‌آمیزی یکنواخت و ترمیم حرفه‌ای. هدف ما ارائه کاری تمیز، ماندگار و اقتصادی است.
+        </p>
+        <p class="text-xs sm:text-sm font-bold text-gray-900 mt-4">
+          نقاشی و ترمیم تخصصی دیوار — نتیجه‌ای تمیز و ماندگار
+        </p>
+      </div>
+
+      <!-- RESTORED: Benefits -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+        <div class="bg-white/85 backdrop-blur-sm rounded-3xl p-4 shadow-xl border border-black/5 overflow-hidden">
+          <img src="images/gallery/mus.jpg" class="w-full rounded-2xl shadow-lg object-cover md:h-[460px]">
+        </div>
+        <div class="bg-white/85 backdrop-blur-sm rounded-3xl p-6 shadow-xl border border-black/5 h-full flex items-center">
+          <ul class="text-[14px] sm:text-[16px] text-gray-700 leading-relaxed space-y-2 list-disc pr-6">
+            <li>زیرسازی اصولی، رنگ‌آمیزی یکنواخت و نتیجه‌ای ماندگار</li>
+            <li>مشاوره و پیش‌نمایش سریع در واتساپ</li>
+            <li>قیمت‌گذاری شفاف بدون هزینه پنهان</li>
+            <li>زمان‌بندی دقیق و پایبندی کامل به قول تحویل</li>
+            <li>اجرای تمیز و جمع‌کردن کامل ابزار</li>
+            <li>پاسخ‌گویی سریع و هماهنگی آسان در واتساپ</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- RESTORED: 4 Cards -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        <div class="bg-white/90 rounded-3xl p-5 shadow-xl border border-black/5 text-center">
+          <span class="text-3xl">🎨</span>
+          <p class="font-bold text-gray-900 mt-2">نقاشی تخصصی دیوار</p>
+          <p class="text-[13px] text-gray-600 mt-1">اجرای یکنواخت و با دوام</p>
+        </div>
+        <div class="bg-white/90 rounded-3xl p-5 shadow-xl border border-black/5 text-center">
+          <span class="text-3xl">🛠️</span>
+          <p class="font-bold text-gray-900 mt-2">ترمیم و بازسازی دیوار</p>
+          <p class="text-[13px] text-gray-600 mt-1">رفع نم، ترک و شکستگی</p>
+        </div>
+        <div class="bg-white/90 rounded-3xl p-5 shadow-xl border border-black/5 text-center">
+          <span class="text-3xl">✨</span>
+          <p class="font-bold text-gray-900 mt-2">تکسچرهای ویژه</p>
+          <p class="text-[13px] text-gray-600 mt-1">پتینه، استاکو، گچی</p>
+        </div>
+        <div class="bg-white/90 rounded-3xl p-5 shadow-xl border border-black/5 text-center">
+          <span class="text-3xl">🎭</span>
+          <p class="font-bold text-gray-900 mt-2">دیوارنگاری حرفه‌ای</p>
+          <p class="text-[13px] text-gray-600 mt-1">نقاشی هنری و سفارشی</p>
+        </div>
+      </div>
+
+      <!-- WhatsApp CTA -->
       <a href="https://wa.me/989191996608"
         class="bg-white/90 backdrop-blur-md rounded-3xl shadow-lg border-[4px] border-black/10 flex items-center justify-center gap-3 p-4 font-bold text-green-700 hover:bg-white transition">
         💬 پیش‌نمایش سریع — پیام در واتساپ
       </a>
 
-      <!-- 🖼️ Modern Auto Gallery Slider -->
-      <div class="bg-white/85 backdrop-blur-sm rounded-3xl p-4 shadow-xl border border-black/5">
+      <!-- ⭐ SLIDER ADDED HERE ⭐ -->
+      <div class="bg-white/85 rounded-3xl shadow-xl border border-black/5 p-4">
         <div class="slider">
           <div class="slides" id="slides">
-            <img src="images/gallery/gal1.jpg" class="slide object-cover md:h-[420px]" alt="">
-            <img src="images/gallery/gal2.jpg" class="slide object-cover md:h-[420px]" alt="">
-            <img src="images/gallery/gal3.jpg" class="slide object-cover md:h-[420px]" alt="">
-            <img src="images/gallery/gal4.jpg" class="slide object-cover md:h-[420px]" alt="">
+            <img src="images/gallery/gal1.jpg" class="slide object-cover md:h-[420px]">
+            <img src="images/gallery/gal2.jpg" class="slide object-cover md:h-[420px]">
+            <img src="images/gallery/gal3.jpg" class="slide object-cover md:h-[420px]">
+            <img src="images/gallery/gal4.jpg" class="slide object-cover md:h-[420px]">
           </div>
         </div>
 
@@ -124,8 +164,7 @@
       lastScroll = Math.max(current, 0);
     });
 
-
-    /* ⭐ Auto & Manual Slider */
+    /* slider */
     const slides = document.getElementById("slides");
     const dots = document.querySelectorAll("#dots span");
     let index = 0;
