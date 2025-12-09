@@ -34,7 +34,7 @@
 
     .slider { width: 100%; overflow: hidden; position: relative; }
     .slides { display: flex; transition: transform .6s ease-in-out; }
-    .slide { min-width: 100%; }
+    .slide { min-width: 100%; object-fit: cover; }
     .dots span {
       width: 9px; height: 9px; border-radius: 50%;
       background: #ccc; display: inline-block;
@@ -62,12 +62,12 @@
   <main id="mainContent" class="transition-all pb-32" style="padding-top: var(--main-pt);">
     <section class="max-w-[1100px] mx-auto px-4 flex flex-col gap-8">
 
-      <!-- RESTORED: Hero -->
+      <!-- RESTOURED: Hero -->
       <div class="bg-white/85 backdrop-blur-sm rounded-3xl p-4 shadow-xl border border-black/5 overflow-hidden">
-        <img src="images/gallery/hero-image.jpg" class="w-full rounded-2xl shadow-lg object-cover md:h-[460px]">
+        <img src="images/gallery/hero-image.jpg" class="w-full rounded-2xl shadow-lg object-cover md:h-[460px]" alt="نمونه کار دیوار">
       </div>
 
-      <!-- RESTORED: Intro -->
+      <!-- RESTOURED: Intro -->
       <div class="bg-white/85 backdrop-blur-sm rounded-3xl p-6 shadow-xl border border-black/5 flex flex-col gap-4">
         <p class="text-[17px] sm:text-[19px] font-extrabold text-gray-900 leading-relaxed">
           رنگستان، اجرای دقیق دیوار از آماده‌سازی تا پایان کار.
@@ -80,10 +80,10 @@
         </p>
       </div>
 
-      <!-- RESTORED: Benefits -->
+      <!-- RESTOURED: Benefits -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
         <div class="bg-white/85 backdrop-blur-sm rounded-3xl p-4 shadow-xl border border-black/5 overflow-hidden">
-          <img src="images/gallery/mus.jpg" class="w-full rounded-2xl shadow-lg object-cover md:h-[460px]">
+          <img src="images/gallery/mus.jpg" class="w-full rounded-2xl shadow-lg object-cover md:h-[460px]" alt="نقاشی دیوار داخلی">
         </div>
         <div class="bg-white/85 backdrop-blur-sm rounded-3xl p-6 shadow-xl border border-black/5 h-full flex items-center">
           <ul class="text-[14px] sm:text-[16px] text-gray-700 leading-relaxed space-y-2 list-disc pr-6">
@@ -97,7 +97,7 @@
         </div>
       </div>
 
-      <!-- RESTORED: 4 Cards -->
+      <!-- RESTOURED: 4 Cards -->
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
         <div class="bg-white/90 rounded-3xl p-5 shadow-xl border border-black/5 text-center">
           <span class="text-3xl">🎨</span>
@@ -131,15 +131,15 @@
       <div class="bg-white/85 rounded-3xl shadow-xl border border-black/5 p-4">
         <div class="slider rounded-2xl overflow-hidden">
           <div class="slides" id="slides">
-            <img src="images/gallery/cafe-mora.jpg" class="slide object-cover rounded-2xl w-full h-[260px] sm:h-[340px] md:h-[420px] flex-shrink-0">
-            <img src="images/gallery/progress.jpg"   class="slide object-cover rounded-2xl w-full h-[260px] sm:h-[340px] md:h-[420px] flex-shrink-0">
-            <img src="images/gallery/indoor.jpg"     class="slide object-cover rounded-2xl w-full h-[260px] sm:h-[340px] md:h-[420px] flex-shrink-0">
-            <img src="images/gallery/outdoor.jpg"    class="slide object-cover rounded-2xl w-full h-[260px] sm:h-[340px] md:h-[420px] flex-shrink-0">
+            <img src="images/gallery/cafe-mora.jpg" alt="اجرای رنگ در کافه" loading="lazy" class="slide object-cover rounded-2xl w-full h-[260px] sm:h-[340px] md:h-[420px] flex-shrink-0">
+            <img src="images/gallery/progress.jpg" alt="پیشرفت کار نقاشی" loading="lazy" class="slide object-cover rounded-2xl w-full h-[260px] sm:h-[340px] md:h-[420px] flex-shrink-0">
+            <img src="images/gallery/indoor.jpg" alt="نمونه کار داخلی" loading="lazy" class="slide object-cover rounded-2xl w-full h-[260px] sm:h-[340px] md:h-[420px] flex-shrink-0">
+            <img src="images/gallery/outdoor.jpg" alt="نمونه کار فضای بیرونی" loading="lazy" class="slide object-cover rounded-2xl w-full h-[260px] sm:h-[340px] md:h-[420px] flex-shrink-0">
           </div>
         </div>
 
         <div class="dots flex justify-center gap-2 mt-3" id="dots">
-          <span></span><span></span><span></span><span></span>
+          <span class="active"></span><span></span><span></span><span></span>
         </div>
       </div>
 
@@ -164,7 +164,7 @@
       lastScroll = Math.max(current, 0);
     });
 
-    // ✅ اسلایدر تمیز
+    // ⭐ اسلایدر ⭐
     const slidesContainer = document.getElementById("slides");
     const slideEls = slidesContainer.querySelectorAll(".slide");
     const dots = document.querySelectorAll("#dots span");
@@ -193,7 +193,6 @@
       }
     }
 
-    // دات‌ها
     dots.forEach((dot, i) => {
       dot.addEventListener("click", () => {
         goToSlide(i);
@@ -201,7 +200,6 @@
       });
     });
 
-    // سوایپ لمسی و ماوس
     let startX = null;
 
     function pointerDown(clientX) {
@@ -214,38 +212,23 @@
       const dx = clientX - startX;
 
       if (Math.abs(dx) > 40) {
-        if (dx < 0) {
-          goToSlide(index + 1); // سوایپ به راست → اسلاید بعد
-        } else {
-          goToSlide(index - 1); // سوایپ به چپ → اسلاید قبل
-        }
+        if (dx < 0) goToSlide(index + 1);
+        else goToSlide(index - 1);
       }
 
       startX = null;
       startAuto();
     }
 
-    slidesContainer.addEventListener(
-      "touchstart",
-      (e) => pointerDown(e.touches[0].clientX),
-      { passive: true }
-    );
-    slidesContainer.addEventListener("touchend", (e) =>
-      pointerUp(e.changedTouches[0].clientX)
-    );
-
-    slidesContainer.addEventListener("mousedown", (e) =>
-      pointerDown(e.clientX)
-    );
-    slidesContainer.addEventListener("mouseup", (e) =>
-      pointerUp(e.clientX)
-    );
+    slidesContainer.addEventListener("touchstart", (e) => pointerDown(e.touches[0].clientX), { passive: true });
+    slidesContainer.addEventListener("touchend", (e) => pointerUp(e.changedTouches[0].clientX));
+    slidesContainer.addEventListener("mousedown", (e) => pointerDown(e.clientX));
+    slidesContainer.addEventListener("mouseup", (e) => pointerUp(e.clientX));
     slidesContainer.addEventListener("mouseleave", () => {
       startX = null;
       startAuto();
     });
 
-    // شروع
     goToSlide(0);
     startAuto();
   </script>
