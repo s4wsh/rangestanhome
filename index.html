@@ -46,23 +46,25 @@ content="رنگستان | نقاشی تخصصی دیوار در لواسان و 
   #topBar, #headerBar { transition: transform .35s ease; }
 
   .slider {
-    width: 100%;
-    min-height: 260px; /* visible area */
-    overflow: hidden;
-    position: relative;
-  }
+  width: 100%;
+  min-height: 260px;
+  overflow: hidden;
+  position: relative;
+}
 
-  .slides {
+.slides {
   display: flex;
-  width: calc(100% * 4); /* If more images → update 4 to new total */
+  width: 400%; /* 4 slides */
   transition: transform .6s ease-in-out;
-  }
+  min-height: 260px;
+}
 
+.slide {
+  min-width: 100%;
+  object-fit: cover;
+  min-height: 260px;
+}
 
-  .slide {
-    min-width: 100%;
-    object-fit: cover;
-  }
 
   .dots span {
     width: 9px;
