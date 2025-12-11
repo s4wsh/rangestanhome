@@ -15,67 +15,69 @@
   <meta name="description"
 content="رنگستان | نقاشی تخصصی دیوار در لواسان و شمیرانات. اجرای تمیز، زیرسازی اصولی، قیمت‌گذاری شفاف و پیش‌نمایش سریع در واتساپ. متخصص ترمیم ترک، نم، و پتینه. تماس: ۰۹۱۹۱۹۹۶۶۰۸">
 
-<!-- Open Graph -->
-<meta property="og:title" content="رنگستان | نقاشی تخصصی دیوار">
-<meta property="og:description" content="اجرای دقیق، قیمت‌گذاری شفاف و نتیجه‌ای تمیز و ماندگار. پیش‌نمایش سریع در واتساپ.">
-<meta property="og:image" content="https://rangestanhome.com/images/gallery/hero-image.jpg">
-<meta property="og:url" content="https://rangestanhome.com">
-<meta property="og:type" content="website">
+  <!-- Open Graph -->
+  <meta property="og:title" content="رنگستان | نقاشی تخصصی دیوار">
+  <meta property="og:description" content="اجرای دقیق، قیمت‌گذاری شفاف و نتیجه‌ای تمیز و ماندگار. پیش‌نمایش سریع در واتساپ.">
+  <meta property="og:image" content="https://rangestanhome.com/images/gallery/hero-image.jpg">
+  <meta property="og:url" content="https://rangestanhome.com">
+  <meta property="og:type" content="website">
 
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://rangestanhome.com/images/gallery/hero-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://rangestanhome.com/images/gallery/hero-image.jpg">
 
-<title>رنگستان | نقاشی تخصصی دیوار</title>
-<script src="https://cdn.tailwindcss.com"></script>
+  <title>رنگستان | نقاشی تخصصی دیوار</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 
-<style>
-  :root {
-    --bar-h: 40px;
-    --header-gap: 8px;
-    --header-h: 72px;
-    --main-pt: calc(var(--bar-h) + var(--header-gap) + var(--header-h));
-  }
+  <style>
+    :root {
+      --bar-h: 40px;
+      --header-gap: 8px;
+      --header-h: 72px;
+      --main-pt: calc(var(--bar-h) + var(--header-gap) + var(--header-h));
+    }
 
-  body {
-    font-family: 'Vazirmatn', sans-serif;
-    background: linear-gradient(135deg, #f7f4ec, #ede7d7);
-  }
+    body {
+      font-family: 'Vazirmatn', sans-serif;
+      background: linear-gradient(135deg, #f7f4ec, #ede7d7);
+    }
 
-  .hide { transform: translateY(-130%); }
-  .show { transform: translateY(0); }
-  #topBar, #headerBar { transition: transform .35s ease; }
+    .hide { transform: translateY(-130%); }
+    .show { transform: translateY(0); }
+    #topBar, #headerBar { transition: transform .35s ease; }
 
-  /* Slider */
-  .slider {
-    width: 100%;
-    min-height: 260px;
-    overflow: hidden;
-    position: relative;
-  }
+    /* Slider */
+    .slider {
+      width: 100%;
+      min-height: 260px;
+      overflow: hidden;
+      position: relative;
+    }
 
-  .slides {
-    display: flex;
-    transition: transform 0.6s ease-in-out;
-  }
+    .slides {
+      display: flex;
+      width: 400%;          /* 4 اسلاید → ۴۰۰٪ عرض */
+      transition: transform 0.6s ease-in-out;
+      min-height: 260px;
+    }
 
-  .slide {
-    width: 100%;
-    flex-shrink: 0;
-    object-fit: cover;
-  }
+    .slide {
+      min-width: 100%;      /* هر اسلاید دقیقاً عرض ویوپورت اسلایدر */
+      object-fit: cover;
+      min-height: 260px;
+    }
 
-  .dots span {
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    background: #ccc;
-    display: inline-block;
-  }
+    .dots span {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #ccc;
+      display: inline-block;
+    }
 
-  .dots span.active {
-    background: #000;
-  }
-</style>
+    .dots span.active {
+      background: #000;
+    }
+  </style>
 
 </head>
 
@@ -167,12 +169,10 @@ content="رنگستان | نقاشی تخصصی دیوار در لواسان و 
       <div class="bg-white/85 rounded-3xl shadow-xl border border-black/5 p-4">
         <div class="slider rounded-2xl overflow-hidden">
           <div class="slides" id="slides">
-
             <img src="/images/gallery/cafe-mora.jpg" class="slide" alt="">
             <img src="/images/gallery/progress.jpg" class="slide" alt="">
             <img src="/images/gallery/indoor.jpg" class="slide" alt="">
             <img src="/images/gallery/outdoor.jpg" class="slide" alt="">
-
           </div>
         </div>
       </div>
@@ -205,9 +205,7 @@ window.addEventListener("scroll", () => {
   lastScroll = Math.max(current, 0);
 });
 
-// =======================
-//     NEW SLIDER ENGINE
-// =======================
+// SLIDER ENGINE
 const container = document.getElementById("slides");
 const slides = Array.from(container.children);
 const dots = document.querySelectorAll("#dots span");
@@ -226,11 +224,12 @@ function nextSlide() {
 }
 
 function start() {
+  stop();
   timer = setInterval(nextSlide, 5000);
 }
 
 function stop() {
-  clearInterval(timer);
+  if (timer) clearInterval(timer);
 }
 
 dots.forEach((dot,i)=>{
