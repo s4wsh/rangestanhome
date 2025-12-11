@@ -52,19 +52,17 @@ content="رنگستان | نقاشی تخصصی دیوار در لواسان و 
     position: relative;
   }
 
-  /* UPDATED: auto width slider */
+  /* FIXED SLIDER */
   .slides {
     display: flex;
     transition: transform .6s ease-in-out;
-    width: 400%; /* 4 slides */
+    width: auto; /* JS will control width */
   }
 
   .slide {
     width: 100%;
     flex-shrink: 0;
     object-fit: cover;
-    flex-grow: 0 !important;
-
   }
 
   .dots span {
@@ -166,18 +164,19 @@ content="رنگستان | نقاشی تخصصی دیوار در لواسان و 
         💬 پیش‌نمایش سریع — پیام در واتساپ
       </a>
 
-      <!-- SLIDER (UPDATED) -->
+      <!-- SLIDER (FIXED + COMPLETE) -->
       <div class="bg-white/85 rounded-3xl shadow-xl border border-black/5 p-4">
         <div class="slider rounded-2xl overflow-hidden">
-         <div class="slides h-[260px] sm:h-[340px] md:h-[420px]" id="slides">
+          <div class="slides h-[260px] sm:h-[340px] md:h-[420px]" id="slides">
 
-          <img src="/images/gallery/cafe-mora.jpg" class="slide" alt="">
-          <img src="/images/gallery/progress.jpg" class="slide" alt="">
-          <img src="/images/gallery/indoor.jpg" class="slide" alt="">
-          <img src="/images/gallery/outdoor.jpg" class="slide" alt="">
-        
-        </div>
-      </div>
+            <img src="/images/gallery/cafe-mora.jpg" class="slide" alt="">
+            <img src="/images/gallery/progress.jpg" class="slide" alt="">
+            <img src="/images/gallery/indoor.jpg" class="slide" alt="">
+            <img src="/images/gallery/outdoor.jpg" class="slide" alt="">
+
+          </div> <!-- slides -->
+        </div> <!-- slider -->
+      </div> <!-- container -->
 
       <div class="dots flex justify-center gap-2 mt-3" id="dots">
         <span class="active"></span>
@@ -207,7 +206,7 @@ window.addEventListener("scroll", () => {
   lastScroll = Math.max(current, 0);
 });
 
-// SLIDER (UPDATED)
+// SLIDER (UPDATED + FIXED)
 const slidesContainer = document.getElementById("slides");
 const slideEls = slidesContainer.querySelectorAll(".slide");
 const dots = document.querySelectorAll("#dots span");
@@ -221,11 +220,13 @@ function updateWidth() {
   slideEls.forEach(slide => slide.style.width = `100%`);
 }
 
-
 function goToSlide(i) {
   index = (i + totalSlides) % totalSlides;
-  slidesContainer.style.transform = `translateX(-${index * (100 / totalSlides)}%)`;
-  dots.forEach((dot, d) => dot.classList.toggle("active", d === index));
+  slidesContainer.style.transform =
+    `translateX(-${index * (100 / totalSlides)}%)`;
+  dots.forEach((dot, d) =>
+    dot.classList.toggle("active", d === index)
+  );
 }
 
 function startAuto() {
