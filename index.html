@@ -45,6 +45,7 @@ content="رنگستان | نقاشی تخصصی دیوار در لواسان و 
   .show { transform: translateY(0); }
   #topBar, #headerBar { transition: transform .35s ease; }
 
+  /* Slider */
   .slider {
     width: 100%;
     min-height: 260px;
@@ -52,11 +53,9 @@ content="رنگستان | نقاشی تخصصی دیوار در لواسان و 
     position: relative;
   }
 
-  /* FIXED SLIDER */
   .slides {
     display: flex;
-    transition: transform .6s ease-in-out;
-    width: auto; /* JS will control width */
+    transition: transform 0.6s ease-in-out;
   }
 
   .slide {
@@ -164,19 +163,19 @@ content="رنگستان | نقاشی تخصصی دیوار در لواسان و 
         💬 پیش‌نمایش سریع — پیام در واتساپ
       </a>
 
-      <!-- SLIDER (FIXED + COMPLETE) -->
+      <!-- SLIDER -->
       <div class="bg-white/85 rounded-3xl shadow-xl border border-black/5 p-4">
         <div class="slider rounded-2xl overflow-hidden">
-          <div class="slides h-[260px] sm:h-[340px] md:h-[420px]" id="slides">
+          <div class="slides" id="slides">
 
             <img src="/images/gallery/cafe-mora.jpg" class="slide" alt="">
             <img src="/images/gallery/progress.jpg" class="slide" alt="">
             <img src="/images/gallery/indoor.jpg" class="slide" alt="">
             <img src="/images/gallery/outdoor.jpg" class="slide" alt="">
 
-          </div> <!-- slides -->
-        </div> <!-- slider -->
-      </div> <!-- container -->
+          </div>
+        </div>
+      </div>
 
       <div class="dots flex justify-center gap-2 mt-3" id="dots">
         <span class="active"></span>
@@ -189,7 +188,7 @@ content="رنگستان | نقاشی تخصصی دیوار در لواسان و 
   </main>
 
 <script>
-// Header Hide/Show
+// Header hide/show
 let lastScroll = 0;
 const topBar = document.getElementById("topBar");
 const headerBar = document.getElementById("headerBar");
@@ -206,62 +205,63 @@ window.addEventListener("scroll", () => {
   lastScroll = Math.max(current, 0);
 });
 
-// SLIDER (UPDATED + FIXED)
-const slidesContainer = document.getElementById("slides");
-const slideEls = slidesContainer.querySelectorAll(".slide");
+// =======================
+//     NEW SLIDER ENGINE
+// =======================
+const container = document.getElementById("slides");
+const slides = Array.from(container.children);
 const dots = document.querySelectorAll("#dots span");
-const totalSlides = slideEls.length;
 
 let index = 0;
-let autoTimer = null;
+let timer;
 
-function updateWidth() {
-  slidesContainer.style.width = `${totalSlides * 100}%`;
-  slideEls.forEach(slide => {
-    slide.style.width = `100%`; // full width per slide
-  });
+function updateSlide() {
+  container.style.transform = `translateX(-${index * 100}%)`;
+  dots.forEach((d,i)=> d.classList.toggle("active", i === index));
 }
 
-function goToSlide(i) {
-  index = (i + totalSlides) % totalSlides;
-  slidesContainer.style.transform = `translateX(-${index * 100}%)`;
-  dots.forEach((dot, d) => dot.classList.toggle("active", d === index));
+function nextSlide() {
+  index = (index + 1) % slides.length;
+  updateSlide();
 }
 
-function startAuto() {
-  stopAuto();
-  autoTimer = setInterval(() => goToSlide(index + 1), 5000);
+function start() {
+  timer = setInterval(nextSlide, 5000);
 }
 
-function stopAuto() {
-  clearInterval(autoTimer);
+function stop() {
+  clearInterval(timer);
 }
 
-dots.forEach((dot, i) => {
-  dot.addEventListener("click", () => {
-    goToSlide(i);
-    startAuto();
+dots.forEach((dot,i)=>{
+  dot.addEventListener("click", ()=>{
+    stop();
+    index = i;
+    updateSlide();
+    start();
   });
 });
 
+// Swipe support
 let startX = null;
 
-slidesContainer.addEventListener("touchstart", e => {
+container.addEventListener("touchstart", e => {
   startX = e.touches[0].clientX;
-  stopAuto();
+  stop();
 }, { passive: true });
 
-slidesContainer.addEventListener("touchend", e => {
+container.addEventListener("touchend", e => {
   const dx = e.changedTouches[0].clientX - startX;
-  if (dx < -40) goToSlide(index + 1);
-  else if (dx > 40) goToSlide(index - 1);
-  startX = null;
-  startAuto();
+  if (dx < -40) nextSlide();
+  if (dx > 40) {
+    index = (index - 1 + slides.length) % slides.length;
+    updateSlide();
+  }
+  start();
 });
 
-updateWidth();
-goToSlide(0);
-startAuto();
+updateSlide();
+start();
 </script>
 
 </body>
