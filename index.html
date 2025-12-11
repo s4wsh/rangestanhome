@@ -26,6 +26,14 @@ content="رنگستان | نقاشی تخصصی دیوار در لواسان و 
   <meta name="twitter:image" content="https://rangestanhome.com/images/gallery/hero-image.jpg">
 
   <title>رنگستان | نقاشی تخصصی دیوار</title>
+
+  <!-- ============================
+       LOAD VAZIRMATN FONT (ONLY CHANGE)
+  ============================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
@@ -46,16 +54,6 @@ content="رنگستان | نقاشی تخصصی دیوار در لواسان و 
     #topBar, #headerBar { transition: transform .35s ease; }
 
     /* ============================
-       BIG SCREEN WIDE CONTAINER
-    ============================ */
-    @media (min-width: 1600px) {
-      .container-wide { max-width: 1400px !important; }
-    }
-    @media (min-width: 2000px) {
-      .container-wide { max-width: 1600px !important; }
-    }
-
-    /* ============================
        FADE SLIDER (NEW)
     ============================ */
     .fade-slider {
@@ -74,7 +72,7 @@ content="رنگستان | نقاشی تخصصی دیوار در لواسان و 
       position: absolute;
       inset: 0;
       opacity: 0;
-      transition: opacity 1.2s ease-in-out;
+      transition: opacity 1.2s ease-in-out; /* FADE TIME */
     }
 
     .fade-slide img {
@@ -123,7 +121,7 @@ content="رنگستان | نقاشی تخصصی دیوار در لواسان و 
   </header>
 
   <main id="mainContent" class="transition-all pb-32" style="padding-top: var(--main-pt);">
-    <section class="max-w-[1100px] container-wide mx-auto px-4 flex flex-col gap-8">
+    <section class="max-w-[1100px] mx-auto px-4 flex flex-col gap-8">
 
       <!-- HERO IMAGE -->
       <div class="bg-white/85 rounded-3xl p-4 shadow-xl border border-black/5 overflow-hidden">
