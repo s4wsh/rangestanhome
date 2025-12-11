@@ -53,17 +53,18 @@ content="رنگستان | نقاشی تخصصی دیوار در لواسان و 
       position: relative;
     }
 
+    /* 4 slides => 400% strip */
     .slides {
       display: flex;
-      width: 400%;          /* 4 اسلاید → ۴۰۰٪ عرض */
       transition: transform 0.6s ease-in-out;
-      min-height: 260px;
+      width: 400%;
     }
 
+    /* each slide = 25% of strip */
     .slide {
-      min-width: 100%;      /* هر اسلاید دقیقاً عرض ویوپورت اسلایدر */
+      width: 25%;
+      flex-shrink: 0;
       object-fit: cover;
-      min-height: 260px;
     }
 
     .dots span {
@@ -168,11 +169,13 @@ content="رنگستان | نقاشی تخصصی دیوار در لواسان و 
       <!-- SLIDER -->
       <div class="bg-white/85 rounded-3xl shadow-xl border border-black/5 p-4">
         <div class="slider rounded-2xl overflow-hidden">
-          <div class="slides" id="slides">
-            <img src="/images/gallery/cafe-mora.jpg" class="slide" alt="">
-            <img src="/images/gallery/progress.jpg" class="slide" alt="">
-            <img src="/images/gallery/indoor.jpg" class="slide" alt="">
-            <img src="/images/gallery/outdoor.jpg" class="slide" alt="">
+          <div class="slides h-[260px] sm:h-[340px] md:h-[420px]" id="slides">
+
+            <img src="/images/gallery/cafe-mora.jpg" class="slide w-full h-full object-cover" alt="">
+            <img src="/images/gallery/progress.jpg" class="slide w-full h-full object-cover" alt="">
+            <img src="/images/gallery/indoor.jpg" class="slide w-full h-full object-cover" alt="">
+            <img src="/images/gallery/outdoor.jpg" class="slide w-full h-full object-cover" alt="">
+
           </div>
         </div>
       </div>
@@ -205,17 +208,18 @@ window.addEventListener("scroll", () => {
   lastScroll = Math.max(current, 0);
 });
 
-// SLIDER ENGINE
+// ===== SLIDER =====
 const container = document.getElementById("slides");
 const slides = Array.from(container.children);
 const dots = document.querySelectorAll("#dots span");
 
 let index = 0;
-let timer;
+let timer = null;
 
 function updateSlide() {
-  container.style.transform = `translateX(-${index * 100}%)`;
-  dots.forEach((d,i)=> d.classList.toggle("active", i === index));
+  // 4 slides => 25% shift per step
+  container.style.transform = `translateX(-${index * 25}%)`;
+  dots.forEach((d, i) => d.classList.toggle("active", i === index));
 }
 
 function nextSlide() {
@@ -223,17 +227,24 @@ function nextSlide() {
   updateSlide();
 }
 
+function prevSlide() {
+  index = (index - 1 + slides.length) % slides.length;
+  updateSlide();
+}
+
 function start() {
-  stop();
+  if (timer) return;
   timer = setInterval(nextSlide, 5000);
 }
 
 function stop() {
-  if (timer) clearInterval(timer);
+  if (!timer) return;
+  clearInterval(timer);
+  timer = null;
 }
 
-dots.forEach((dot,i)=>{
-  dot.addEventListener("click", ()=>{
+dots.forEach((dot, i) => {
+  dot.addEventListener("click", () => {
     stop();
     index = i;
     updateSlide();
@@ -252,13 +263,11 @@ container.addEventListener("touchstart", e => {
 container.addEventListener("touchend", e => {
   const dx = e.changedTouches[0].clientX - startX;
   if (dx < -40) nextSlide();
-  if (dx > 40) {
-    index = (index - 1 + slides.length) % slides.length;
-    updateSlide();
-  }
+  if (dx > 40) prevSlide();
   start();
 });
 
+// init
 updateSlide();
 start();
 </script>
