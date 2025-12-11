@@ -110,7 +110,7 @@ content="رنگستان | نقاشی تخصصی دیوار در لواسان و 
           رنگستان، اجرای دقیق دیوار از آماده‌سازی تا پایان کار.
         </p>
         <p class="text-[14px] sm:text-[16px] text-gray-700 leading-relaxed">
-          زیرسازی اصولی، رنگ‌آمیزی یکنواخت و ترمیم حرفه‌ای؛ نتیجه‌ای تمیز و اقتصادی.
+          رنگستان یک تیم جوان و باتجربه در زمینه نقاشی ساختمان است که با رویکرد فنی و دقیق وارد نوسازی شده؛ از آماده‌سازی اصولی تا رنگ‌آمیزی یکنواخت و ترمیم حرفه‌ای. هدف ما ارائه کاری تمیز، ماندگار و اقتصادی است.
         </p>
         <p class="text-xs sm:text-sm font-bold text-gray-900 mt-4">
           نقاشی و ترمیم تخصصی — نتیجه‌ای ماندگار
@@ -217,16 +217,15 @@ let autoTimer = null;
 
 function updateWidth() {
   slidesContainer.style.width = `${totalSlides * 100}%`;
-  slideEls.forEach(slide => slide.style.width = `100%`);
+  slideEls.forEach(slide => {
+    slide.style.width = `100%`; // full width per slide
+  });
 }
 
 function goToSlide(i) {
   index = (i + totalSlides) % totalSlides;
-  slidesContainer.style.transform =
-    `translateX(-${index * (100 / totalSlides)}%)`;
-  dots.forEach((dot, d) =>
-    dot.classList.toggle("active", d === index)
-  );
+  slidesContainer.style.transform = `translateX(-${index * 100}%)`;
+  dots.forEach((dot, d) => dot.classList.toggle("active", d === index));
 }
 
 function startAuto() {
