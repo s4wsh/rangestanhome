@@ -12,17 +12,16 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" 
+  <meta name="description"
 content="رنگستان | نقاشی تخصصی دیوار در لواسان و شمیرانات. اجرای تمیز، زیرسازی اصولی، قیمت‌گذاری شفاف و پیش‌نمایش سریع در واتساپ. متخصص ترمیم ترک، نم، و پتینه. تماس: ۰۹۱۹۱۹۹۶۶۰۸">
 
-<!-- Open Graph (Social Preview) -->
+<!-- Open Graph -->
 <meta property="og:title" content="رنگستان | نقاشی تخصصی دیوار">
 <meta property="og:description" content="اجرای دقیق، قیمت‌گذاری شفاف و نتیجه‌ای تمیز و ماندگار. پیش‌نمایش سریع در واتساپ.">
 <meta property="og:image" content="https://rangestanhome.com/images/gallery/hero-image.jpg">
 <meta property="og:url" content="https://rangestanhome.com">
 <meta property="og:type" content="website">
 
-<!-- Twitter / WhatsApp -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://rangestanhome.com/images/gallery/hero-image.jpg">
 
@@ -53,17 +52,16 @@ content="رنگستان | نقاشی تخصصی دیوار در لواسان و 
     position: relative;
   }
 
+  /* UPDATED: auto width slider */
   .slides {
     display: flex;
-    width: 400%;
     transition: transform .6s ease-in-out;
-    min-height: 260px;
   }
 
   .slide {
-    min-width: 100%;
+    width: 100%;
+    flex-shrink: 0;
     object-fit: cover;
-    min-height: 260px;
   }
 
   .dots span {
@@ -100,7 +98,7 @@ content="رنگستان | نقاشی تخصصی دیوار در لواسان و 
   <main id="mainContent" class="transition-all pb-32" style="padding-top: var(--main-pt);">
     <section class="max-w-[1100px] mx-auto px-4 flex flex-col gap-8">
 
-      <!-- HERO -->
+      <!-- HERO IMAGE -->
       <div class="bg-white/85 rounded-3xl p-4 shadow-xl border border-black/5 overflow-hidden">
         <img src="/images/gallery/hero-image.jpg" class="w-full rounded-2xl shadow-lg object-cover md:h-[460px]" alt="نمونه کار دیوار">
       </div>
@@ -165,28 +163,30 @@ content="رنگستان | نقاشی تخصصی دیوار در لواسان و 
         💬 پیش‌نمایش سریع — پیام در واتساپ
       </a>
 
-      <!-- SLIDER -->
-      <div class="bg-white/85 rounded-3xl shadow-xl border border-black/5 p-4">
-        <div class="slider rounded-2xl overflow-hidden">
-          <div class="slides h-[260px] sm:h-[340px] md:h-[420px]" id="slides">
+      <!-- SLIDER (UPDATED) -->
+      <div class="slider rounded-2xl overflow-hidden">
+        <div class="slides h-[260px] sm:h-[340px] md:h-[420px]" id="slides">
 
-            <img src="/images/gallery/cafe-mora.jpg" class="slide ...">
-            <img src="/images/gallery/progress.jpg" class="slide ...">
-            <img src="/images/gallery/indoor.jpg" class="slide ...">
-            <img src="/images/gallery/outdoor.jpg" class="slide ...">
+          <img src="/images/gallery/cafe-mora.jpg" class="slide" alt="">
+          <img src="/images/gallery/progress.jpg" class="slide" alt="">
+          <img src="/images/gallery/indoor.jpg" class="slide" alt="">
+          <img src="/images/gallery/outdoor.jpg" class="slide" alt="">
 
-          </div>
         </div>
-        <div class="dots flex justify-center gap-2 mt-3" id="dots">
-          <span class="active"></span><span></span><span></span><span></span>
-        </div>
+      </div>
+
+      <div class="dots flex justify-center gap-2 mt-3" id="dots">
+        <span class="active"></span>
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
 
     </section>
   </main>
 
 <script>
-// Header Hide/Show on Scroll
+// Header Hide/Show
 let lastScroll = 0;
 const topBar = document.getElementById("topBar");
 const headerBar = document.getElementById("headerBar");
@@ -203,7 +203,7 @@ window.addEventListener("scroll", () => {
   lastScroll = Math.max(current, 0);
 });
 
-// Slider
+// SLIDER (UPDATED)
 const slidesContainer = document.getElementById("slides");
 const slideEls = slidesContainer.querySelectorAll(".slide");
 const dots = document.querySelectorAll("#dots span");
@@ -212,24 +212,24 @@ const totalSlides = slideEls.length;
 let index = 0;
 let autoTimer = null;
 
+function updateWidth() {
+  slidesContainer.style.width = `${totalSlides * 100}%`;
+  slideEls.forEach(slide => slide.style.width = `${100 / totalSlides}%`);
+}
+
 function goToSlide(i) {
   index = (i + totalSlides) % totalSlides;
-  slidesContainer.style.transform = `translateX(-${index * 100}%)`;
+  slidesContainer.style.transform = `translateX(-${index * (100 / totalSlides)}%)`;
   dots.forEach((dot, d) => dot.classList.toggle("active", d === index));
 }
 
 function startAuto() {
   stopAuto();
-  autoTimer = setInterval(() => {
-    goToSlide(index + 1);
-  }, 5000);
+  autoTimer = setInterval(() => goToSlide(index + 1), 5000);
 }
 
 function stopAuto() {
-  if (autoTimer) {
-    clearInterval(autoTimer);
-    autoTimer = null;
-  }
+  clearInterval(autoTimer);
 }
 
 dots.forEach((dot, i) => {
@@ -241,12 +241,12 @@ dots.forEach((dot, i) => {
 
 let startX = null;
 
-slidesContainer.addEventListener("touchstart", (e) => {
+slidesContainer.addEventListener("touchstart", e => {
   startX = e.touches[0].clientX;
   stopAuto();
 }, { passive: true });
 
-slidesContainer.addEventListener("touchend", (e) => {
+slidesContainer.addEventListener("touchend", e => {
   const dx = e.changedTouches[0].clientX - startX;
   if (dx < -40) goToSlide(index + 1);
   else if (dx > 40) goToSlide(index - 1);
@@ -254,6 +254,7 @@ slidesContainer.addEventListener("touchend", (e) => {
   startAuto();
 });
 
+updateWidth();
 goToSlide(0);
 startAuto();
 </script>
