@@ -222,7 +222,7 @@ let timer = null;
 
 function goToSlide(i) {
   index = (i + slideEls.length) % slideEls.length;
-  const width = track.clientWidth;
+  const width = slideEls[0].getBoundingClientRect().width; // ✅ use single slide width
   track.style.transform = `translateX(-${index * width}px)`;
   dots.forEach((d, n) => d.classList.toggle("active", n === index));
 }
