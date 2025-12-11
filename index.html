@@ -46,38 +46,52 @@ content="رنگستان | نقاشی تخصصی دیوار در لواسان و 
     #topBar, #headerBar { transition: transform .35s ease; }
 
     /* ============================
-       FINAL WORKING GALLERY (FIXED)
+       FADE SLIDER (NEW)
     ============================ */
-    .slider {
-      width: 100%;
-      overflow: hidden;
+    .fade-slider {
       position: relative;
+      width: 100%;
+      height: 260px;
+    }
+    @media (min-width: 640px) {
+      .fade-slider { height: 340px; }
+    }
+    @media (min-width: 768px) {
+      .fade-slider { height: 420px; }
     }
 
-    .slides {
-      display: flex;
-      transition: transform 0.6s ease-in-out;
-      width: calc(100% * 4); /* ⭐ FIX: ensures all 4 slides render */
+    .fade-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 1.2s ease-in-out; /* FADE TIME */
     }
 
-    .slide {
-      flex: 0 0 100%;
+    .fade-slide img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      border-radius: 16px;
     }
 
-    .dots span {
+    .fade-slide.active {
+      opacity: 1;
+    }
+
+    /* dots */
+    #fadeDots span {
       width: 10px;
       height: 10px;
-      border-radius: 50%;
       background: #ccc;
       display: inline-block;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background .3s;
     }
-
-    .dots span.active {
+    #fadeDots span.active {
       background: #000;
     }
+
   </style>
 
 </head>
@@ -167,27 +181,28 @@ content="رنگستان | نقاشی تخصصی دیوار در لواسان و 
       </a>
 
       <!-- ============================
-           FINAL WORKING SLIDER
+           NEW FADE SLIDER
       ============================ -->
       <div class="bg-white/85 rounded-3xl shadow-xl border border-black/5 p-4">
-        <div class="slider rounded-2xl overflow-hidden">
-          <div class="slides h-[260px] sm:h-[340px] md:h-[420px]" id="slides">
+        <div class="fade-slider" id="fadeSlider">
 
-            <img src="/images/gallery/cafe-mora.jpg" class="slide" alt="">
-            <img src="/images/gallery/progress.jpg" class="slide" alt="">
-            <img src="/images/gallery/indoor.jpg" class="slide" alt="">
-            <img src="/images/gallery/outdoor.jpg" class="slide" alt="">
-
+          <div class="fade-slide active">
+            <img src="/images/gallery/cafe-mora.jpg" alt="">
           </div>
+          <div class="fade-slide">
+            <img src="/images/gallery/progress.jpg" alt="">
+          </div>
+          <div class="fade-slide">
+            <img src="/images/gallery/indoor.jpg" alt="">
+          </div>
+          <div class="fade-slide">
+            <img src="/images/gallery/outdoor.jpg" alt="">
+          </div>
+
         </div>
       </div>
 
-      <div class="dots flex justify-center gap-2 mt-3" id="dots">
-        <span class="active"></span>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+      <div class="dots flex justify-center gap-2 mt-3" id="fadeDots"></div>
 
     </section>
   </main>
@@ -212,64 +227,39 @@ window.addEventListener("scroll", () => {
 
 
 // =============================
-// FINAL WORKING SLIDER ENGINE
+// NEW FADE SLIDER ENGINE
 // =============================
-const track = document.getElementById("slides");
-const slideEls = Array.from(track.children);
-const dots = document.querySelectorAll("#dots span");
+const fadeSlides = Array.from(document.querySelectorAll(".fade-slide"));
+const fadeDotsWrap = document.getElementById("fadeDots");
 
-let index = 0;
-let timer = null;
+// build dots
+fadeSlides.forEach((_, i) => {
+  const dot = document.createElement("span");
+  if (i === 0) dot.classList.add("active");
+  fadeDotsWrap.appendChild(dot);
+});
+const fadeDots = Array.from(fadeDotsWrap.children);
 
-function goToSlide(i) {
-  index = (i + slideEls.length) % slideEls.length;
-  const width = slideEls[0].getBoundingClientRect().width;
-  track.style.transform = `translateX(-${index * width}px)`;
-  dots.forEach((d, n) => d.classList.toggle("active", n === index));
+let fadeIndex = 0;
+
+function fadeGo(i) {
+  fadeSlides.forEach(s => s.classList.remove("active"));
+  fadeDots.forEach(d => d.classList.remove("active"));
+
+  fadeIndex = (i + fadeSlides.length) % fadeSlides.length;
+
+  fadeSlides[fadeIndex].classList.add("active");
+  fadeDots[fadeIndex].classList.add("active");
 }
 
-function nextSlide() {
-  goToSlide(index + 1);
-}
+// autoplay
+setInterval(() => fadeGo(fadeIndex + 1), 5000);
 
-function startAuto() {
-  stopAuto();
-  timer = setInterval(nextSlide, 5000);
-}
-
-function stopAuto() {
-  clearInterval(timer);
-}
-
-dots.forEach((dot, i) => {
-  dot.addEventListener("click", () => {
-    stopAuto();
-    goToSlide(i);
-    startAuto();
-  });
+// dot click
+fadeDots.forEach((dot, i) => {
+  dot.addEventListener("click", () => fadeGo(i));
 });
 
-// Swipe
-let startX = null;
-
-track.addEventListener("touchstart", e => {
-  startX = e.touches[0].clientX;
-  stopAuto();
-}, { passive: true });
-
-track.addEventListener("touchend", e => {
-  const dx = e.changedTouches[0].clientX - startX;
-  if (dx < -40) nextSlide();
-  if (dx > 40) goToSlide(index - 1);
-  startAuto();
-});
-
-// Resize fix
-window.addEventListener("resize", () => goToSlide(index));
-
-// Init
-goToSlide(0);
-startAuto();
 </script>
 
 </body>
