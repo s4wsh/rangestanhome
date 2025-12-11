@@ -56,12 +56,15 @@ content="رنگستان | نقاشی تخصصی دیوار در لواسان و 
   .slides {
     display: flex;
     transition: transform .6s ease-in-out;
+    width: 400%; /* 4 slides */
   }
 
   .slide {
     width: 100%;
     flex-shrink: 0;
     object-fit: cover;
+    flex-grow: 0 !important;
+
   }
 
   .dots span {
@@ -215,8 +218,9 @@ let autoTimer = null;
 
 function updateWidth() {
   slidesContainer.style.width = `${totalSlides * 100}%`;
-  slideEls.forEach(slide => slide.style.width = `${100 / totalSlides}%`);
+  slideEls.forEach(slide => slide.style.width = `100%`);
 }
+
 
 function goToSlide(i) {
   index = (i + totalSlides) % totalSlides;
