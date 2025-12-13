@@ -29,13 +29,13 @@
 
 <body class="min-h-screen overflow-x-hidden">
 
-  <!-- TOP BAR (CONSISTENT) -->
-  <div class="w-full bg-black text-white text-[13px] flex justify-center items-center h-10">
+  <!-- TOP BAR (MATCHED WITH HOMEPAGE) -->
+  <div class="w-full fixed top-0 bg-black text-white text-[13px] font-semibold flex justify-center items-center h-10 z-50">
     📞 تماس: ۰۹۱۹۱۹۹۶۶۰۸
   </div>
 
-  <!-- HEADER (SIMPLIFIED, BLOG VERSION) -->
-  <header class="w-full px-4 mt-2">
+  <!-- HEADER -->
+  <header class="w-full px-4 mt-3 pt-10">
     <div class="max-w-[1100px] mx-auto bg-white/90 backdrop-blur-md rounded-3xl shadow-lg border-[4px] border-black/10 h-[72px] flex items-center justify-center">
       <a href="/">
         <img src="/images/logo/logomark-dark.png" class="h-9" alt="رنگستان">
@@ -61,7 +61,7 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
 
         <a href="/blog/posts/choosing-wall-color/"
-           class="bg-white/90 rounded-3xl shadow-lg border border-black/5 overflow-hidden hover:shadow-xl transition flex flex-col">
+           class="bg-white/90 rounded-3xl shadow-lg border border-black/5 overflow-hidden hover:shadow-xl transition duration-300 flex flex-col">
           <img src="/blog/assets/thumbnails/default.jpg" alt="انتخاب رنگ دیوار" class="w-full h-44 object-cover">
           <div class="p-4 space-y-2">
             <span class="badge">دکوراسیون</span>
@@ -73,7 +73,7 @@
         </a>
 
         <a href="/blog/posts/repairing-wall-cracks/"
-           class="bg-white/90 rounded-3xl shadow-lg border border-black/5 overflow-hidden hover:shadow-xl transition flex flex-col">
+           class="bg-white/90 rounded-3xl shadow-lg border border-black/5 overflow-hidden hover:shadow-xl transition duration-300 flex flex-col">
           <img src="/blog/assets/thumbnails/default.jpg" alt="ترمیم ترک دیوار" class="w-full h-44 object-cover">
           <div class="p-4 space-y-2">
             <span class="badge">ترمیم</span>
@@ -85,7 +85,7 @@
         </a>
 
         <a href="/blog/posts/patina-techniques/"
-           class="bg-white/90 rounded-3xl shadow-lg border border-black/5 overflow-hidden hover:shadow-xl transition flex flex-col">
+           class="bg-white/90 rounded-3xl shadow-lg border border-black/5 overflow-hidden hover:shadow-xl transition duration-300 flex flex-col">
           <img src="/blog/assets/thumbnails/default.jpg" alt="تکنیک‌های پتینه" class="w-full h-44 object-cover">
           <div class="p-4 space-y-2">
             <span class="badge">تکسچر</span>
@@ -101,11 +101,13 @@
     </section>
   </main>
 
-  <!-- FOOTER (MATCHED) -->
+  <!-- FOOTER -->
   <footer class="w-full mt-16 px-4">
-    <div class="max-w-[1100px] mx-auto bg-white/90 backdrop-blur-md rounded-t-3xl shadow-lg border-[4px] border-black/10 p-8 text-center">
+    <div class="max-w-[1100px] mx-auto bg-white/90 backdrop-blur-md rounded-t-3xl shadow-lg border-[4px] border-black/10 p-10 text-center">
       <p class="text-[14px] text-gray-700">© رنگستان — نقاشی و ترمیم تخصصی دیوار</p>
-      <p class="text-sm mt-1"><a href="/" class="underline">بازگشت به صفحه اصلی</a></p>
+      <p class="text-sm mt-1">
+        <a href="/" class="underline">بازگشت به صفحه اصلی</a>
+      </p>
     </div>
   </footer>
 
