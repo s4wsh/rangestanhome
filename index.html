@@ -101,17 +101,8 @@ content="رنگستان | نقاشی تخصصی دیوار در لواسان و 
       opacity: 1;
     }
 
-    /* dots */
-    #fadeDots span {
-      width: 10px;
-      height: 10px;
-      background: #ccc;
-      display: inline-block;
-      border-radius: 50%;
-      cursor: pointer;
-      transition: background .3s;
-    }
-    #fadeDots span.active {
+  
+      #fadeDots span.active {
       background: #000;
     }
 
@@ -271,37 +262,11 @@ content="رنگستان | نقاشی تخصصی دیوار در لواسان و 
 
         </div>
       </div>
-
-      <div class="dots flex justify-center gap-2 mt-3" id="fadeDots"></div>
-
+      
     </section>
   </main>
 
-  <!-- ============================
-     LOCAL SEO – SERVICE AREAS
-=============================== -->
-<section class="max-w-[1100px] mx-auto px-4 mt-10">
-  <div class="bg-white/85 rounded-3xl p-6 shadow-xl border border-black/5">
-
-    <h2 class="text-[18px] sm:text-[20px] font-extrabold text-gray-900 mb-4">
-      نقاشی ساختمان در لواسان و شمیرانات
-    </h2>
-
-    <p class="text-[14px] sm:text-[16px] text-gray-700 leading-relaxed mb-3">
-      رنگستان خدمات نقاشی ساختمان در لواسان را با تمرکز بر اجرای تمیز، زیرسازی اصولی و هماهنگی با معماری فضا ارائه می‌دهد. نقاشی دیوارهای داخلی، ترمیم ترک و اجرای پتینه با دقت و نظم انجام می‌شود.
-    </p>
-
-    <p class="text-[14px] sm:text-[16px] text-gray-700 leading-relaxed mb-3">
-      در شمیرانات، رنگستان به‌عنوان تیمی متخصص در نقاشی ساختمان و ترمیم دیوار فعالیت می‌کند. هر پروژه با توجه به نور، شرایط محیطی و نوع متریال فضا اجرا شده و هدف نهایی، نتیجه‌ای ماندگار و هماهنگ با خانه است.
-    </p>
-
-    <p class="text-[13px] sm:text-[15px] text-gray-600 leading-relaxed">
-      خدمات رنگستان در مناطق اطراف از جمله میگون، اوشان، فشم و دربندسر نیز ارائه می‌شود. تمامی خدمات به‌صورت اعزام نیرو و در محل مشتری انجام شده و پیش‌نمایش سریع در واتساپ به تصمیم‌گیری بهتر کمک می‌کند.
-    </p>
-
-  </div>
-</section>
-
+  
 <!-- SEO SEMANTIC HELPER (INVISIBLE) -->
 <div class="sr-only">
   خدمات نقاشی ساختمان در لواسان، شمیرانات، میگون، اوشان، فشم و دربندسر.
@@ -371,35 +336,19 @@ window.addEventListener("scroll", () => {
 // NEW FADE SLIDER ENGINE
 // =============================
 const fadeSlides = Array.from(document.querySelectorAll(".fade-slide"));
-const fadeDotsWrap = document.getElementById("fadeDots");
-
-// build dots
-fadeSlides.forEach((_, i) => {
-  const dot = document.createElement("span");
-  if (i === 0) dot.classList.add("active");
-  fadeDotsWrap.appendChild(dot);
-});
-const fadeDots = Array.from(fadeDotsWrap.children);
-
 let fadeIndex = 0;
 
 function fadeGo(i) {
   fadeSlides.forEach(s => s.classList.remove("active"));
-  fadeDots.forEach(d => d.classList.remove("active"));
 
   fadeIndex = (i + fadeSlides.length) % fadeSlides.length;
-
+  
   fadeSlides[fadeIndex].classList.add("active");
-  fadeDots[fadeIndex].classList.add("active");
 }
+
 
 // autoplay
 setInterval(() => fadeGo(fadeIndex + 1), 5000);
-
-// dot click
-fadeDots.forEach((dot, i) => {
-  dot.addEventListener("click", () => fadeGo(i));
-});
 
 </script>
 
