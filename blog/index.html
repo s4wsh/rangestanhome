@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>بلاگ رنگستان — راهنمای نقاشی، ترمیم و زیباسازی دیوار</title>
-  <meta name="description" content="مقالات کوتاه رنگستان درباره نقاشی دیوار، زیرسازی، ترمیم ترک و تکنیک‌های تزئینی.">
+  <title>بلاگ رنگستان | آموزش نقاشی، ترمیم و پتینه دیوار</title>
+  <meta name="description" content="مقالات آموزشی رنگستان درباره نقاشی دیوار، آماده‌سازی، ترمیم ترک، پتینه و تکسچر با رویکرد حرفه‌ای و اجرایی.">
   <link rel="canonical" href="https://rangestanhome.com/blog/">
 
   <!-- Google Analytics -->
@@ -25,7 +25,7 @@
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Blog Styles -->
+  <!-- Shared Blog Styles -->
   <link rel="stylesheet" href="/blog/style.css">
 
   <style>
@@ -44,18 +44,6 @@
     .hide { transform: translateY(-130%); }
     .show { transform: translateY(0); }
     #topBar, #headerBar { transition: transform .35s ease; }
-
-    /* Badge (consistency fix) */
-    .badge {
-      display: inline-block;
-      font-size: 12px;
-      font-weight: 700;
-      background: #111;
-      color: #fff;
-      padding: 4px 10px;
-      border-radius: 999px;
-      width: fit-content;
-    }
   </style>
 </head>
 
@@ -86,25 +74,22 @@
       <!-- BLOG INTRO -->
       <div class="bg-white/90 rounded-3xl p-8 shadow-xl border border-black/5 text-center">
         <h1 class="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-4">
-          بلاگ رنگستان — راهنمای نقاشی، ترمیم و زیباسازی دیوار
+          بلاگ رنگستان
         </h1>
         <p class="text-gray-700 text-base leading-relaxed max-w-3xl mx-auto">
-          در این بلاگ، نکات فنی و کاربردی برای انتخاب رنگ، آماده‌سازی دیوار و اجرای تمیز پروژه‌های نقاشی و تزئینات را مرور می‌کنیم.
+          آموزش‌های کاربردی و اجرایی نقاشی، ترمیم و زیباسازی دیوار — نوشته‌شده بر اساس تجربه‌ی واقعی پروژه‌ها.
         </p>
       </div>
 
       <!-- POSTS GRID -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-        <!-- CARD -->
+        <!-- POST CARD -->
         <a href="/blog/posts/choosing-wall-color/"
-           class="group bg-white rounded-3xl shadow-lg border border-black/5 overflow-hidden transition hover:-translate-y-1 hover:shadow-xl flex flex-col">
+           class="group bg-white rounded-3xl shadow-lg border border-black/5 overflow-hidden hover:shadow-xl transition flex flex-col">
           <img
             src="/blog/assets/posts/choosing-wall-color/hero.jpg"
-            alt="انتخاب رنگ دیوار"
-            loading="lazy"
-            width="640"
-            height="360"
+            alt="راهنمای انتخاب رنگ دیوار"
             class="w-full aspect-[16/9] object-cover rounded-t-3xl"
           >
           <div class="p-6 space-y-2">
@@ -113,20 +98,17 @@
               راهنمای انتخاب رنگ دیوار
             </h2>
             <p class="text-sm text-gray-600 leading-relaxed">
-              اصول ترکیب رنگ، نور محیط و بافت دیوار برای رسیدن به نتیجه‌ای هماهنگ.
+              انتخاب رنگ مناسب بر اساس نور، فضا و بافت دیوار برای نتیجه‌ای ماندگار.
             </p>
           </div>
         </a>
 
-        <!-- CARD -->
+        <!-- POST CARD -->
         <a href="/blog/posts/repairing-wall-cracks/"
-           class="group bg-white rounded-3xl shadow-lg border border-black/5 overflow-hidden transition hover:-translate-y-1 hover:shadow-xl flex flex-col">
+           class="group bg-white rounded-3xl shadow-lg border border-black/5 overflow-hidden hover:shadow-xl transition flex flex-col">
           <img
             src="/blog/assets/posts/repairing-wall-cracks/inspection.jpg"
-            alt="ترمیم ترک دیوار"
-            loading="lazy"
-            width="640"
-            height="360"
+            alt="ترمیم ترک و شکستگی دیوار"
             class="w-full aspect-[16/9] object-cover rounded-t-3xl"
           >
           <div class="p-6 space-y-2">
@@ -135,20 +117,17 @@
               ترمیم ترک و شکستگی دیوار
             </h2>
             <p class="text-sm text-gray-600 leading-relaxed">
-              از شناسایی علت ترک تا زیرسازی و بتونه‌کاری استاندارد.
+              از تشخیص علت ترک تا زیرسازی و آماده‌سازی اصولی برای رنگ.
             </p>
           </div>
         </a>
 
-        <!-- CARD -->
+        <!-- POST CARD -->
         <a href="/blog/posts/patina-techniques/"
-           class="group bg-white rounded-3xl shadow-lg border border-black/5 overflow-hidden transition hover:-translate-y-1 hover:shadow-xl flex flex-col">
+           class="group bg-white rounded-3xl shadow-lg border border-black/5 overflow-hidden hover:shadow-xl transition flex flex-col">
           <img
             src="/blog/assets/posts/patina-techniques/hero-patina-wall.jpg"
             alt="تکنیک‌های پتینه و تکسچر دیوار"
-            loading="lazy"
-            width="640"
-            height="360"
             class="w-full aspect-[16/9] object-cover rounded-t-3xl"
           >
           <div class="p-6 space-y-2">
@@ -157,7 +136,7 @@
               تکنیک‌های پتینه و تکسچر دیوار
             </h2>
             <p class="text-sm text-gray-600 leading-relaxed">
-              معرفی پتینه‌های محبوب و نکات اجرای تمیز.
+              معرفی سبک‌های محبوب پتینه و نکات اجرای تمیز و حرفه‌ای.
             </p>
           </div>
         </a>
@@ -189,7 +168,7 @@
 
   <!-- SEO HELPER -->
   <div class="sr-only">
-    مقالات نقاشی ساختمان، ترمیم ترک دیوار، پتینه و انتخاب رنگ دیوار توسط تیم رنگستان در لواسان و شمیرانات.
+    بلاگ تخصصی رنگستان درباره نقاشی ساختمان، ترمیم ترک دیوار، پتینه و آماده‌سازی دیوار در لواسان و شمیرانات.
   </div>
 
   <!-- HEADER HIDE / SHOW SCRIPT -->
