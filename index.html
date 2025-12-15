@@ -101,6 +101,7 @@ content="رنگستان | نقاشی تخصصی دیوار در لواسان و 
       opacity: 1;
     }
 
+<<<<<<< Updated upstream
     /* dots */
     #fadeDots span {
       width: 10px;
@@ -114,6 +115,9 @@ content="رنگستان | نقاشی تخصصی دیوار در لواسان و 
     #fadeDots span.active {
       background: #000;
     }
+=======
+
+>>>>>>> Stashed changes
 
   </style>
 
@@ -272,7 +276,11 @@ content="رنگستان | نقاشی تخصصی دیوار در لواسان و 
         </div>
       </div>
 
+<<<<<<< Updated upstream
       <div class="dots flex justify-center gap-2 mt-3" id="fadeDots"></div>
+=======
+
+>>>>>>> Stashed changes
 
     </section>
   </main>
@@ -367,8 +375,9 @@ window.addEventListener("scroll", () => {
 });
 
 
+
 // =============================
-// NEW FADE SLIDER ENGINE
+// FADE SLIDER (AUTOPLAY ONLY)
 // =============================
 const fadeSlides = Array.from(document.querySelectorAll(".fade-slide"));
 const fadeDotsWrap = document.getElementById("fadeDots");
@@ -383,8 +392,9 @@ const fadeDots = Array.from(fadeDotsWrap.children);
 
 let fadeIndex = 0;
 
-function fadeGo(i) {
+function fadeGo(next) {
   fadeSlides.forEach(s => s.classList.remove("active"));
+<<<<<<< Updated upstream
   fadeDots.forEach(d => d.classList.remove("active"));
 
   fadeIndex = (i + fadeSlides.length) % fadeSlides.length;
@@ -401,7 +411,18 @@ fadeDots.forEach((dot, i) => {
   dot.addEventListener("click", () => fadeGo(i));
 });
 
+=======
+  fadeIndex = (next + fadeSlides.length) % fadeSlides.length;
+  fadeSlides[fadeIndex].classList.add("active");
+}
+
+// autoplay every 5 seconds
+setInterval(() => {
+  fadeGo(fadeIndex + 1);
+}, 5000);
+>>>>>>> Stashed changes
 </script>
+
 
 </body>
 </html>
