@@ -25,7 +25,7 @@
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Shared Blog Styles -->
+  <!-- Blog Styles -->
   <link rel="stylesheet" href="/blog/style.css">
 
   <style>
@@ -44,6 +44,17 @@
     .hide { transform: translateY(-130%); }
     .show { transform: translateY(0); }
     #topBar, #headerBar { transition: transform .35s ease; }
+
+    .badge {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      background: #111;
+      color: #fff;
+      padding: 4px 10px;
+      border-radius: 999px;
+      width: fit-content;
+    }
   </style>
 </head>
 
@@ -94,9 +105,7 @@
           </div>
           <div class="p-6 space-y-2">
             <span class="badge">دکوراسیون</span>
-            <h2 class="text-lg font-bold text-gray-900">
-              راهنمای انتخاب رنگ دیوار
-            </h2>
+            <h2 class="text-lg font-bold text-gray-900">راهنمای انتخاب رنگ دیوار</h2>
             <p class="text-sm text-gray-600 leading-relaxed">
               انتخاب رنگ مناسب بر اساس نور، فضا و بافت دیوار برای نتیجه‌ای ماندگار.
             </p>
@@ -113,9 +122,7 @@
           </div>
           <div class="p-6 space-y-2">
             <span class="badge">ترمیم</span>
-            <h2 class="text-lg font-bold text-gray-900">
-              ترمیم ترک و شکستگی دیوار
-            </h2>
+            <h2 class="text-lg font-bold text-gray-900">ترمیم ترک و شکستگی دیوار</h2>
             <p class="text-sm text-gray-600 leading-relaxed">
               از تشخیص علت ترک تا زیرسازی و آماده‌سازی اصولی برای رنگ.
             </p>
@@ -132,9 +139,7 @@
           </div>
           <div class="p-6 space-y-2">
             <span class="badge">تکسچر</span>
-            <h2 class="text-lg font-bold text-gray-900">
-              تکنیک‌های پتینه و تکسچر دیوار
-            </h2>
+            <h2 class="text-lg font-bold text-gray-900">تکنیک‌های پتینه و تکسچر دیوار</h2>
             <p class="text-sm text-gray-600 leading-relaxed">
               معرفی سبک‌های محبوب پتینه و نکات اجرای تمیز و حرفه‌ای.
             </p>
@@ -149,23 +154,16 @@
   <footer class="w-full mt-16 px-4">
     <div class="max-w-[1100px] mx-auto bg-white/90 backdrop-blur-md rounded-t-3xl shadow-lg border-[4px] border-black/10 p-10 flex flex-col items-center text-center">
       <img src="/images/logo/combination-logo.png" class="h-12 mb-2 opacity-95" alt="رنگستان">
-      <p class="text-[14px] text-gray-700 font-medium mb-2">
-        کیفیتی که دیده می‌شود، هنری که می‌ماند.
-      </p>
+      <p class="text-[14px] text-gray-700 font-medium mb-2">کیفیتی که دیده می‌شود، هنری که می‌ماند.</p>
       <a href="/" class="text-[15px] font-semibold text-gray-700 hover:text-black transition mb-1">
         بازگشت به صفحه اصلی
       </a>
       <p class="text-[14px] text-gray-700 mt-1">📞 تماس: ۰۹۱۹۱۹۹۶۶۰۸</p>
-      <p class="text-[13px] text-gray-600 mt-1">
-        📍 لواسان، شمیرانات، میگون، اوشان، فشم، دربندسر
-      </p>
-      <p class="text-[12px] text-gray-500 mt-4">
-        © 2025 Rangestanhome — All Rights Reserved
-      </p>
+      <p class="text-[13px] text-gray-600 mt-1">📍 لواسان، شمیرانات، میگون، اوشان، فشم، دربندسر</p>
+      <p class="text-[12px] text-gray-500 mt-4">© 2025 Rangestanhome — All Rights Reserved</p>
     </div>
   </footer>
 
-  <!-- HEADER HIDE / SHOW -->
   <script>
     let lastScroll = 0;
     const topBar = document.getElementById("topBar");
