@@ -101,17 +101,8 @@ content="رنگستان | نقاشی تخصصی دیوار در لواسان و 
       opacity: 1;
     }
 
-    /* dots */
-    #fadeDots span {
-      width: 10px;
-      height: 10px;
-      background: #ccc;
-      display: inline-block;
-      border-radius: 50%;
-      cursor: pointer;
-      transition: background .3s;
-    }
-    #fadeDots span.active {
+  
+      #fadeDots span.active {
       background: #000;
     }
 
@@ -271,9 +262,7 @@ content="رنگستان | نقاشی تخصصی دیوار در لواسان و 
 
         </div>
       </div>
-
-      <div class="dots flex justify-center gap-2 mt-3" id="fadeDots"></div>
-
+      
     </section>
   </main>
 
@@ -371,35 +360,19 @@ window.addEventListener("scroll", () => {
 // NEW FADE SLIDER ENGINE
 // =============================
 const fadeSlides = Array.from(document.querySelectorAll(".fade-slide"));
-const fadeDotsWrap = document.getElementById("fadeDots");
-
-// build dots
-fadeSlides.forEach((_, i) => {
-  const dot = document.createElement("span");
-  if (i === 0) dot.classList.add("active");
-  fadeDotsWrap.appendChild(dot);
-});
-const fadeDots = Array.from(fadeDotsWrap.children);
-
 let fadeIndex = 0;
 
 function fadeGo(i) {
   fadeSlides.forEach(s => s.classList.remove("active"));
-  fadeDots.forEach(d => d.classList.remove("active"));
 
   fadeIndex = (i + fadeSlides.length) % fadeSlides.length;
-
+  
   fadeSlides[fadeIndex].classList.add("active");
-  fadeDots[fadeIndex].classList.add("active");
 }
+
 
 // autoplay
 setInterval(() => fadeGo(fadeIndex + 1), 5000);
-
-// dot click
-fadeDots.forEach((dot, i) => {
-  dot.addEventListener("click", () => fadeGo(i));
-});
 
 </script>
 
