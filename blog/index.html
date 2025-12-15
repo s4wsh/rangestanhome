@@ -49,14 +49,14 @@
 
 <body class="min-h-screen overflow-x-hidden">
 
-  <!-- TOP BAR (CONSISTENT WITH HOMEPAGE) -->
+  <!-- TOP BAR -->
   <div id="topBar"
     class="w-full fixed top-0 bg-black text-white z-50 flex items-center justify-center text-[13px] border-b border-black/15 show"
     style="height: var(--bar-h);">
     <span class="font-semibold whitespace-nowrap">📞 تماس: ۰۹۱۹۱۹۹۶۶۰۸</span>
   </div>
 
-  <!-- HEADER (CONSISTENT WITH HOMEPAGE) -->
+  <!-- HEADER -->
   <header id="headerBar"
     class="fixed w-full z-40 px-4 show bg-white/90 backdrop-blur-md rounded-b-3xl shadow-lg border-[4px] border-black/10 flex justify-center"
     style="top: calc(var(--bar-h) + var(--header-gap)); height: var(--header-h);">
@@ -68,55 +68,73 @@
   </header>
 
   <!-- MAIN -->
-  <main id="mainContent"
-        class="transition-all pb-32"
-        style="padding-top: var(--main-pt);">
-
-    <section class="max-w-[1100px] mx-auto px-4 flex flex-col gap-8">
+  <main class="pb-32" style="padding-top: var(--main-pt);">
+    <section class="max-w-[1100px] mx-auto px-4 flex flex-col gap-10">
 
       <!-- BLOG INTRO -->
-      <div class="bg-white/85 rounded-3xl p-8 shadow-xl border border-black/5 text-center">
+      <div class="bg-white/90 rounded-3xl p-8 shadow-xl border border-black/5 text-center">
         <h1 class="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-4">
           بلاگ رنگستان — راهنمای نقاشی، ترمیم و زیباسازی دیوار
         </h1>
         <p class="text-gray-700 text-base leading-relaxed max-w-3xl mx-auto">
-          در این بلاگ، نکات فنی و کاربردی برای انتخاب رنگ، آماده‌سازی دیوار و اجرای تمیز پروژه‌های نقاشی و تزئینات را به‌صورت خلاصه مرور می‌کنیم.
+          در این بلاگ، نکات فنی و کاربردی برای انتخاب رنگ، آماده‌سازی دیوار و اجرای تمیز پروژه‌های نقاشی و تزئینات را مرور می‌کنیم.
         </p>
       </div>
 
       <!-- POSTS GRID -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
+        <!-- CARD -->
         <a href="/blog/posts/choosing-wall-color/"
-           class="bg-white/90 rounded-3xl shadow-lg border border-black/5 overflow-hidden hover:shadow-xl transition duration-300 flex flex-col">
-          <img src="/blog/assets/thumbnails/default.jpg" alt="انتخاب رنگ دیوار" class="w-full h-44 object-cover">
-          <div class="p-4 space-y-2">
+           class="group bg-white rounded-3xl shadow-lg border border-black/5 overflow-hidden hover:shadow-xl transition flex flex-col">
+          <img
+            src="/blog/assets/posts/choosing-wall-color/hero.jpg"
+            alt="انتخاب رنگ دیوار"
+            class="w-full aspect-[16/9] object-cover rounded-t-3xl shadow-md"
+          >
+          <div class="p-6 space-y-2">
             <span class="badge">دکوراسیون</span>
-            <h2 class="text-lg font-bold text-gray-900">راهنمای انتخاب رنگ دیوار</h2>
+            <h2 class="text-lg font-bold text-gray-900">
+              راهنمای انتخاب رنگ دیوار
+            </h2>
             <p class="text-sm text-gray-600 leading-relaxed">
               اصول ترکیب رنگ، نور محیط و بافت دیوار برای رسیدن به نتیجه‌ای هماهنگ.
             </p>
           </div>
         </a>
 
+        <!-- CARD -->
         <a href="/blog/posts/repairing-wall-cracks/"
-           class="bg-white/90 rounded-3xl shadow-lg border border-black/5 overflow-hidden hover:shadow-xl transition duration-300 flex flex-col">
-          <img src="/blog/assets/thumbnails/default.jpg" alt="ترمیم ترک دیوار" class="w-full h-44 object-cover">
-          <div class="p-4 space-y-2">
+           class="group bg-white rounded-3xl shadow-lg border border-black/5 overflow-hidden hover:shadow-xl transition flex flex-col">
+          <img
+            src="/blog/assets/posts/repairing-wall-cracks/inspection.jpg"
+            alt="ترمیم ترک دیوار"
+            class="w-full aspect-[16/9] object-cover rounded-t-3xl shadow-md"
+          >
+          <div class="p-6 space-y-2">
             <span class="badge">ترمیم</span>
-            <h2 class="text-lg font-bold text-gray-900">ترمیم ترک و شکستگی دیوار</h2>
+            <h2 class="text-lg font-bold text-gray-900">
+              ترمیم ترک و شکستگی دیوار
+            </h2>
             <p class="text-sm text-gray-600 leading-relaxed">
               از شناسایی علت ترک تا زیرسازی و بتونه‌کاری استاندارد.
             </p>
           </div>
         </a>
 
+        <!-- CARD -->
         <a href="/blog/posts/patina-techniques/"
-           class="bg-white/90 rounded-3xl shadow-lg border border-black/5 overflow-hidden hover:shadow-xl transition duration-300 flex flex-col">
-          <img src="/blog/assets/thumbnails/default.jpg" alt="تکنیک‌های پتینه" class="w-full h-44 object-cover">
-          <div class="p-4 space-y-2">
+           class="group bg-white rounded-3xl shadow-lg border border-black/5 overflow-hidden hover:shadow-xl transition flex flex-col">
+          <img
+            src="/blog/assets/posts/patina-techniques/hero-patina-wall.jpg"
+            alt="تکنیک‌های پتینه و تکسچر دیوار"
+            class="w-full aspect-[16/9] object-cover rounded-t-3xl shadow-md"
+          >
+          <div class="p-6 space-y-2">
             <span class="badge">تکسچر</span>
-            <h2 class="text-lg font-bold text-gray-900">تکنیک‌های پتینه و تکسچر دیوار</h2>
+            <h2 class="text-lg font-bold text-gray-900">
+              تکنیک‌های پتینه و تکسچر دیوار
+            </h2>
             <p class="text-sm text-gray-600 leading-relaxed">
               معرفی پتینه‌های محبوب و نکات اجرای تمیز.
             </p>
@@ -128,35 +146,23 @@
     </section>
   </main>
 
-  <!-- FOOTER (CONSISTENT WITH HOMEPAGE) -->
+  <!-- FOOTER -->
   <footer class="w-full mt-16 px-4">
     <div class="max-w-[1100px] mx-auto bg-white/90 backdrop-blur-md rounded-t-3xl shadow-lg border-[4px] border-black/10 p-10 flex flex-col items-center text-center">
-
-      <img src="/images/logo/combination-logo.png"
-           class="h-12 mb-2 opacity-95"
-           alt="رنگستان">
-
+      <img src="/images/logo/combination-logo.png" class="h-12 mb-2 opacity-95" alt="رنگستان">
       <p class="text-[14px] text-gray-700 font-medium mb-2">
         کیفیتی که دیده می‌شود، هنری که می‌ماند.
       </p>
-
-      <a href="/"
-         class="text-[15px] font-semibold text-gray-700 hover:text-black transition mb-1">
+      <a href="/" class="text-[15px] font-semibold text-gray-700 hover:text-black transition mb-1">
         بازگشت به صفحه اصلی
       </a>
-
-      <p class="text-[14px] text-gray-700 mt-1">
-        📞 تماس: ۰۹۱۹۱۹۹۶۶۰۸
-      </p>
-
+      <p class="text-[14px] text-gray-700 mt-1">📞 تماس: ۰۹۱۹۱۹۹۶۶۰۸</p>
       <p class="text-[13px] text-gray-600 mt-1">
         📍 لواسان، شمیرانات، میگون، اوشان، فشم، دربندسر
       </p>
-
       <p class="text-[12px] text-gray-500 mt-4">
         © 2025 Rangestanhome — All Rights Reserved
       </p>
-
     </div>
   </footer>
 
