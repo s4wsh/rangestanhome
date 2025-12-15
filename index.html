@@ -101,23 +101,7 @@ content="رنگستان | نقاشی تخصصی دیوار در لواسان و 
       opacity: 1;
     }
 
-<<<<<<< Updated upstream
-    /* dots */
-    #fadeDots span {
-      width: 10px;
-      height: 10px;
-      background: #ccc;
-      display: inline-block;
-      border-radius: 50%;
-      cursor: pointer;
-      transition: background .3s;
-    }
-    #fadeDots span.active {
-      background: #000;
-    }
-=======
 
->>>>>>> Stashed changes
 
   </style>
 
@@ -276,11 +260,6 @@ content="رنگستان | نقاشی تخصصی دیوار در لواسان و 
         </div>
       </div>
 
-<<<<<<< Updated upstream
-      <div class="dots flex justify-center gap-2 mt-3" id="fadeDots"></div>
-=======
-
->>>>>>> Stashed changes
 
     </section>
   </main>
@@ -355,7 +334,6 @@ content="رنگستان | نقاشی تخصصی دیوار در لواسان و 
   </div>
 </footer>
 
-
 <script>
 // Header hide/show
 let lastScroll = 0;
@@ -374,55 +352,18 @@ window.addEventListener("scroll", () => {
   lastScroll = Math.max(current, 0);
 });
 
-
-
 // =============================
 // FADE SLIDER (AUTOPLAY ONLY)
 // =============================
 const fadeSlides = Array.from(document.querySelectorAll(".fade-slide"));
-const fadeDotsWrap = document.getElementById("fadeDots");
-
-// build dots
-fadeSlides.forEach((_, i) => {
-  const dot = document.createElement("span");
-  if (i === 0) dot.classList.add("active");
-  fadeDotsWrap.appendChild(dot);
-});
-const fadeDots = Array.from(fadeDotsWrap.children);
-
 let fadeIndex = 0;
 
 function fadeGo(next) {
   fadeSlides.forEach(s => s.classList.remove("active"));
-<<<<<<< Updated upstream
-  fadeDots.forEach(d => d.classList.remove("active"));
-
-  fadeIndex = (i + fadeSlides.length) % fadeSlides.length;
-
-  fadeSlides[fadeIndex].classList.add("active");
-  fadeDots[fadeIndex].classList.add("active");
-}
-
-// autoplay
-setInterval(() => fadeGo(fadeIndex + 1), 5000);
-
-// dot click
-fadeDots.forEach((dot, i) => {
-  dot.addEventListener("click", () => fadeGo(i));
-});
-
-=======
   fadeIndex = (next + fadeSlides.length) % fadeSlides.length;
   fadeSlides[fadeIndex].classList.add("active");
 }
 
 // autoplay every 5 seconds
-setInterval(() => {
-  fadeGo(fadeIndex + 1);
-}, 5000);
->>>>>>> Stashed changes
+setInterval(() => fadeGo(fadeIndex + 1), 5000);
 </script>
-
-
-</body>
-</html>
